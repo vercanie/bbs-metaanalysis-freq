@@ -205,11 +205,11 @@ plot_bars<- function(vector_groups,vector_group_names,phenotype_n){
   }
   
 
-  p_val = fisher.test(matrix(table, ncol = length(vector_groups), byrow = FALSE), workspace = 2e8)$p.value
+  p_val <- fisher.test(matrix(table, ncol = length(vector_groups), byrow = FALSE), workspace = 2e8)$p.value
   
   df_plot <- df
   p<- ggplot(data = df_plot, aes(x = factor(group,levels = vector_group_names), y = penetrance)) +
-  geom_bar(stat="identity", colour="black", fill="grey") + labs(title=phenotypes[phenotype_n-6]) + xlab(paste("p-value = ",format.pval(p_val,digits = 4))) +  
+  geom_bar(stat="identity", colour="black", fill="grey") + labs(title=phenotypes[phenotype_n-6]) + xlab(paste("p-value = ",format(p_val,digits = 4))) +  
                    geom_errorbar(aes(ymin = lower*100, ymax = upper*100), width = .2) + 
     theme(axis.text = element_text(size = 10), 
           axis.title.x = element_text(size = 9),
@@ -233,6 +233,25 @@ number_of_patients <- function(phenotype_n,vector_groups){
      }
   return(paste(phenotypes[phenotype_n-6],"-", paste(group_numbers,collapse=", ")))
 }
+
+calculate_sidak <- function(sidak_n){
+  df <- data.frame(orig_p = c(0.1,0.05,0.01,0.001,0.0001)) %>%
+    mutate(sidak_p = 1-((1-orig_p)^(1/sidak_n)))
+  return(df$sidak_p)
+}
+
+sidak_table <- function(sidak_n){
+  df_sidak <- data.frame(
+    symbol = c("#","*","**","***","****"), # symbols used for p-value significance visualization
+    orig_p = paste0("< ",c(0.1,0.05,0.01,0.001,0.0001)),
+    sidak_p = paste0("< ",format(calculate_sidak(sidak_n),digits = 3)))
+  
+  names(df_sidak) <- c("Symbol","Orig. p-value","Sidak p-value")
+  
+  kable(df_sidak, format= "html") %>%
+    kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))  
+}
+
 ```
 
 ## Summary of the data and descriptive analysis  
@@ -916,17 +935,14 @@ kable(ggroups_pval, format = "html") %>%
   Let'have a look at the differences between individual groups to reveal which differences account for the overall difference. As there are 3 groups, the p-value on which we consider the difference being statistical significance will be lowered according to Sidak correction for multiple comparisons.
   
 ```{r}
-sidak <- as.data.frame(matrix(c("#","*","**","***","****","< 0.1","< 0.05","< 0.1","< 0.001","< 0.0001","< 0.033","< 0.017", "< 0.003","<3.3e-4","<3.3e-5"),ncol = 3,byrow = FALSE))
-names(sidak) = c("symbol","orig p-value","Sidak p-value")
-kable(sidak, format= "html") %>%
-  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+sidak_table(3)
 ```
   
   
 ```{r}
 subset_allwow <- subset(update8forR,update8forR$allwow=="yes"|
                           update8forR$gene=="BBS18")
-sidak3 <- c(0.033,0.017,0.003,3.3e-4,3.3e-5)
+sidak3 <- calculate_sidak(3)
 
 kable(rbind(
 one_vs_all_other(subset_bbsome,subset_allwow,9,sidak3),
@@ -1019,10 +1035,7 @@ On the 5% level, difference was shown in DD.
   
   
 ```{r}
-sidak <- as.data.frame(matrix(c("#","*","**","***","****","< 0.1","< 0.05","< 0.1","< 0.001","< 0.0001","< 0.033","< 0.017", "< 0.003","<3.3e-4","<3.3e-5"),ncol = 3,byrow = FALSE))
-names(sidak) = c("symbol","orig p-value","Sidak p-value")
-kable(sidak, format = "html") %>%
-  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+sidak_table(3)
 ```
   
   
@@ -1123,16 +1136,14 @@ On the 5% level, differences were shown in OBE, PD, CI, REP, REN, HEART, LIV and
   
   
 ```{r}
-sidak <- as.data.frame(matrix(c("#","*","**","***","****","< 0.1","< 0.05","< 0.1","< 0.001","< 0.0001","< 1.49e-2","< 7.3e-3", "< 1.43e-3","< 1.43e-4","< 1.43e-5"),ncol = 3,byrow = FALSE))
-names(sidak) = c("symbol","orig p-value","Sidak p-value")
-kable(sidak, format = "html") %>%
-  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+sidak_table(7)
+
 ```
 
 ```{r}  
   
 
-sidak7 <- c(1.49e-2, 7.3e-3, 1.43e-3, 1.43e-4, 1.43e-5)
+sidak7 <- calculate_sidak(7)
 
 subset_bbsome_wobbs18 <- droplevels(subset(subset_bbsome,subset_bbsome$gene!="BBS18"))
 
@@ -1246,17 +1257,13 @@ phenotype_analysis(subset_cLOF_chaperonins[i])$yes),byrow = TRUE, ncol = 3))$p.v
   Let'have a look at the differences between individual groups to reveal which differences account for the overall difference. As there are 3 groups, the p-value on which we consider the difference being statistical significance will be lowered according to Sidak correction for multiple comparisons.
   
 ```{r}
-sidak <- as.data.frame(matrix(c("#","*","**","***","****","< 0.1","< 0.05","< 0.1","< 0.001","< 0.0001","< 0.033","< 0.017", "< 0.003","<3.3e-4","<3.3e-5"),ncol = 3,byrow = FALSE))
-names(sidak) = c("symbol","orig p-value","Sidak p-value")
-kable(sidak, format = "html") %>%
-  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+sidak_table(3)
 ```
   
   
 ```{r}
 subset_cLOF_allwow <- subset(update8forR,update8forR$allwow=="yes"|
                           update8forR$gene=="BBS18")
-sidak3 <- c(0.033,0.017,0.003,3.3e-4,3.3e-5)
 
 kable(rbind(
 one_vs_all_other(subset_cLOF_bbsome,subset_cLOF_allwow,10,sidak3),
@@ -1333,10 +1340,7 @@ On the 5% level, difference was shown in RD, HEART and DD.
   Let'have a look at the differences between individual groups to reveal which differences account for the overall difference. We can use the same Sidak values as before:
   
 ```{r}
-sidak <- as.data.frame(matrix(c("#","*","**","***","****","< 0.1","< 0.05","< 0.1","< 0.001","< 0.0001","< 0.033","< 0.017", "< 0.003","<3.3e-4","<3.3e-5"),ncol = 3,byrow = FALSE))
-names(sidak) = c("symbol","orig p-value","Sidak p-value")
-kable(sidak, format = "html") %>%
-  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+sidak_table(3)
 ```
   
   
@@ -1441,20 +1445,13 @@ On the 5% level, differences were shown in OBE, PD, CI, REN, HEART and LIV.
   Let'have a look at the differences between individual groups to reveal which differences account for the overall difference. We will use the following Sidak values for multiple comparison correction:
   
 ```{r}
-sidak <- as.data.frame(matrix(c("#","*","**","***","****","< 0.1","< 0.05","< 0.1","< 0.001","< 0.0001","< 1.49e-2","< 7.3e-3", "< 1.43e-3","< 1.43e-4","< 1.43e-5"),ncol = 3,byrow = FALSE))
-names(sidak) = c("symbol","orig p-value","Sidak p-value")
-kable(sidak, format = "html") %>%
-  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+sidak_table(7)
 ```
   
   
 ```{r}
-sidak7 <- c(1.49e-2, 7.3e-3, 1.43e-3, 1.43e-4, 1.43e-5)
-
 subset_cLOF_bbsome_wobbs18 <- droplevels(subset(subset_cLOF_bbsome,subset_cLOF_bbsome$gene!="BBS18"))
-```
 
-```{r}
 for (j in c(8:10,12:14)){ 
   if(j==8){df <- data.frame()}
   df <- rbind(df,
@@ -1512,7 +1509,7 @@ kable(sample_size, format = "html") %>%
 fisherize <- function(subset1,subset2,phenotype_n){
   print(paste("Fisher test for all mutations, p-value = ",
   
-    fisher.test(matrix(
+    format(fisher.test(matrix(
       c(phenotype_analysis(subset1[phenotype_n])$no,
         phenotype_analysis(subset2[phenotype_n])$no,
         phenotype_analysis(subset1[phenotype_n])$yes,
@@ -1520,11 +1517,11 @@ fisherize <- function(subset1,subset2,phenotype_n){
     ),
         ncol = 2)
       
-    )$p.value
-  ))
+    )$p.value, digits = 4
+  )))
   print(paste("Fisher test for cLOF mutations, p-value = ",
   
-  fisher.test(matrix(
+  format(fisher.test(matrix(
       c(phenotype_analysis(subset(subset1, subset1[16]=="cLOF")[phenotype_n])$no,
         phenotype_analysis(subset(subset2, subset2[16]=="cLOF")[phenotype_n])$no,
         phenotype_analysis(subset(subset1, subset1[16]=="cLOF")[phenotype_n])$yes,
@@ -1532,7 +1529,7 @@ fisherize <- function(subset1,subset2,phenotype_n){
     ),
         ncol = 2)
       
-    )$p.value  
+    )$p.value, digits = 4)  
   ))
   
 }
@@ -1550,10 +1547,9 @@ fisherize(subset_bbsome,subset_bbs3,10)
  
 CI: BBS7 more frequent than others
 ```{r}
-one_vs_all_other(subset_bbs7, subset_bbsome,10,c(0,0,0,0,0))
-one_vs_all_other(subset(subset_bbs7, subset_bbs7[16]=="cLOF"), 
-                 subset(subset_bbsome, subset_bbsome[16]=="cLOF"),
-                 10,c(0,0,0,0,0))
+subset_bbsome_wobbs7 <- subset(subset_bbsome, subset_bbsome$gene!="BBS7")
+fisherize(subset_bbs7, subset_bbsome_wobbs7,10)
+
 
 ```
 
@@ -1592,26 +1588,20 @@ fisherize(subset_bbs10,subset_bbs1,14)
 
   HEART: BBS2 more frequent than others
 ```{r}
-one_vs_all_other(subset_bbs2, subset_bbsome,13,c(0,0,0,0,0))
-one_vs_all_other(subset(subset_bbs2, subset_bbs2[16]=="cLOF"), 
-                 subset(subset_bbsome, subset_bbsome[16]=="cLOF"),
-                 13,c(0,0,0,0,0))
+
+fisherize(subset_bbs2,subset(subset_bbsome,subset_bbsome$gene!="BBS2"),13)
 ```
 
   LIV: BBS5 more frequent than others
 ```{r}
-one_vs_all_other(subset_bbs5, subset_bbsome,14,c(0,0,0,0,0))
-one_vs_all_other(subset(subset_bbs5, subset_bbs5[16]=="cLOF"), 
-                 subset(subset_bbsome, subset_bbsome[16]=="cLOF"),
-                 14,c(0,0,0,0,0))
+fisherize(subset_bbs5,subset(subset_bbsome,subset_bbsome$gene!="BBS5"),14)
+
 ```
 
   LIV: others more frequent than BBS4
 ```{r}
-one_vs_all_other(subset_bbs4, subset_bbsome,14,c(0,0,0,0,0))
-one_vs_all_other(subset(subset_bbs4, subset_bbs4[16]=="cLOF"), 
-                 subset(subset_bbsome, subset_bbsome[16]=="cLOF"),
-                 14,c(0,0,0,0,0))
+fisherize(subset_bbs4,subset(subset_bbsome,subset_bbsome$gene!="BBS4"),14)
+
 ```
 
   PD: BBS10 more frequent than BBS1
@@ -1655,7 +1645,7 @@ fisherize_one_sided <- function(subset1,subset2,phenotype_n,all_or_cLOF,alternat
 }
 ```
 
-  Brinckman, 2013 
+### Brinckman, 2013 
 CI
 Fisher’s exact test BBS1 vs BBS10 patients 
 ```{r fig.width=2, fig.height=3}
@@ -1663,7 +1653,7 @@ fisherize_one_sided(subset_bbs1,subset_bbs10,10,"all","greater")
 
 ```
 
-  Abu Safieh, 2010
+### Abu Safieh, 2010
 Fisher’s exact test BBS3 vs other canonical genes
 CI, REP
 
@@ -1674,14 +1664,14 @@ fisherize_one_sided(subset_bbs3,subset_bbsomechaps,10,"all","greater")
 fisherize_one_sided(subset_bbs3,subset_bbsomechaps,11,"all","greater")
 ```
 
-  Billingsley, 2010 (3)
+### Billingsley, 2010
 all features
 Kruskal-Wallis test of syndromic score between BBS6, BBS10, BBS12
 ```{r}
 kruskal.test(subset_sscore_chaperonins$si~subset_sscore_chaperonins$gene)
 ```
 
-  Castro-Sanchez, 2015 (4)
+### Castro-Sanchez, 2015
 RD, OBE, CI, PD, REP, REN
 Fisher’s exact test BBS1 vs chaperonins
 ```{r fig.width=2, fig.height=3}
@@ -1694,7 +1684,6 @@ fisherize_one_sided(subset_bbs1,subset_chaperonins,12,"all","greater")
 
 ```
 
-  Castro-Sanchez, 2015 (4)
 Fisher’s exact test BBS12 vs BBS1 and BBS10 combined
 CI
 ```{r fig.width=2, fig.height=3}
@@ -1703,14 +1692,13 @@ fisherize_one_sided(subset_bbs12,subset_bbs1andbbs10,10,"all","greater")
 
 ```
 
-  Deveault, 2011 (5)
+### Deveault, 2011
 Kruskal-Wallis test of syndromic score between functional classes of canonical genes
 ```{r fig.width=2, fig.height=3}
 subset_sscore_allwow <- subset(subset_allwow, subset_allwow$sisubset=="yes")
 kruskal.test(subset_sscore_allwow$si~subset_sscore_allwow$ggroup)
 ```
   
-  Deveault, 2011 (5)
 CI
 Fisher’s exact test BBS1 vs other canonical BBS genes
 ```{r fig.width=2, fig.height=3}
@@ -1718,7 +1706,6 @@ subset_canonwobbs1 <- subset(subset_allwow, subset_allwow$gene!="BBS1")
 fisherize_one_sided(subset_bbs1,subset_canonwobbs1,10,"all","greater")
 ```
   
-  Deveault, 2011 
 Fisher’s exact test BBS12 vs other canonical BBS genes
 CI
 
@@ -1727,7 +1714,6 @@ subset_canonwobbs12 <- subset(subset_allwow, subset_allwow$gene!="BBS12")
 fisherize_one_sided(subset_bbs12,subset_canonwobbs12,10,"all","greater")
 ```
 
-  Deveault, 2011 
 Fisher’s exact test BBS10 vs other canonical BBS genes
 REN
 ```{r fig.width=2, fig.height=3}
@@ -1735,7 +1721,7 @@ subset_canonwobbs10 <- subset(subset_allwow, subset_allwow$gene!="BBS10")
 fisherize_one_sided(subset_bbs10,subset_canonwobbs10,12,"all","less")
 ```
   
-  Esposito, 2017 (6)
+### Esposito, 2017
 RD
 Fisher’s exact test BBS10 vs BBS1 and BBS2 patients
 ```{r fig.width=2, fig.height=3}
@@ -1744,44 +1730,33 @@ subset_bbs1andbbs2 <- subset(subset_bbsome,subset_bbsome$gene=="BBS1"|
 fisherize_one_sided(subset_bbs10,subset_bbs1andbbs2,7,"all","less")
 ```
   
-  Esposito, 2017 (6)
 REN
 Fisher’s exact test BBS10 vs BBS1 and BBS2 patients
 ```{r fig.width=2, fig.height=3}
 fisherize_one_sided(subset_bbs10,subset_bbs1andbbs2,12,"all","less")
 ```
   
-  Forsythe, 2015 (8)
-REN
+### Forsythe, 2015
+REN, LIV
 Fisher’s exact test BBS10 vs BBS1 
 ```{r fig.width=2, fig.height=3}
 fisherize_one_sided(subset_bbs10,subset_bbs1,12,"all","less")
-```
-  
-  Forsythe, 2015 (8)
-LIV
-Fisher’s exact test BBS10 vs BBS1 
-```{r fig.width=2, fig.height=3}
 fisherize_one_sided(subset_bbs10,subset_bbs1,14,"all","less")
+
 ```
   
-  Forsythe, 2015 (8)
-REN
+
+REN, LIV
 Fisher’s exact test BBS1 and BBS10 MS/MS vs. TR/TR 
 ```{r fig.width=2, fig.height=3}
 subset_bbs1andbbs10_cLOF <- subset(subset_bbs1andbbs10,subset_bbs1andbbs10$muttype=="cLOF")
 subset_bbs1andbbs10_MSMS <- subset(subset_bbs1andbbs10,subset_bbs1andbbs10$muttype=="MSMSandMScLOF")
 fisherize_one_sided(subset_bbs1andbbs10_cLOF,subset_bbs1andbbs10_MSMS,12,"all","less")
-```
-  
-  Forsythe, 2015 (8)
-LIV
-Fisher’s exact test BBS1 and BBS10 MS/MS vs. TR/TR 
-```{r fig.width=2, fig.height=3}
 fisherize_one_sided(subset_bbs1andbbs10_cLOF,subset_bbs1andbbs10_MSMS,14,"all","greater")
+
 ```
   
-  Forsythe, 2017 (9)
+### Forsythe, 2017
 REN
 Fisher’s exact test BBS2, BBS10 and BBS12 vs other canonical
 ```{r fig.width=2, fig.height=3}
@@ -1794,7 +1769,7 @@ subset_allwobbs2bbs10bbs12 <- subset(subset_allwow,subset_allwow$gene!="BBS2"&
 fisherize_one_sided(subset_bbs2bbs10bbs12,subset_allwobbs2bbs10bbs12,12,"all","less")
 ```
   
-  Forsythe, 2017
+
 REN
 Fisher’s exact test all canonical MS/MS vs. TR/TR
 ```{r fig.width=2, fig.height=3}
@@ -1802,7 +1777,7 @@ subset_MSMS_allwow <- subset(subset_allwow,subset_allwow$muttype=="MSMSandMScLOF
 fisherize_one_sided(subset_cLOF_allwow,subset_MSMS_allwow,12,"all","less")
 ```
   
-  Forsythe, 2017
+
 REN
 Fisher’s exact test BBS1 M390R hom vs. BBS1 MS/TR+TR/TR
 ```{r fig.width=2, fig.height=3}
@@ -1815,7 +1790,7 @@ fisherize_one_sided(subset_bbs1_m390,subset_bbs1_non_m390,12,"all","greater")
 
 ```  
   
-  Hjorsthoj, 2010 
+### Hjorsthoj, 2010 
 overall severity
 Mann-Whitney syndromic score BBS1 vs BBS2 and BBS10
 ```{r}
@@ -1823,7 +1798,6 @@ subset_bbs2andbbs10 <- subset(subset_bbsome,subset_bbsome$gene=="BBS2"|         
 print(paste("Wilcoxon test on syndromic score p-value = ",wilcox.test(subset_bbs1$si,subset_bbs2andbbs10$si)$p.value))
 ```
 
-  Hjorsthoj, 2010 
 Mann-Whitney syndromic score BBS1 without patients with M390R vs BBS2 and BBS10
 ```{r}
 print(paste("Wilcoxon test on syndromic score p-value = ",wilcox.test(subset_bbs1_non_m390$si,subset_bbs2andbbs10$si)$p.value))
@@ -1831,7 +1805,6 @@ print(paste("Wilcoxon test on syndromic score p-value = ",wilcox.test(subset_bbs
 
 ```
 
-  Hjorsthoj, 2010 (10)
 REN, CI, OBE, REP
 Fisher’s exact test BBS1 vs BBS2 and BBS10
 ```{r fig.width=2, fig.height=3}
@@ -1841,7 +1814,7 @@ fisherize_one_sided(subset_bbs1,subset_bbs2andbbs10,8,"all","greater")
 fisherize_one_sided(subset_bbs1,subset_bbs2andbbs10,11,"all","greater")
 ```
   
-  Kerr, 2015 
+### Kerr, 2015 
 CI
 Fisher’s exact test BBS1 vs BBS10 vs other canonical (three groups) 
 ```{r fig.width=2, fig.height=3}
@@ -1860,14 +1833,14 @@ print(paste("Fisher test all mutations (three groups) p-value = ",fisher.test(ma
 
 ```
 
-  Pawlik, 2010 (13)
+### Pawlik, 2010 
 overall severity
 Mann-Whitney syndromic score BBS12 vs other canonical
 ```{r}
 print(paste("Wilcoxon test on syndromic score p-value = ",wilcox.test(subset_bbs12$si, subset_canonwobbs12$si)$p.value))
 ```
   
-  Schaefer, 2011a (14)
+### Schaefer, 2011a 
 PD, REN
 Fisher’s exact test BBS16 vs all canonical
 ```{r fig.width=2, fig.height=3}
