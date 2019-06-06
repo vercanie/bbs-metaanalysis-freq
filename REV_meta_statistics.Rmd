@@ -1,0 +1,1877 @@
+---
+title: "Analysis of genotype-phenotype associations in BBS"
+author: "Veronika Niederlova"
+date: '`r format(Sys.time(), "%d %m, %Y")`'
+output:
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+library(kableExtra)
+library(dplyr)
+library(readr)
+library(FSA)
+library(knitr)
+library(ggplot2)
+library(cowplot)
+
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)
+
+options(knitr.table.format = "html")
+
+
+## import of data
+
+update8forR <- read_delim("G:/48_lab/Project BBSome in T cells/!Manuscript META in preparation/!!Revision Human Mutation/update8forR.csv", 
+    ";", escape_double = FALSE, col_types = cols(CI = col_integer(), 
+        DD = col_integer(), HEART = col_integer(), 
+        LIV = col_integer(), OBE = col_integer(), 
+        PD = col_integer(), RD = col_integer(), 
+        REN = col_integer(), REP = col_integer(), 
+        agegroup = col_factor(levels = c("age1", 
+            "age2", "age3", "age4")), allwow = col_factor(levels = c("yes", 
+            "no")), canonwobbs1 = col_factor(levels = c("yes", 
+            "no")), gene = col_factor(levels = c("BBS1", 
+            "BBS2", "BBS3", "BBS4", "BBS5", 
+            "BBS6", "BBS7", "BBS8", "BBS9", 
+            "BBS10", "BBS11", "BBS12", "BBS13", 
+            "BBS14", "BBS16", "BBS17", "BBS18", 
+            "BBS19", "BBS20", "BBS21")), 
+        ggroup = col_factor(levels = c("bbs3", 
+            "other", "bbsome", "chaps")), 
+        muttype = col_factor(levels = c("MSMSandMScLOF", 
+            "cLOF")), sex = col_factor(levels = c("F", 
+            "M")), si = col_number(), year = col_number(), sisubset = col_factor(levels = c("yes", 
+            "no")), m390r = col_factor(levels = c("yes", 
+            "no"))), trim_ws = TRUE)
+
+
+## functions
+
+summary_analysis <- function(subset_x) {
+  
+  # number of patients
+  df_x = data.frame(count = nrow(subset_x))
+  # sex
+  
+  df_x$sex = sum(is.na(subset_x$sex)==FALSE)
+  df_x$male = sum(subset_x$sex=="M", na.rm = TRUE)
+  df_x$female = sum(subset_x$sex=="F", na.rm = TRUE)
+  df_x$per_male = df_x$male/df_x$sex*100
+  df_x$per_female = df_x$female/df_x$sex*100
+    
+  # age
+  df_x$age = sum(is.na(subset_x$agegroup)==FALSE)
+  df_x$age1 = sum(subset_x$agegroup=="age1", na.rm = TRUE)
+  df_x$age2 = sum(subset_x$agegroup=="age2", na.rm = TRUE)
+  df_x$age3 = sum(subset_x$agegroup=="age3", na.rm = TRUE)
+  df_x$age4 = sum(subset_x$agegroup=="age4", na.rm = TRUE)
+  df_x$per_age1 = df_x$age1/df_x$age*100
+  df_x$per_age2 = df_x$age2/df_x$age*100
+  df_x$per_age3 = df_x$age3/df_x$age*100
+  df_x$per_age4 = df_x$age4/df_x$age*100
+  
+  
+  # mutations
+  df_x$mut = sum(is.na(subset_x$muttype)==FALSE)
+  df_x$cLOF = sum(subset_x$muttype=="cLOF", na.rm = TRUE)
+  df_x$MS = sum(subset_x$muttype=="MSMSandMScLOF", na.rm = TRUE)
+  df_x$per_cLOF = df_x$cLOF/df_x$mut*100
+  df_x$per_MS = df_x$MS/df_x$mut*100
+  
+  colnames(df_x) <- c("Number of patients",
+                       "Sex information available",
+                       "Number of male patients",
+                       "Number of female patients",
+                       "% of male",
+                       "% of female",
+                       "Age information available",
+                       "Number of age 0-9 years",
+                       "Number of age 10-19 years",
+                       "Number of age 20-39 years",
+                       "Number of age 40+ years",
+                       "% of age 0-9 years",
+                       "% of age 10-19 years",
+                       "% of age 20-39 years",
+                       "% of age 40+ years",
+                       "Mutation type avaiable",
+                       "Number of cLOF",
+                       "Number of missense",
+                       "% of cLOF mutations",
+                       "% of missense mutations")
+  df_x
+  
+}
+
+phenotype_analysis <- function(df) {
+  df_x <- data.frame( count = sum(is.na(df)==FALSE),
+                     yes = sum(df, na.rm = TRUE),
+                     no = sum(df=="0", na.rm = TRUE),
+                     na = sum(is.na(df)))
+  # penetrance of symptoms in group
+  df_x$percent = round(df_x$yes/df_x$count*100,digits=2)
+  df_x
+}
+
+phenotypes <- c("RD","OBE","PD","CI", "REP","REN","HEART", "LIV","DD")
+
+one_vs_all_other <- function(subset_one,subset_all,phenotype_number,sidak_values_vector) {
+  
+ df<- data.frame(data1 = deparse(substitute(subset_one)),
+             data2 = deparse(substitute(subset_all)),
+             phenotype = phenotypes[phenotype_number-6],
+    p_val = fisher.test(matrix( c(
+phenotype_analysis(subset_one[phenotype_number])$no,
+(phenotype_analysis(subset_all[phenotype_number])$no-phenotype_analysis(subset_one[phenotype_number])$no),
+
+phenotype_analysis(subset_one[phenotype_number])$yes,
+(phenotype_analysis(subset_all[phenotype_number])$yes-phenotype_analysis(subset_one[phenotype_number])$yes)),
+byrow = FALSE, ncol = 2),workspace = 2e8)$p.value)
+  
+ is_sidak <- function(i,sidak_values_vector) {
+   if(i<sidak_values_vector[5]){
+     symbol <- "****"
+   } else { if (i<sidak_values_vector[4]){
+     symbol <- "***"
+   } else { if (i<sidak_values_vector[3]){
+     symbol <- "**"
+   } else { if (i<sidak_values_vector[2]){
+     symbol <- "*"
+   } else { if (i<sidak_values_vector[1]){
+     symbol <- "#"
+   } else { symbol <- ""}
+     }
+     
+   }
+     }
+     
+   }
+  symbol 
+ }
+ 
+  df$sidak <- is_sidak(df$p_val,sidak_values_vector)
+ df
+}
+  
+plot_histogram <- function(df, group_name, label_y){
+  
+label_y_no <- theme(axis.text.x = element_blank(),
+                                       axis.ticks.x = element_blank(),
+                                       axis.title.y = element_blank(),
+                    axis.title.x = element_text(size = 11),
+                    axis.text.y = element_text(color = "black", size = 11),
+                    panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+                    panel.background = element_blank(),
+                    plot.margin=unit(c(3,3,3,16),"pt"))
+
+label_y_yes <- theme(axis.text.x = element_blank(),
+                    axis.ticks.x = element_blank(),
+                    axis.title.x = element_text(size = 11),
+                    axis.text.y = element_text(color = "black", size = 11),
+                    axis.title.y = element_text(vjust = 2.5, size = 11),
+                    panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+                    panel.background = element_blank(),
+                    plot.margin=unit(c(3,3,3,3),"pt"))
+
+if(label_y==T){label_y <- label_y_yes}else{label_y <- label_y_no}
+
+qplot(df, geom="histogram",
+      binwidth = 0.1,  
+      ylab = paste(group_name, "\n","n = ",length(df)),
+      xlab = "Syndromic score", 
+      fill=I("grey"), 
+      col=I("darkgrey"), 
+      alpha=I(.2)
+      ) +
+ coord_flip() +
+ label_y +
+ scale_x_continuous(breaks=c(0.2,0.4,0.6,0.8,1), limits = c(0,1.2)) +
+ geom_vline(aes(xintercept = mean(df)),col='black',size=1.5, linetype = "dashed") +
+ scale_y_continuous(expand = c(0, 0))
+
+}
+
+plot_bars<- function(vector_groups,vector_group_names,phenotype_n){
+  for(i in c(1:length(vector_groups))){
+    if(i==1){df <- data.frame()
+    table <- c()}
+    pa <- phenotype_analysis(get(vector_groups[i])[,phenotype_n])
+    df <- rbind(df, data.frame(penetrance = pa$percent,
+                               group = vector_group_names[i],
+                               lower = qbeta(0.025,pa$yes + 1, pa$no + 1),
+                               upper = qbeta(0.975, pa$yes + 1, pa$no + 1) ))
+    table <- c(table,pa$yes,pa$no)
+  }
+  
+
+  p_val = fisher.test(matrix(table, ncol = length(vector_groups), byrow = FALSE), workspace = 2e8)$p.value
+  
+  df_plot <- df
+  p<- ggplot(data = df_plot, aes(x = factor(group,levels = vector_group_names), y = penetrance)) +
+  geom_bar(stat="identity", colour="black", fill="grey") + labs(title=phenotypes[phenotype_n-6]) + xlab(paste("p-value = ",format.pval(p_val,digits = 4))) +  
+                   geom_errorbar(aes(ymin = lower*100, ymax = upper*100), width = .2) + 
+    theme(axis.text = element_text(size = 10), 
+          axis.title.x = element_text(size = 9),
+          axis.title.y = element_text(size = 10),
+          axis.line.x = element_blank(),
+          axis.text.x = element_text(angle = -45, hjust = 0, vjust = .3),
+          plot.title = element_text(hjust = 0.5)
+                    ) +
+ scale_y_continuous(breaks = c(0,20,40,60,80,100), limits = c(0,100))
+  p
+  
+}
+
+number_of_patients <- function(phenotype_n,vector_groups){
+  group_numbers <- c()
+  
+  for(j in c(1:length(vector_groups))){
+    pa <- phenotype_analysis(get(vector_groups[j])[,phenotype_n])
+    
+    group_numbers <- c(group_numbers, pa$count)
+     }
+  return(paste(phenotypes[phenotype_n-6],"-", paste(group_numbers,collapse=", ")))
+}
+```
+
+## Summary of the data and descriptive analysis  
+  
+  The data file contains the following variables:
+
+```{r}
+df <- data.frame(variables=colnames(update8forR),description = c(
+  "Source study that can be find in the manuscript.",
+  "The ID or another information that can be used for identification of the record within the study.",
+  "BBS gene that contain causative mutation.",
+  "Sex of patient, blanks mean not available.",
+  "Age groups according to age, blanks mean not available.",
+  "Specific age, if available.",
+  "Retinal dystrophy, 1 = present, 0 = not present, blank = not available",
+  "Obesity, 1 = present, 0 = not present, blank = not available",
+  "Polydactyly, 1 = present, 0 = not present, blank = not available",
+  "Cognitive impairment, 1 = present, 0 = not present, blank = not available",
+  "Reproductive system anomalies, 1 = present, 0 = not present, blank = not available",
+  "Renal anomalies, 1 = present, 0 = not present, blank = not available",
+  "Heart anomalies, 1 = present, 0 = not present, blank = not available",
+  "Liver anomalies, 1 = present, 0 = not present, blank = not available",
+  "Developmental delay, 1 = present, 0 = not present, blank = not available",
+  "Type of mutation, MSMSandMScLOF meaning missense mutation in at least one allele, cLOF meaning assumed complete loss of function mutations in both alleles",
+  "Severity score subset, yes if information about RD, OBE, PD, CI and REN is stated, no if any of these contain blanks.",
+  "Group of genes according to their function, bbs3 for mutations in BBS3, bbsome for mutations in BBS1, BBS2, BBS4, BBS5, BBS7, BBS8, BBS9 and BBS18, chaps for mutations in BBS6,BBS10 and BBS12, other for mutations in BBS11, BBS13, BBS14, BBS16, BBS17, BBS19, BBS20 and BBS21.",
+  "Yes for canonical BBS genes BBS1-10, BBS12 and BBS18, no for BBS11, BBS13, BBS14, BBS16, BBS17, BBS19, BBS20 and BBS21.",
+  "Yes for canonical BBS genes other than BBS1 (BBS2-10, BBS12 and BBS18), no for BBS1, BBS11, BBS13, BBS14, BBS16, BBS17, BBS19, BBS20 and BBS21.",
+  "syndromic score calculated as the sum of RD, OBE, PD, CI and REN divided by 5.",
+  "Age groups similar to variable age group renamed as follows: age1 = 0-9, age2 = 10-19, age3 = 20-39, age4 = 40+.",
+  "Year of publication",
+  "Indicates if the particular mutation is BBS1 M390R/M390R"))
+
+kable(df, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+
+```
+
+Now let's calculate the penetrance of mutations in particular genes and particular phenotypes within the whole dataset. These are used in `Figure S2A` and `Figure S2E`.
+
+```{r fig.width = 6, fig.height = 3}
+## penetrance of mutations in BBS genes
+
+df <- data.frame(
+  gene = c("BBS1","BBS2","BBS4","BBS5","BBS7","BBS8","BBS9","BBS10","BBS6","BBS12","BBS3","other"),
+  count = c(
+    nrow(subset(update8forR,gene=="BBS1")),
+    nrow(subset(update8forR,gene=="BBS2")),
+    nrow(subset(update8forR,gene=="BBS4")),
+    nrow(subset(update8forR,gene=="BBS5")),
+    nrow(subset(update8forR,gene=="BBS7")),
+    nrow(subset(update8forR,gene=="BBS8")),
+    nrow(subset(update8forR,gene=="BBS9")),
+    nrow(subset(update8forR,gene=="BBS10")),
+    nrow(subset(update8forR,gene=="BBS6")),
+    nrow(subset(update8forR,gene=="BBS12")),
+    nrow(subset(update8forR,gene=="BBS3")),
+    nrow(subset(update8forR,
+                  gene=="BBS11"|
+                  gene=="BBS13"|
+                  gene=="BBS14"|
+                  gene=="BBS16"|
+                  gene=="BBS17"|
+                  gene=="BBS18"|
+                  gene=="BBS19"|
+                  gene=="BBS20"|
+                  gene=="BBS21")))
+    )
+
+df$gene = factor(df$gene,levels = c("BBS1","BBS2","BBS4","BBS5","BBS7","BBS8","BBS9","BBS10","BBS6","BBS12","BBS3","other"))       
+         
+df$percentage = round(df$count/nrow(update8forR)*100,digits = 2)
+
+kable(df, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  
+
+bp<- ggplot(df, aes(x="", y=count, fill=gene)) +
+geom_bar(width = 2, stat = "identity",color='black') + scale_fill_manual(values=c("#e5edf8ff","#e5edf8ff","#e5edf8ff","#e5edf8ff","#e5edf8ff","#e5edf8ff","#e5edf8ff", "#f2e984ff","#f2e984ff","#f2e984ff", "#facfcfff", "grey"))
+
+
+y.breaks <- cumsum(df$count) 
+
+y.breaks[1] = 70
+y.breaks[2] = 155
+y.breaks[3] = 215
+y.breaks[4] = 275
+y.breaks[5] = 365
+y.breaks[6] = 450
+y.breaks[7] = 475
+y.breaks[8] = 500
+y.breaks[9] = 530
+y.breaks[10] = 575
+y.breaks[11] = 635
+y.breaks[12] = 790
+
+
+pie2 <- bp + coord_polar("y", start = pi/3, direction = -1) +
+ theme(axis.ticks=element_blank(),
+       axis.line = element_blank(),
+          axis.title=element_blank(),  
+          axis.text.y=element_blank(),
+          axis.text.x=element_text(color='black')) + 
+  scale_y_continuous(
+        breaks=y.breaks,   
+        labels=rev(df$gene))
+
+## penetrance of phenotypes
+
+
+penetrance <- c( phenotype_analysis(update8forR$RD)$percent,
+                 phenotype_analysis(update8forR$OBE)$percent,
+                 phenotype_analysis(update8forR$DD)$percent,
+                 phenotype_analysis(update8forR$PD)$percent,
+                 phenotype_analysis(update8forR$CI)$percent,
+                 phenotype_analysis(update8forR$REP)$percent,
+                 phenotype_analysis(update8forR$REN)$percent,
+                 phenotype_analysis(update8forR$LIV)$percent,
+                 phenotype_analysis(update8forR$HEART)$percent
+                 
+                 
+)
+
+## test of significance
+penetrance_table = matrix(c(
+                 phenotype_analysis(update8forR$RD)$no,
+                 phenotype_analysis(update8forR$OBE)$no,
+                 phenotype_analysis(update8forR$PD)$no,
+                 phenotype_analysis(update8forR$CI)$no,
+                 phenotype_analysis(update8forR$REP)$no,
+                 phenotype_analysis(update8forR$REN)$no,
+                 phenotype_analysis(update8forR$HEART)$no,
+                 phenotype_analysis(update8forR$LIV)$no,
+                 phenotype_analysis(update8forR$DD)$no,
+                 phenotype_analysis(update8forR$RD)$yes,
+                 phenotype_analysis(update8forR$OBE)$yes,
+                 phenotype_analysis(update8forR$PD)$yes,
+                 phenotype_analysis(update8forR$CI)$yes,
+                 phenotype_analysis(update8forR$REP)$yes,
+                 phenotype_analysis(update8forR$REN)$yes,
+                 phenotype_analysis(update8forR$HEART)$yes,
+                 phenotype_analysis(update8forR$LIV)$yes,
+                 phenotype_analysis(update8forR$DD)$yes
+                 ), ncol = 9, byrow = TRUE)
+
+chisq.test(penetrance_table)
+chisq.test(penetrance_table)$p.value
+
+pie2
+barplot(penetrance, ylim = c(0,100), ylab = "Penetrance of symptoms (%)", names.arg = c("RD","OBE","DD","PD","CI","REP","REN","LIV","HRT"), main = "Penetrance of BBS symptoms",
+        xlab = paste("chisq.test p-value = ",chisq.test(penetrance_table)$p.value))
+
+
+```
+
+Now, let's analyze the whole dataset in terms of sex, age and mutation types. This analysis will also be applied to subsets of patients grouped according to the functional groups of BBS genes in which the patients have their causative mutations. These information are provided in Figures S2B-D.
+
+  Summary analysis in the whole dataset for `Figure S2B`:
+
+```{r}
+
+subset_bbsome <- subset(update8forR,update8forR$ggroup=="bbsome")
+subset_bbs3 <- subset(update8forR,update8forR$gene=="BBS3")
+subset_chaperonins <- subset(update8forR,update8forR$ggroup=="chaps")
+subset_other <- subset(update8forR,update8forR$allwow=="no")
+  
+## Summary analysis in the whole dataset
+whole_dataset_analysis <- as.data.frame(round(t(rbind(
+  all = summary_analysis(update8forR),
+  bbsome = summary_analysis(subset_bbsome),
+  bbs3 = summary_analysis(subset_bbs3),
+  chaperonins = summary_analysis(subset_chaperonins),
+  other = summary_analysis(subset_other)
+))),digits=1)
+
+kable(whole_dataset_analysis) %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  
+
+
+```
+  Summary analysis in the bbsome group for `Figure S2C`:
+
+```{r}
+
+subset_bbs1 <- subset(update8forR,update8forR$gene=="BBS1")
+subset_bbs2 <- subset(update8forR,update8forR$gene=="BBS2")
+subset_bbs4 <- subset(update8forR,update8forR$gene=="BBS4")
+subset_bbs5 <- subset(update8forR,update8forR$gene=="BBS5")
+subset_bbs7 <- subset(update8forR,update8forR$gene=="BBS7")
+subset_bbs8 <- subset(update8forR,update8forR$gene=="BBS8")
+subset_bbs9 <- subset(update8forR,update8forR$gene=="BBS9")
+subset_bbs18 <- subset(update8forR,update8forR$gene=="BBS18")
+
+## Summary analysis in the whole dataset
+bbsome_analysis <- as.data.frame(round(t(rbind(
+  bbsome = summary_analysis(subset_bbsome),
+  bbs1 = summary_analysis(subset_bbs1),
+  bbs2 = summary_analysis(subset_bbs2),
+  bbs4 = summary_analysis(subset_bbs4),
+  bbs5 = summary_analysis(subset_bbs5),
+  bbs7 = summary_analysis(subset_bbs7),
+  bbs8 = summary_analysis(subset_bbs8),
+  bbs9 = summary_analysis(subset_bbs9),
+  bbs18 = summary_analysis(subset_bbs18)
+  
+))),digits=1)
+
+kable(bbsome_analysis, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  
+
+```
+
+  Summary analysis in the chaperonins group for `Figure S2D`:
+
+```{r}
+subset_bbs6 <- subset(update8forR,update8forR$gene=="BBS6")
+subset_bbs10 <- subset(update8forR,update8forR$gene=="BBS10")
+subset_bbs12 <- subset(update8forR,update8forR$gene=="BBS12")
+
+## Summary analysis in the whole dataset
+chaperonin_analysis <- as.data.frame(round(t(rbind(
+  all_chaperonins = summary_analysis(subset_chaperonins),
+  bbs6 = summary_analysis(subset_bbs6),
+  bbs10 = summary_analysis(subset_bbs10),
+  bbs12 = summary_analysis(subset_bbs12)
+))),digits=1)
+
+kable(chaperonin_analysis, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  
+
+
+```
+
+## Syndromic score  
+  For the analyses in Figure 1 we use the syndromic score, which is defined in patients with reported presence/absence of the five primary phenotypic criteria (RD,OBE,PD,CI,REN). Patients with blanks in any of these categories are not used for this statistics. Let's define the syndromic score subset called 'set and analyze the penetrance of the symptoms and penetrance of mutations in BBS genes in this 'set, as used in `Figure 1B` and `Figure 1C`.
+
+
+```{r fig.width = 6, fig.height=4}
+subset_sscore <- subset(update8forR, sisubset=="yes")
+
+df <- data.frame(
+  gene = c("BBS1","BBS2","BBS4","BBS5","BBS7","BBS8","BBS9","BBS10","BBS6","BBS12","BBS3","other"),
+  count = c(
+    nrow(subset(subset_sscore,gene=="BBS1")),
+    nrow(subset(subset_sscore,gene=="BBS2")),
+    nrow(subset(subset_sscore,gene=="BBS4")),
+    nrow(subset(subset_sscore,gene=="BBS5")),
+    nrow(subset(subset_sscore,gene=="BBS7")),
+    nrow(subset(subset_sscore,gene=="BBS8")),
+    nrow(subset(subset_sscore,gene=="BBS9")),
+    nrow(subset(subset_sscore,gene=="BBS10")),
+    nrow(subset(subset_sscore,gene=="BBS6")),
+    nrow(subset(subset_sscore,gene=="BBS12")),
+    nrow(subset(subset_sscore,gene=="BBS3")),
+    nrow(subset(subset_sscore,
+                  gene=="BBS11"|
+                  gene=="BBS13"|
+                  gene=="BBS14"|
+                  gene=="BBS16"|
+                  gene=="BBS17"|
+                  gene=="BBS18"|
+                  gene=="BBS19"|
+                  gene=="BBS20"|
+                  gene=="BBS21")))
+    )
+
+df$gene = factor(df$gene,levels = c("BBS1","BBS2","BBS4","BBS5","BBS7","BBS8","BBS9","BBS10","BBS6","BBS12","BBS3","other"))       
+         
+df$percentage = round(df$count/nrow(subset_sscore)*100,digits = 2)
+
+kable(df, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  
+
+bp<- ggplot(df, aes(x="", y=count, fill=gene)) +
+geom_bar(width = 2, stat = "identity",color='black') + scale_fill_manual(values=c("#e5edf8ff","#e5edf8ff","#e5edf8ff","#e5edf8ff","#e5edf8ff","#e5edf8ff","#e5edf8ff", "#f2e984ff","#f2e984ff","#f2e984ff", "#facfcfff", "grey")) + scale_color_manual(values = c("darkblue", "darkblue","darkblue","darkblue","darkblue","darkblue","darkblue","orange","orange","orange","darkred","black"))
+
+
+y.breaks <- cumsum(df$count) 
+
+ y.breaks[1] = 10
+ y.breaks[2] = 40
+ y.breaks[3] = 70
+ y.breaks[4] = 95
+ y.breaks[5] = 150
+ y.breaks[6] = 195
+ y.breaks[7] = 205
+ y.breaks[8] = 225
+ y.breaks[9] = 245
+ y.breaks[10] = 265
+ y.breaks[11] = 290
+ y.breaks[12] = 370
+
+
+
+pie2 <- bp + coord_polar("y", start = pi/3, direction = -1) +
+ theme(axis.ticks=element_blank(),  
+          axis.title=element_blank(),  
+          axis.text.y=element_blank(),
+          axis.text.x=element_text(color='black')) + 
+  scale_y_continuous(
+        breaks=y.breaks,   
+        labels=rev(df$gene))
+
+## penetrance of phenotypes
+
+penetrance <- c( phenotype_analysis(subset_sscore$RD)$percent,
+                 phenotype_analysis(subset_sscore$OBE)$percent,
+                 phenotype_analysis(subset_sscore$PD)$percent,
+                 phenotype_analysis(subset_sscore$CI)$percent,
+                 phenotype_analysis(subset_sscore$REN)$percent
+                 )
+
+## test of significance
+penetrance_table = matrix(c(
+                 phenotype_analysis(subset_sscore$RD)$no,
+                 phenotype_analysis(subset_sscore$OBE)$no,
+                 phenotype_analysis(subset_sscore$PD)$no,
+                 phenotype_analysis(subset_sscore$CI)$no,
+                 phenotype_analysis(subset_sscore$REN)$no,
+                 phenotype_analysis(subset_sscore$RD)$yes,
+                 phenotype_analysis(subset_sscore$OBE)$yes,
+                 phenotype_analysis(subset_sscore$PD)$yes,
+                 phenotype_analysis(subset_sscore$CI)$yes,
+                 phenotype_analysis(subset_sscore$REN)$yes
+                 ), ncol = 5, byrow = TRUE)
+
+chisq.test(penetrance_table)
+chisq.test(penetrance_table)$p.value
+
+pie2
+barplot(penetrance, ylim = c(0,100), ylab = "Penetrance of symptoms (%)", names.arg = c("RD","OBE","PD","CI","REN"), main = "Penetrance of BBS symptoms",
+        xlab = paste("chisq.test p-value = ",chisq.test(penetrance_table)$p.value))
+
+```
+
+Summary analysis of the syndromic score in the 'set follows. This is used in `Figure S3B`.
+
+```{r fig.width=1.5, fig.height=2.75}
+
+subset_sscore_bbsome <- subset(subset_sscore,subset_sscore$ggroup=="bbsome")
+subset_sscore_bbs3 <- subset(subset_sscore,subset_sscore$gene=="BBS3")
+subset_sscore_chaperonins <- subset(subset_sscore,subset_sscore$ggroup=="chaps")
+subset_sscore_other <- subset(subset_sscore,subset_sscore$allwow=="no")
+  
+sscore_dataset_analysis <- as.data.frame(round(t(rbind(
+  set = summary_analysis(subset_sscore),
+  set_bbsome = summary_analysis(subset_sscore_bbsome),
+  set_bbs3 = summary_analysis(subset_sscore_bbs3),
+  set_chaperonins = summary_analysis(subset_sscore_chaperonins),
+  set_other = summary_analysis(subset_sscore_other)
+))),digits=1)
+
+kable(sscore_dataset_analysis, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+  Histogram plots showing the distribution of syndromic score for `Figure 1D` and `Figure S3A`.
+
+```{r fig.width=1.5, fig.height=2.75}
+
+plot_histogram(subset_sscore$si, "All data", T)
+subset_sscore_male <- subset(subset_sscore,subset_sscore$sex=="M")
+subset_sscore_female <- subset(subset_sscore,subset_sscore$sex=="F")
+
+plot_histogram(subset_sscore_male$si, "Male", F) 
+plot_histogram(subset_sscore_female$si, "Female", F) 
+
+```
+
+### Syndromic score in patient groups divided according to gene functions
+  Let's investigate the severity score between groups of BBS genes based on their functions.
+```{r fig.width=4,fig.height=3}
+## test of functional groups
+boxplot(subset_sscore$si~factor(subset_sscore$ggroup,levels = c("bbs3","bbsome","chaps","other")), las = 2, ylab = "Syndromic score")
+kruskal.test(subset_sscore$si~subset_sscore$ggroup)
+FSA::dunnTest(subset_sscore$si~subset_sscore$ggroup)
+```
+  Histogram plots showing the distribution of syndromic score in different gene groups for `Figure 1E`.
+
+```{r fig.width=1.5,fig.height=2.75}
+
+plot_histogram(subset_sscore_bbsome$si, "BBSome",T)
+plot_histogram(subset_sscore_bbs3$si, "BBS3",F)
+plot_histogram(subset_sscore_chaperonins$si, "Chaperonins",F)
+plot_histogram(subset_sscore_other$si, "Non-canonical",F)
+```
+
+### Syndromic score in patients with different Chaperonin genes mutated
+  Summary of 'set patients with mutations in chaperonin-encoding BBS genes `Figure S3D`:
+```{r}
+subset_sscore_bbs6 <- subset(subset_sscore,gene=="BBS6")
+subset_sscore_bbs10 <- subset(subset_sscore,gene=="BBS10")
+subset_sscore_bbs12 <- subset(subset_sscore,gene=="BBS12")
+
+
+sscore_chaperonin_analysis <- as.data.frame(round(t(rbind(
+  all_chaperonins = summary_analysis(subset_sscore_chaperonins),
+  set_bbs6 = summary_analysis(subset_sscore_bbs6),
+  set_bbs10 = summary_analysis(subset_sscore_bbs10),
+  set_bbs12 = summary_analysis(subset_sscore_bbs12)
+))),digits=1)
+kable(sscore_chaperonin_analysis) %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  
+```
+
+Testing if there are differences in the syndromic score between patients with mutations in chpaeronin-encoding genes `Figure 1F`.
+
+```{r fig.width=4,fig.height=3}
+
+## test of chaperonins
+boxplot(subset_chaperonins$si~droplevels(subset_chaperonins$gene), las = 1, ylab = "Syndromic score")
+kruskal.test(subset_chaperonins$si~droplevels(subset_chaperonins$gene))
+```
+
+```{r fig.width=1.5,fig.height=2.75}
+
+plot_histogram(subset_sscore_bbs6$si,"BBS6",T)
+plot_histogram(subset_sscore_bbs10$si,"BBS10",F)
+plot_histogram(subset_sscore_bbs12$si,"BBS12",F)
+```
+
+### Syndromic score in patients with different BBSome genes mutated
+
+Summary analysis of the bbsome group of 'set patients `Figure S3C`:
+```{r}
+subset_sscore_bbs1 <- subset(subset_sscore,subset_sscore$gene=="BBS1")
+subset_sscore_bbs2 <- subset(subset_sscore,subset_sscore$gene=="BBS2")
+subset_sscore_bbs4 <- subset(subset_sscore,subset_sscore$gene=="BBS4")
+subset_sscore_bbs5 <- subset(subset_sscore,subset_sscore$gene=="BBS5")
+subset_sscore_bbs7 <- subset(subset_sscore,subset_sscore$gene=="BBS7")
+subset_sscore_bbs8 <- subset(subset_sscore,subset_sscore$gene=="BBS8")
+subset_sscore_bbs9 <- subset(subset_sscore,subset_sscore$gene=="BBS9")
+subset_sscore_bbs18 <- subset(subset_sscore,subset_sscore$gene=="BBS18")
+
+sscore_bbsome_analysis <- as.data.frame(round(t(rbind(
+  set_bbsome = summary_analysis(subset_sscore_bbsome),
+  set_bbs1 = summary_analysis(subset_sscore_bbs1),
+  set_bbs2 = summary_analysis(subset_sscore_bbs2),
+  set_bbs4 = summary_analysis(subset_sscore_bbs4),
+  set_bbs5 = summary_analysis(subset_sscore_bbs5),
+  set_bbs7 = summary_analysis(subset_sscore_bbs7),
+  set_bbs8 = summary_analysis(subset_sscore_bbs8),
+  set_bbs9 = summary_analysis(subset_sscore_bbs9),
+  set_bbs18 = summary_analysis(subset_sscore_bbs18)
+  
+))),digits=1)
+
+kable(sscore_bbsome_analysis) %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  
+
+```
+
+  Testing if there are differences in the syndromic score between groups of 'set patients with mutations in BBSome genes.
+  
+```{r fig.width=6.5, fig.height=3}
+## test of bbsome
+
+subset_sscore_bbsome_wobbs18 = droplevels(subset(subset_sscore_bbsome,subset_sscore_bbsome$gene!="BBS18"))
+
+boxplot(subset_sscore_bbsome_wobbs18$si~subset_sscore_bbsome_wobbs18$gene, las = 1, ylab = "Syndromic score")
+kruskal.test(subset_sscore_bbsome_wobbs18$si~subset_sscore_bbsome_wobbs18$gene)
+FSA::dunnTest(subset_sscore_bbsome_wobbs18$si~subset_sscore_bbsome_wobbs18$gene)
+```
+
+
+```{r fig.width=1.2, fig.height=2.5}
+plot_histogram(subset_sscore_bbs1$si,"BBS1",T)
+plot_histogram(subset_sscore_bbs2$si,"BBS2",F)
+plot_histogram(subset_sscore_bbs4$si,"BBS4",F)
+plot_histogram(subset_sscore_bbs5$si,"BBS5",F)
+plot_histogram(subset_sscore_bbs7$si,"BBS7",F)
+plot_histogram(subset_sscore_bbs8$si,"BBS8",F)
+plot_histogram(subset_sscore_bbs9$si,"BBS9",F)
+
+```
+
+# Syndromic score in patients with cLOF vs MS mutations
+  Below, we will test if the syndromic score differs between patients with mutations leading to complete loss of function of the protein (such as frameshifts, splicing mutations, large deletions etc.) and patients having at least one missense mutation (either a substitution or a small deletion of one to three amino acids). 
+  
+```{r fig.width=4}
+
+subset_sscore_MS <- subset(subset_sscore,subset_sscore$muttype=="MSMSandMScLOF")
+subset_sscore_cLOF <- subset(subset_sscore,subset_sscore$muttype=="cLOF")
+
+boxplot(subset_sscore$si~subset_sscore$muttype, las = 1, ylab = "Syndromic score")
+wilcox.test(subset_sscore$si~subset_sscore$muttype)
+
+```
+ 
+  In addition, we will test if the proportion of patients with syndromic score of 1 differs between cLOF and missense patients. This will be tested using Fisher test on number of patients with syndromic score 1 or syndromic score other than one in both groups.
+  
+```{r fig.width = 1.5, fig.height=2.75}
+
+subset_sscore_MS_si1 <- subset(subset_sscore_MS,subset_sscore_MS$si==1)
+subset_sscore_cLOF_si1 <- subset(subset_sscore_cLOF,subset_sscore_cLOF$si==1)
+
+fisher.test(matrix(c(nrow(subset_sscore_MS_si1),
+                   nrow(subset_sscore_MS)-nrow(subset_sscore_MS_si1),
+                   nrow(subset_sscore_cLOF_si1),
+                   nrow(subset_sscore_cLOF)-nrow(subset_sscore_cLOF_si1)), ncol = 2), workspace = 2e8)
+
+plot_histogram(subset_sscore_MS$si, "missense", TRUE)
+plot_histogram(subset_sscore_cLOF$si, "cLOF",F)
+```
+
+## Syndromic score in cLOF patients 
+
+### Patient groups divided according to gene functions
+Let's investigate the severity score between groups of BBS genes based on their functions in the patients with cLOF mutations.
+
+
+```{r fig.width=1.5,fig.height=2.75}
+subset_sscore_cLOF_bbsome <- subset(subset_sscore_bbsome,subset_sscore_bbsome$muttype=="cLOF")
+subset_sscore_cLOF_bbs3 <- subset(subset_sscore_bbs3,subset_sscore_bbs3$muttype=="cLOF")
+subset_sscore_cLOF_chaperonins <- subset(subset_sscore_chaperonins,subset_sscore_chaperonins$muttype=="cLOF")
+subset_sscore_cLOF_other <- subset(subset_sscore_other,subset_sscore_other$muttype=="cLOF")
+
+plot_histogram(subset_sscore_cLOF_bbsome$si, "BBSome",T)
+plot_histogram(subset_sscore_cLOF_bbs3$si, "BBS3",F)
+plot_histogram(subset_sscore_cLOF_chaperonins$si, "Chaperonins",F)
+plot_histogram(subset_sscore_cLOF_other$si, "Non-canonical",F)
+
+kruskal.test(subset_sscore_cLOF$si~subset_sscore_cLOF$ggroup)
+FSA::dunnTest(subset_sscore_cLOF$si~subset_sscore_cLOF$ggroup)
+```
+
+### Patient group within BBSome
+```{r fig.width=6.5, fig.height=3}
+## test of bbsome
+
+subset_sscore_cLOF_bbsome_wobbs18 = subset(subset_sscore_bbsome_wobbs18,subset_sscore_bbsome_wobbs18$muttype=="cLOF")
+
+
+
+boxplot(subset_sscore_cLOF_bbsome_wobbs18$si~subset_sscore_cLOF_bbsome_wobbs18$gene, las = 1, ylab = "Syndromic score")
+kruskal.test(subset_sscore_cLOF_bbsome_wobbs18$si~subset_sscore_cLOF_bbsome_wobbs18$gene)
+FSA::dunnTest(subset_sscore_cLOF_bbsome_wobbs18$si~subset_sscore_cLOF_bbsome_wobbs18$gene)
+```
+
+```{r fig.height=2.5, fig.width=1.2, warning=FALSE}
+
+subset_sscore_cLOF_bbs1 <- subset(subset_sscore_bbs1,subset_sscore_bbs1$muttype=="cLOF")
+subset_sscore_cLOF_bbs2 <- subset(subset_sscore_bbs2,subset_sscore_bbs2$muttype=="cLOF")
+subset_sscore_cLOF_bbs4 <- subset(subset_sscore_bbs4,subset_sscore_bbs4$muttype=="cLOF")
+subset_sscore_cLOF_bbs5 <- subset(subset_sscore_bbs5,subset_sscore_bbs5$muttype=="cLOF")
+subset_sscore_cLOF_bbs7 <- subset(subset_sscore_bbs7,subset_sscore_bbs7$muttype=="cLOF")
+subset_sscore_cLOF_bbs8 <- subset(subset_sscore_bbs8,subset_sscore_bbs8$muttype=="cLOF")
+subset_sscore_cLOF_bbs9 <- subset(subset_sscore_bbs9,subset_sscore_bbs9$muttype=="cLOF")
+
+plot_histogram(subset_sscore_cLOF_bbs1$si,"BBS1",T)
+plot_histogram(subset_sscore_cLOF_bbs2$si,"BBS2",F)
+plot_histogram(subset_sscore_cLOF_bbs4$si,"BBS4",F)
+plot_histogram(subset_sscore_cLOF_bbs5$si,"BBS5",F)
+plot_histogram(subset_sscore_cLOF_bbs7$si,"BBS7",F)
+plot_histogram(subset_sscore_cLOF_bbs8$si,"BBS8",F)
+plot_histogram(subset_sscore_cLOF_bbs9$si,"BBS9",F)
+
+```
+
+### Missense and cLOF mutations in patient groups
+  Here, we test if the severity score differs between patients with missense or cLOF mutations in distinct groups of patients. These figures are used for `Figure S4`. 
+  
+```{r fig.height=2.5, fig.width=1.2, warning=FALSE}
+
+subset_sscore_MS_bbs1 <- subset(subset_sscore_bbs1,subset_sscore_bbs1$muttype=="MSMSandMScLOF")
+
+subset_sscore_cLOF_canonwobbs1 <- subset(subset_sscore,subset_sscore$muttype=="cLOF"&subset_sscore$canonwobbs1=="yes")
+
+subset_sscore_MS_canonwobbs1 <- subset(subset_sscore,subset_sscore$muttype=="MSMSandMScLOF"&subset_sscore$canonwobbs1=="yes")
+
+subset_sscore_cLOF_bbsome <- subset(subset_sscore_bbsome,subset_sscore_bbsome$muttype=="cLOF")
+subset_sscore_MS_bbsome <- subset(subset_sscore_bbsome,subset_sscore_bbsome$muttype=="MSMSandMScLOF")
+
+
+
+plot_histogram(subset_sscore_MS_canonwobbs1$si,"Canon wo BBS1\n Missense",F)
+plot_histogram(subset_sscore_cLOF_canonwobbs1$si,"Canon wo BBS1\n cLOF",T)
+
+plot_histogram(subset_sscore_MS_bbs1$si,"BBS1\n Missense",F)
+plot_histogram(subset_sscore_cLOF_bbs1$si,"BBS1\n cLOF",F)
+
+plot_histogram(subset_sscore_cLOF_bbsome$si,"BBSome\n cLOF",F)
+plot_histogram(subset_sscore_MS_bbsome$si,"BBSome \n Missense",F)
+
+wilcox.test(subset_sscore_cLOF_canonwobbs1$si,subset_sscore_MS_canonwobbs1$si)
+
+fisher_severity_ones <- function(subsetMS,subsetcLOF){
+  print(fisher.test(matrix(c(
+    nrow(subset(subsetMS,subsetMS$si==1)),
+    nrow(subsetMS)-nrow(subset(subsetMS,subsetMS$si==1)),
+    nrow(subset(subsetcLOF,subsetcLOF$si==1)),
+    nrow(subsetcLOF)-nrow(subset(subsetcLOF,subsetcLOF$si==1))
+  ), ncol = 2)))
+}
+fisher_severity_ones(subset_sscore_cLOF_canonwobbs1, subset_sscore_MS_canonwobbs1)
+
+wilcox.test(subset_sscore_cLOF_bbs1$si,subset_sscore_MS_bbs1$si)
+fisher_severity_ones(subset_sscore_cLOF_bbs1, subset_sscore_MS_bbs1)
+
+wilcox.test(subset_sscore_cLOF_bbsome$si,subset_sscore_MS_bbsome$si)
+fisher_severity_ones(subset_sscore_cLOF_bbsome, subset_sscore_MS_bbsome)
+
+
+```
+
+  Below, we visualize the percentage of cLOF mutations in BBSome patients with syndromic score = 1 according to mutations in different BBS genes.
+
+```{r fig.width=4, fig.height=4}
+cLOF_sscore <- function(gene1){
+  total_cLOF <- nrow(subset(subset_sscore,subset_sscore$gene==gene1&subset_sscore$muttype=="cLOF"))
+  total_MS <- nrow(subset(subset_sscore,subset_sscore$gene==gene1&subset_sscore$muttype=="MSMSandMScLOF"))
+  cLOF_si1 <- nrow(subset(subset_sscore,subset_sscore$gene==gene1&subset_sscore$muttype=="cLOF"&subset_sscore$si==1))
+  
+  MS_si1 <- nrow(subset(subset_sscore,subset_sscore$gene==gene1&subset_sscore$muttype=="MSMSandMScLOF"&subset_sscore$si==1))
+  
+  per_cLOF <- cLOF_si1/total_cLOF*100
+  per_MS <- MS_si1/total_MS*100
+  return(round(data.frame(per_MS,per_cLOF), digits = 2))
+}
+df <- rbind(
+  BBS1 = cLOF_sscore("BBS1"),
+  BBS2 = cLOF_sscore("BBS2"),
+  BBS4 = cLOF_sscore("BBS4"),
+  BBS5 = cLOF_sscore("BBS5"),
+  BBS7 = cLOF_sscore("BBS7"),
+  BBS8 = cLOF_sscore("BBS8"),
+  BBS9 = cLOF_sscore("BBS9")
+)
+
+kable(df)
+ggplot(df, aes(x = per_MS, y = per_cLOF)) + geom_point(size=2, shape=19) + scale_x_continuous(breaks = c(0,20,40,60), limits = c(0,60)) +
+scale_y_continuous(breaks = c(0,20,40,60), limits = c(0,60)) +
+   geom_abline(intercept = 0, slope = 1) +
+ geom_text(aes(label=row.names(df)),hjust=-.3, vjust=0)
+
+```
+
+# Analysis of phenotypes
+
+  For this analysis, all available data were used, i.e. not restricted to the 'set. Statistical significance of penetrance of phenotypes was tested using Fisher test.
+
+### Phenotypes in gene groups:
+  First, let's test if any differences in the penetrance of phenotypes exist between gene groups in each phenotype.
+  
+```{r}
+for(i in c(7:15)) { if(i==7){df <- data.frame()}
+  
+  fisher.test(matrix( c(
+phenotype_analysis(subset_bbsome[i])$no,
+phenotype_analysis(subset_bbs3[i])$no,
+phenotype_analysis(subset_chaperonins[i])$no,
+phenotype_analysis(subset_bbsome[i])$yes,
+phenotype_analysis(subset_bbs3[i])$yes,
+phenotype_analysis(subset_chaperonins[i])$yes),byrow = TRUE, ncol = 3))
+
+ggroups_pval <- rbind(df,data.frame(phenotype = phenotypes[i-6],
+                 p_val = fisher.test(matrix( c(
+phenotype_analysis(subset_bbsome[i])$no,
+phenotype_analysis(subset_bbs3[i])$no,
+phenotype_analysis(subset_chaperonins[i])$no,
+phenotype_analysis(subset_bbsome[i])$yes,
+phenotype_analysis(subset_bbs3[i])$yes,
+phenotype_analysis(subset_chaperonins[i])$yes),byrow = TRUE, ncol = 3))$p.value))
+
+df
+  }
+
+ggroups_pval <- df
+
+kable(ggroups_pval, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+  
+  On the 5% level, differences were shown in PD, CI, REP, REN and HEART.
+  
+  Let'have a look at the differences between individual groups to reveal which differences account for the overall difference. As there are 3 groups, the p-value on which we consider the difference being statistical significance will be lowered according to Sidak correction for multiple comparisons.
+  
+```{r}
+sidak <- as.data.frame(matrix(c("#","*","**","***","****","< 0.1","< 0.05","< 0.1","< 0.001","< 0.0001","< 0.033","< 0.017", "< 0.003","<3.3e-4","<3.3e-5"),ncol = 3,byrow = FALSE))
+names(sidak) = c("symbol","orig p-value","Sidak p-value")
+kable(sidak, format= "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+  
+  
+```{r}
+subset_allwow <- subset(update8forR,update8forR$allwow=="yes"|
+                          update8forR$gene=="BBS18")
+sidak3 <- c(0.033,0.017,0.003,3.3e-4,3.3e-5)
+
+kable(rbind(
+one_vs_all_other(subset_bbsome,subset_allwow,9,sidak3),
+one_vs_all_other(subset_bbs3,subset_allwow,9,sidak3),
+one_vs_all_other(subset_chaperonins,subset_allwow,9,sidak3),
+
+one_vs_all_other(subset_bbsome,subset_allwow,10,sidak3),
+one_vs_all_other(subset_bbs3,subset_allwow,10,sidak3),
+one_vs_all_other(subset_chaperonins,subset_allwow,10,sidak3),
+
+one_vs_all_other(subset_bbsome,subset_allwow,11,sidak3),
+one_vs_all_other(subset_bbs3,subset_allwow,11,sidak3),
+one_vs_all_other(subset_chaperonins,subset_allwow,11,sidak3),
+
+one_vs_all_other(subset_bbsome,subset_allwow,12,sidak3),
+one_vs_all_other(subset_bbs3,subset_allwow,12,sidak3),
+one_vs_all_other(subset_chaperonins,subset_allwow,12,sidak3),
+
+one_vs_all_other(subset_bbsome,subset_allwow,13,sidak3),
+one_vs_all_other(subset_bbs3,subset_allwow,13,sidak3),
+one_vs_all_other(subset_chaperonins,subset_allwow,13,sidak3))) %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  
+
+
+```
+  
+  
+  Generate charts:
+  
+```{r fig.height=8.5, fig.width=4.5, message=FALSE, warning=FALSE}
+
+for(i in c(7:15)){
+p <- plot_bars(c("subset_bbs3","subset_bbsome","subset_chaperonins"),c("BBS3","BBSome","Chaperonins"),i)
+assign(paste("plot",phenotypes[i-6],sep=""),p)
+
+if(i==7){sample_size <- data.frame(count = "")}
+sample_size <- rbind(sample_size, data.frame(count = number_of_patients(i,c("subset_bbs3","subset_bbsome","subset_chaperonins"))))
+}
+
+plot_grid(
+plotRD,
+plotOBE,
+plotPD,
+plotCI,
+plotREP, 
+plotREN,
+plotHEART,
+plotLIV,
+plotDD,
+ncol = 3
+)
+kable(sample_size, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+  
+  
+### Phenotypes in chaperonins:
+
+```{r}
+
+
+for(i in c(7:15)) {
+  
+  phenotypes <- c("RD","OBE","PD","CI", "REP","REN","HEART", "LIV","DD")
+fisher.test(matrix( c(
+phenotype_analysis(subset_bbs6[i])$no,
+phenotype_analysis(subset_bbs10[i])$no,
+phenotype_analysis(subset_bbs12[i])$no,
+phenotype_analysis(subset_bbs6[i])$yes,
+phenotype_analysis(subset_bbs10[i])$yes,
+phenotype_analysis(subset_bbs12[i])$yes),byrow = TRUE, ncol = 3))
+
+print(paste(phenotypes[i-6],fisher.test(matrix( c(
+phenotype_analysis(subset_bbs6[i])$no,
+phenotype_analysis(subset_bbs10[i])$no,
+phenotype_analysis(subset_bbs12[i])$no,
+phenotype_analysis(subset_bbs6[i])$yes,
+phenotype_analysis(subset_bbs10[i])$yes,
+phenotype_analysis(subset_bbs12[i])$yes),byrow = TRUE, ncol = 3))$p.value)
+)
+  }
+
+
+```
+
+On the 5% level, difference was shown in DD.
+  
+  Let'have a look at the differences between individual groups to reveal which differences account for the overall difference. We can use the same Sidak values as before:
+  
+  
+```{r}
+sidak <- as.data.frame(matrix(c("#","*","**","***","****","< 0.1","< 0.05","< 0.1","< 0.001","< 0.0001","< 0.033","< 0.017", "< 0.003","<3.3e-4","<3.3e-5"),ncol = 3,byrow = FALSE))
+names(sidak) = c("symbol","orig p-value","Sidak p-value")
+kable(sidak, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+  
+  
+```{r}
+
+kable(rbind(
+one_vs_all_other(subset_bbs6,subset_chaperonins,15,sidak3),
+one_vs_all_other(subset_bbs10,subset_chaperonins,15,sidak3),
+one_vs_all_other(subset_bbs12,subset_chaperonins,15,sidak3)), format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+
+```
+
+  Generate charts:
+
+```{r fig.width=4.5, fig.height=8.5}
+
+for(i in c(7:15)){
+p <- plot_bars(c("subset_bbs6","subset_bbs10","subset_bbs12"),c("BBS6","BBS10","BBS12"),i)
+assign(paste("plot",phenotypes[i-6],sep=""),p)
+
+if(i==7){sample_size <- data.frame(count = "")}
+sample_size <- rbind(sample_size, data.frame(count = number_of_patients(i,c("subset_bbs6","subset_bbs10","subset_bbs12")))) 
+}
+
+plot_grid(
+plotRD,
+plotOBE,
+plotPD,
+plotCI,
+plotREP, 
+plotREN,
+plotHEART,
+plotLIV,
+plotDD,
+ncol = 3)
+
+kable(sample_size, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+
+
+### Phenotypes in bbsome:
+
+
+```{r}
+
+for(i in c(7:15)) {
+  
+  phenotypes <- c("RD","OBE","PD","CI", "REP","REN","HEART", "LIV","DD")
+fisher.test(matrix( c(
+phenotype_analysis(subset_bbs1[i])$no,
+phenotype_analysis(subset_bbs2[i])$no,
+phenotype_analysis(subset_bbs4[i])$no,
+phenotype_analysis(subset_bbs5[i])$no,
+phenotype_analysis(subset_bbs7[i])$no,
+phenotype_analysis(subset_bbs8[i])$no,
+phenotype_analysis(subset_bbs9[i])$no,
+
+phenotype_analysis(subset_bbs1[i])$yes,
+phenotype_analysis(subset_bbs2[i])$yes,
+phenotype_analysis(subset_bbs4[i])$yes,
+phenotype_analysis(subset_bbs5[i])$yes,
+phenotype_analysis(subset_bbs7[i])$yes,
+phenotype_analysis(subset_bbs8[i])$yes,
+phenotype_analysis(subset_bbs9[i])$yes),
+
+byrow = TRUE, ncol = 7),workspace=2e8)
+
+print(paste(phenotypes[i-6],fisher.test((matrix( c(
+phenotype_analysis(subset_bbs1[i])$no,
+phenotype_analysis(subset_bbs2[i])$no,
+phenotype_analysis(subset_bbs4[i])$no,
+phenotype_analysis(subset_bbs5[i])$no,
+phenotype_analysis(subset_bbs7[i])$no,
+phenotype_analysis(subset_bbs8[i])$no,
+phenotype_analysis(subset_bbs9[i])$no,
+
+phenotype_analysis(subset_bbs1[i])$yes,
+phenotype_analysis(subset_bbs2[i])$yes,
+phenotype_analysis(subset_bbs4[i])$yes,
+phenotype_analysis(subset_bbs5[i])$yes,
+phenotype_analysis(subset_bbs7[i])$yes,
+phenotype_analysis(subset_bbs8[i])$yes,
+phenotype_analysis(subset_bbs9[i])$yes),
+
+byrow = TRUE, ncol = 7)),workspace=2e8)$p.value)
+)
+
+  }
+
+
+```
+
+On the 5% level, differences were shown in OBE, PD, CI, REP, REN, HEART, LIV and DD.
+  
+  Let'have a look at the differences between individual groups to reveal which differences account for the overall difference. We will use the following Sidak values for multiple comparison correction:
+  
+  
+```{r}
+sidak <- as.data.frame(matrix(c("#","*","**","***","****","< 0.1","< 0.05","< 0.1","< 0.001","< 0.0001","< 1.49e-2","< 7.3e-3", "< 1.43e-3","< 1.43e-4","< 1.43e-5"),ncol = 3,byrow = FALSE))
+names(sidak) = c("symbol","orig p-value","Sidak p-value")
+kable(sidak, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+
+```{r}  
+  
+
+sidak7 <- c(1.49e-2, 7.3e-3, 1.43e-3, 1.43e-4, 1.43e-5)
+
+subset_bbsome_wobbs18 <- droplevels(subset(subset_bbsome,subset_bbsome$gene!="BBS18"))
+
+for (j in c(8:15)){ 
+  if(j==8){df <- data.frame()}
+  df <- rbind(df,
+  
+one_vs_all_other(subset_bbs1,subset_bbsome_wobbs18,j,sidak7),
+one_vs_all_other(subset_bbs2,subset_bbsome_wobbs18,j,sidak7),
+one_vs_all_other(subset_bbs4,subset_bbsome_wobbs18,j,sidak7),
+one_vs_all_other(subset_bbs5,subset_bbsome_wobbs18,j,sidak7),
+one_vs_all_other(subset_bbs7,subset_bbsome_wobbs18,j,sidak7),
+one_vs_all_other(subset_bbs8,subset_bbsome_wobbs18,j,sidak7),
+one_vs_all_other(subset_bbs9,subset_bbsome_wobbs18,j,sidak7))
+
+df
+}
+
+kable(df, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+
+```
+  
+  
+  Generate charts:
+  
+```{r fig.width=8, fig.height = 7}
+
+for(i in c(7:15)){
+
+  p <- plot_bars(c("subset_bbs1","subset_bbs2","subset_bbs4","subset_bbs5","subset_bbs7","subset_bbs8","subset_bbs9"),c("BBS1","BBS2","BBS4","BBS5","BBS7","BBS8","BBS9"),i)
+assign(paste("plot",phenotypes[i-6],sep=""),p)
+
+if(i==7){sample_size <- data.frame(count = "")}
+sample_size <- rbind(sample_size, data.frame(count = number_of_patients(i,c("subset_bbs1","subset_bbs2","subset_bbs4","subset_bbs5","subset_bbs7","subset_bbs8","subset_bbs9"))))
+  
+}
+
+plot_grid(
+plotRD,
+plotOBE,
+plotPD,
+plotCI,
+plotREP, 
+plotREN,
+plotHEART,
+plotLIV,
+plotDD,
+ncol = 3)
+kable(sample_size, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+
+## Analysis of cLOF subset
+
+  For this analysis, all available data were used, i.e. not restricted to the 'set. However, only patients having causative mutation of type cLOF were included. Statistical significance of penetrance of phenotypes was tested using Fisher test. 
+  
+```{r}
+subset_cLOF_bbsome <- subset(subset_bbsome,subset_bbsome$muttype=="cLOF")
+subset_cLOF_chaperonins <- subset(subset_chaperonins,subset_chaperonins$muttype=="cLOF")
+subset_cLOF_bbs3 <- subset(subset_bbs3,subset_bbs3$muttype=="cLOF")
+
+subset_cLOF_allwow <- subset(subset_allwow,subset_allwow$muttype=="cLOF")
+subset_cLOF_bbsome_wobbs18 <- subset(subset_bbsome_wobbs18,subset_bbsome_wobbs18$muttype=="cLOF")
+
+subset_cLOF_bbs6 <- subset(subset_bbs6,subset_bbs6$muttype=="cLOF")
+subset_cLOF_bbs10 <- subset(subset_bbs10,subset_bbs10$muttype=="cLOF")
+subset_cLOF_bbs12 <- subset(subset_bbs12,subset_bbs12$muttype=="cLOF")
+
+subset_cLOF_bbs1 <- subset(subset_bbs1,subset_bbs1$muttype=="cLOF")
+subset_cLOF_bbs2 <- subset(subset_bbs2,subset_bbs2$muttype=="cLOF")
+subset_cLOF_bbs4 <- subset(subset_bbs4,subset_bbs4$muttype=="cLOF")
+subset_cLOF_bbs5 <- subset(subset_bbs5,subset_bbs5$muttype=="cLOF")
+subset_cLOF_bbs7 <- subset(subset_bbs7,subset_bbs7$muttype=="cLOF")
+subset_cLOF_bbs8 <- subset(subset_bbs8,subset_bbs8$muttype=="cLOF")
+subset_cLOF_bbs9 <- subset(subset_bbs9,subset_bbs9$muttype=="cLOF")
+
+
+
+```
+
+
+### Phenotypes in gene groups:
+  First, let's test if any differences in phenotype penetrance exist between all groups.
+  
+```{r}
+for(i in c(7:15)) {
+  
+  fisher.test(matrix( c(
+phenotype_analysis(subset_cLOF_bbsome[i])$no,
+phenotype_analysis(subset_cLOF_bbs3[i])$no,
+phenotype_analysis(subset_cLOF_chaperonins[i])$no,
+phenotype_analysis(subset_cLOF_bbsome[i])$yes,
+phenotype_analysis(subset_cLOF_bbs3[i])$yes,
+phenotype_analysis(subset_cLOF_chaperonins[i])$yes),byrow = TRUE, ncol = 3))
+
+print(paste(phenotypes[i-6],fisher.test(matrix( c(
+phenotype_analysis(subset_cLOF_bbsome[i])$no,
+phenotype_analysis(subset_cLOF_bbs3[i])$no,
+phenotype_analysis(subset_cLOF_chaperonins[i])$no,
+phenotype_analysis(subset_cLOF_bbsome[i])$yes,
+phenotype_analysis(subset_cLOF_bbs3[i])$yes,
+phenotype_analysis(subset_cLOF_chaperonins[i])$yes),byrow = TRUE, ncol = 3))$p.value)
+)
+  }
+
+```
+  
+  On the 5% level, differences were shown in CI and REN.
+  
+  Let'have a look at the differences between individual groups to reveal which differences account for the overall difference. As there are 3 groups, the p-value on which we consider the difference being statistical significance will be lowered according to Sidak correction for multiple comparisons.
+  
+```{r}
+sidak <- as.data.frame(matrix(c("#","*","**","***","****","< 0.1","< 0.05","< 0.1","< 0.001","< 0.0001","< 0.033","< 0.017", "< 0.003","<3.3e-4","<3.3e-5"),ncol = 3,byrow = FALSE))
+names(sidak) = c("symbol","orig p-value","Sidak p-value")
+kable(sidak, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+  
+  
+```{r}
+subset_cLOF_allwow <- subset(update8forR,update8forR$allwow=="yes"|
+                          update8forR$gene=="BBS18")
+sidak3 <- c(0.033,0.017,0.003,3.3e-4,3.3e-5)
+
+kable(rbind(
+one_vs_all_other(subset_cLOF_bbsome,subset_cLOF_allwow,10,sidak3),
+one_vs_all_other(subset_cLOF_bbs3,subset_cLOF_allwow,10,sidak3),
+one_vs_all_other(subset_cLOF_chaperonins,subset_cLOF_allwow,10,sidak3),
+
+one_vs_all_other(subset_cLOF_bbsome,subset_cLOF_allwow,12,sidak3),
+one_vs_all_other(subset_cLOF_bbs3,subset_cLOF_allwow,12,sidak3),
+one_vs_all_other(subset_cLOF_chaperonins,subset_cLOF_allwow,12,sidak3)),format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+
+
+
+
+```
+  
+  Generate charts:
+  
+```{r fig.width=4.5, fig.height = 8.5}
+
+for(i in c(7:15)){
+p <- plot_bars(c("subset_cLOF_bbs3","subset_cLOF_bbsome","subset_cLOF_chaperonins"),c("BBS3","BBSome","Chaperonins"),i)
+assign(paste("plot",phenotypes[i-6],sep=""),p)
+
+if(i==7){sample_size <- data.frame(count = "")}
+sample_size <- rbind(sample_size, data.frame(count = number_of_patients(i,c("subset_cLOF_bbs3","subset_cLOF_bbsome","subset_cLOF_chaperonins"))))
+}
+
+plot_grid(
+plotRD,
+plotOBE,
+plotPD,
+plotCI,
+plotREP, 
+plotREN,
+plotHEART,
+plotLIV,
+plotDD,
+ncol = 3)
+kable(sample_size, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+  
+  
+### Phenotypes in chaperonins:
+
+```{r}
+
+for(i in c(7:15)) {
+  
+  phenotypes <- c("RD","OBE","PD","CI", "REP","REN","HEART", "LIV","DD")
+fisher.test(matrix( c(
+phenotype_analysis(subset_cLOF_bbs6[i])$no,
+phenotype_analysis(subset_cLOF_bbs10[i])$no,
+phenotype_analysis(subset_cLOF_bbs12[i])$no,
+phenotype_analysis(subset_cLOF_bbs6[i])$yes,
+phenotype_analysis(subset_cLOF_bbs10[i])$yes,
+phenotype_analysis(subset_cLOF_bbs12[i])$yes),byrow = TRUE, ncol = 3))
+
+print(paste(phenotypes[i-6],fisher.test(matrix( c(
+phenotype_analysis(subset_cLOF_bbs6[i])$no,
+phenotype_analysis(subset_cLOF_bbs10[i])$no,
+phenotype_analysis(subset_cLOF_bbs12[i])$no,
+phenotype_analysis(subset_cLOF_bbs6[i])$yes,
+phenotype_analysis(subset_cLOF_bbs10[i])$yes,
+phenotype_analysis(subset_cLOF_bbs12[i])$yes),byrow = TRUE, ncol = 3))$p.value)
+)
+  }
+
+
+```
+On the 5% level, difference was shown in RD, HEART and DD.
+  
+  Let'have a look at the differences between individual groups to reveal which differences account for the overall difference. We can use the same Sidak values as before:
+  
+```{r}
+sidak <- as.data.frame(matrix(c("#","*","**","***","****","< 0.1","< 0.05","< 0.1","< 0.001","< 0.0001","< 0.033","< 0.017", "< 0.003","<3.3e-4","<3.3e-5"),ncol = 3,byrow = FALSE))
+names(sidak) = c("symbol","orig p-value","Sidak p-value")
+kable(sidak, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+  
+  
+```{r}
+
+kable(rbind(
+  one_vs_all_other(subset_cLOF_bbs6,subset_cLOF_chaperonins,7,sidak3),
+one_vs_all_other(subset_cLOF_bbs10,subset_cLOF_chaperonins,7,sidak3),
+one_vs_all_other(subset_cLOF_bbs12,subset_cLOF_chaperonins,7,sidak3),
+
+one_vs_all_other(subset_cLOF_bbs6,subset_cLOF_chaperonins,13,sidak3),
+one_vs_all_other(subset_cLOF_bbs10,subset_cLOF_chaperonins,13,sidak3),
+one_vs_all_other(subset_cLOF_bbs12,subset_cLOF_chaperonins,13,sidak3),
+
+one_vs_all_other(subset_cLOF_bbs6,subset_cLOF_chaperonins,15,sidak3),
+one_vs_all_other(subset_cLOF_bbs10,subset_cLOF_chaperonins,15,sidak3),
+one_vs_all_other(subset_cLOF_bbs12,subset_cLOF_chaperonins,15,sidak3)), format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+
+```
+  
+  Generate charts:
+  
+```{r fig.width=4.5, fig.height = 8.5}
+
+for(i in c(7:15)){
+p <- plot_bars(c("subset_cLOF_bbs6","subset_cLOF_bbs10","subset_cLOF_bbs12"),c("BBS6","BBS10","BBS12"),i)
+assign(paste("plot",phenotypes[i-6],sep=""),p)
+if(i==7){sample_size <- data.frame(count = "")}
+sample_size <- rbind(sample_size, data.frame(count = number_of_patients(i,c("subset_cLOF_bbs6","subset_cLOF_bbs10","subset_cLOF_bbs12"))))
+}
+
+
+plot_grid(
+plotRD,
+plotOBE,
+plotPD,
+plotCI,
+plotREP, 
+plotREN,
+plotHEART,
+plotLIV,
+plotDD,
+ncol = 3)
+kable(sample_size, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+
+### Phenotypes in bbsome:
+
+```{r}
+
+for(i in c(7:15)) {
+  
+  phenotypes <- c("RD","OBE","PD","CI", "REP","REN","HEART", "LIV","DD")
+fisher.test(matrix( c(
+phenotype_analysis(subset_cLOF_bbs1[i])$no,
+phenotype_analysis(subset_cLOF_bbs2[i])$no,
+phenotype_analysis(subset_cLOF_bbs4[i])$no,
+phenotype_analysis(subset_cLOF_bbs5[i])$no,
+phenotype_analysis(subset_cLOF_bbs7[i])$no,
+phenotype_analysis(subset_cLOF_bbs8[i])$no,
+phenotype_analysis(subset_cLOF_bbs9[i])$no,
+
+phenotype_analysis(subset_cLOF_bbs1[i])$yes,
+phenotype_analysis(subset_cLOF_bbs2[i])$yes,
+phenotype_analysis(subset_cLOF_bbs4[i])$yes,
+phenotype_analysis(subset_cLOF_bbs5[i])$yes,
+phenotype_analysis(subset_cLOF_bbs7[i])$yes,
+phenotype_analysis(subset_cLOF_bbs8[i])$yes,
+phenotype_analysis(subset_cLOF_bbs9[i])$yes),
+
+byrow = TRUE, ncol = 7),workspace=2e8)
+
+print(paste(phenotypes[i-6],fisher.test((matrix( c(
+phenotype_analysis(subset_cLOF_bbs1[i])$no,
+phenotype_analysis(subset_cLOF_bbs2[i])$no,
+phenotype_analysis(subset_cLOF_bbs4[i])$no,
+phenotype_analysis(subset_cLOF_bbs5[i])$no,
+phenotype_analysis(subset_cLOF_bbs7[i])$no,
+phenotype_analysis(subset_cLOF_bbs8[i])$no,
+phenotype_analysis(subset_cLOF_bbs9[i])$no,
+
+phenotype_analysis(subset_cLOF_bbs1[i])$yes,
+phenotype_analysis(subset_cLOF_bbs2[i])$yes,
+phenotype_analysis(subset_cLOF_bbs4[i])$yes,
+phenotype_analysis(subset_cLOF_bbs5[i])$yes,
+phenotype_analysis(subset_cLOF_bbs7[i])$yes,
+phenotype_analysis(subset_cLOF_bbs8[i])$yes,
+phenotype_analysis(subset_cLOF_bbs9[i])$yes),
+
+byrow = TRUE, ncol = 7)),workspace=2e8)$p.value)
+)
+
+  }
+
+
+```
+
+On the 5% level, differences were shown in OBE, PD, CI, REN, HEART and LIV.
+  
+  Let'have a look at the differences between individual groups to reveal which differences account for the overall difference. We will use the following Sidak values for multiple comparison correction:
+  
+```{r}
+sidak <- as.data.frame(matrix(c("#","*","**","***","****","< 0.1","< 0.05","< 0.1","< 0.001","< 0.0001","< 1.49e-2","< 7.3e-3", "< 1.43e-3","< 1.43e-4","< 1.43e-5"),ncol = 3,byrow = FALSE))
+names(sidak) = c("symbol","orig p-value","Sidak p-value")
+kable(sidak, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+  
+  
+```{r}
+sidak7 <- c(1.49e-2, 7.3e-3, 1.43e-3, 1.43e-4, 1.43e-5)
+
+subset_cLOF_bbsome_wobbs18 <- droplevels(subset(subset_cLOF_bbsome,subset_cLOF_bbsome$gene!="BBS18"))
+```
+
+```{r}
+for (j in c(8:10,12:14)){ 
+  if(j==8){df <- data.frame()}
+  df <- rbind(df,
+  
+one_vs_all_other(subset_cLOF_bbs1,subset_cLOF_bbsome_wobbs18,j,sidak7),
+one_vs_all_other(subset_cLOF_bbs2,subset_cLOF_bbsome_wobbs18,j,sidak7),
+one_vs_all_other(subset_cLOF_bbs4,subset_cLOF_bbsome_wobbs18,j,sidak7),
+one_vs_all_other(subset_cLOF_bbs5,subset_cLOF_bbsome_wobbs18,j,sidak7),
+one_vs_all_other(subset_cLOF_bbs7,subset_cLOF_bbsome_wobbs18,j,sidak7),
+one_vs_all_other(subset_cLOF_bbs8,subset_cLOF_bbsome_wobbs18,j,sidak7),
+one_vs_all_other(subset_cLOF_bbs9,subset_cLOF_bbsome_wobbs18,j,sidak7))
+
+df
+}
+
+kable(df, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))  
+  
+  
+
+```
+  
+  Generate charts:
+  
+```{r fig.width=8, fig.height = 7}
+
+for(i in c(7:15)){
+
+  p <- plot_bars(c("subset_cLOF_bbs1","subset_cLOF_bbs2","subset_cLOF_bbs4","subset_cLOF_bbs5","subset_cLOF_bbs7","subset_cLOF_bbs8","subset_cLOF_bbs9"),c("BBS1","BBS2","BBS4","BBS5","BBS7","BBS8","BBS9"),i)
+assign(paste("plot",phenotypes[i-6],sep=""),p)
+ 
+if(i==7){sample_size <- data.frame(count = "")}
+sample_size <- rbind(sample_size, data.frame(count = number_of_patients(i,c("subset_cLOF_bbs1","subset_cLOF_bbs2","subset_cLOF_bbs4","subset_cLOF_bbs5","subset_cLOF_bbs7","subset_cLOF_bbs8","subset_cLOF_bbs9"))))
+ 
+}
+
+plot_grid(
+plotRD,
+plotOBE,
+plotPD,
+plotCI,
+plotREP, 
+plotREN,
+plotHEART,
+plotLIV,
+plotDD,
+ncol = 3)
+
+kable(sample_size, format = "html") %>%
+  kable_styling(full_width = F, font_size = 9,bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+
+## Testing conclusions for Figure 4 
+```{r}
+fisherize <- function(subset1,subset2,phenotype_n){
+  print(paste("Fisher test for all mutations, p-value = ",
+  
+    fisher.test(matrix(
+      c(phenotype_analysis(subset1[phenotype_n])$no,
+        phenotype_analysis(subset2[phenotype_n])$no,
+        phenotype_analysis(subset1[phenotype_n])$yes,
+        phenotype_analysis(subset2[phenotype_n])$yes
+    ),
+        ncol = 2)
+      
+    )$p.value
+  ))
+  print(paste("Fisher test for cLOF mutations, p-value = ",
+  
+  fisher.test(matrix(
+      c(phenotype_analysis(subset(subset1, subset1[16]=="cLOF")[phenotype_n])$no,
+        phenotype_analysis(subset(subset2, subset2[16]=="cLOF")[phenotype_n])$no,
+        phenotype_analysis(subset(subset1, subset1[16]=="cLOF")[phenotype_n])$yes,
+        phenotype_analysis(subset(subset2, subset2[16]=="cLOF")[phenotype_n])$yes
+    ),
+        ncol = 2)
+      
+    )$p.value  
+  ))
+  
+}
+```
+
+PD: BBS2 more frequent than BBS1
+```{r}
+fisherize(subset_bbs2,subset_bbs1,9)
+```
+
+CI: BBSome more frequent than BBS3
+```{r}
+fisherize(subset_bbsome,subset_bbs3,10)
+```
+ 
+CI: BBS7 more frequent than others
+```{r}
+one_vs_all_other(subset_bbs7, subset_bbsome,10,c(0,0,0,0,0))
+one_vs_all_other(subset(subset_bbs7, subset_bbs7[16]=="cLOF"), 
+                 subset(subset_bbsome, subset_bbsome[16]=="cLOF"),
+                 10,c(0,0,0,0,0))
+
+```
+
+  REN: BBS2,7,9 more frequent than BBS1,4,8
+```{r}
+subset279 <- subset(subset_bbsome,subset_bbsome$gene=="BBS2"|
+                      subset_bbsome$gene=="BBS7"|
+                      subset_bbsome$gene=="BBS9")
+subset148 <- subset(subset_bbsome,subset_bbsome$gene=="BBS1"|
+                      subset_bbsome$gene=="BBS4"|
+                      subset_bbsome$gene=="BBS8")
+fisherize(subset279,subset148,12)
+```
+
+  REN: BBS2 more frequent than BBS1
+```{r}
+fisherize(subset_bbs2,subset_bbs1,12)
+```
+
+  REN: BBS10 more frequent than BBS1
+```{r}
+fisherize(subset_bbs10,subset_bbs1,9)
+```
+
+  LIV: BBS2 more frequent than BBS1
+```{r}
+fisherize(subset_bbs2,subset_bbs1,14)
+
+```
+
+  LIV: BBS10 more frequent than BBS1
+```{r}
+fisherize(subset_bbs10,subset_bbs1,14)
+
+```
+
+  HEART: BBS2 more frequent than others
+```{r}
+one_vs_all_other(subset_bbs2, subset_bbsome,13,c(0,0,0,0,0))
+one_vs_all_other(subset(subset_bbs2, subset_bbs2[16]=="cLOF"), 
+                 subset(subset_bbsome, subset_bbsome[16]=="cLOF"),
+                 13,c(0,0,0,0,0))
+```
+
+  LIV: BBS5 more frequent than others
+```{r}
+one_vs_all_other(subset_bbs5, subset_bbsome,14,c(0,0,0,0,0))
+one_vs_all_other(subset(subset_bbs5, subset_bbs5[16]=="cLOF"), 
+                 subset(subset_bbsome, subset_bbsome[16]=="cLOF"),
+                 14,c(0,0,0,0,0))
+```
+
+  LIV: others more frequent than BBS4
+```{r}
+one_vs_all_other(subset_bbs4, subset_bbsome,14,c(0,0,0,0,0))
+one_vs_all_other(subset(subset_bbs4, subset_bbs4[16]=="cLOF"), 
+                 subset(subset_bbsome, subset_bbsome[16]=="cLOF"),
+                 14,c(0,0,0,0,0))
+```
+
+  PD: BBS10 more frequent than BBS1
+```{r}
+fisherize(subset_bbs10,subset_bbs1,9)
+
+```
+
+## Testing previously published hypotheses for Table S6
+```{r}
+fisherize_one_sided <- function(subset1,subset2,phenotype_n,all_or_cLOF,alternative){
+  print(phenotypes[phenotype_n-6])
+  if(all_or_cLOF=="all"){print("All mutations")
+  print(
+    fisher.test(matrix(
+      c(phenotype_analysis(subset1[phenotype_n])$no,
+        phenotype_analysis(subset2[phenotype_n])$no,
+        phenotype_analysis(subset1[phenotype_n])$yes,
+        phenotype_analysis(subset2[phenotype_n])$yes
+    ),
+        ncol = 2), alternative = alternative,
+    workspace = 2e8
+      
+    )$p.value)
+    plot_bars(c(deparse(substitute(subset1)),deparse(substitute(subset2))),c(deparse(substitute(subset1)),deparse(substitute(subset2))),phenotype_n
+  )}else{
+  print("cLOF mutations")
+  print(fisher.test(matrix(
+      c(phenotype_analysis(subset(subset1, subset1[16]=="cLOF")[phenotype_n])$no,
+        phenotype_analysis(subset(subset2, subset2[16]=="cLOF")[phenotype_n])$no,
+        phenotype_analysis(subset(subset1, subset1[16]=="cLOF")[phenotype_n])$yes,
+        phenotype_analysis(subset(subset2, subset2[16]=="cLOF")[phenotype_n])$yes
+    ),ncol = 2),alternative = alternative,
+    workspace = 2e8
+      
+    )$p.value)
+  
+  plot_bars(c(deparse(substitute(subset1)),deparse(substitute(subset2))),c(deparse(substitute(subset1)),deparse(substitute(subset2))),phenotype_n
+  )}
+  
+}
+```
+
+  Brinckman, 2013 
+CI
+Fisher’s exact test BBS1 vs BBS10 patients 
+```{r fig.width=2, fig.height=3}
+fisherize_one_sided(subset_bbs1,subset_bbs10,10,"all","greater")
+
+```
+
+  Abu Safieh, 2010
+Fisher’s exact test BBS3 vs other canonical genes
+CI, REP
+
+```{r fig.width=2, fig.height=3}
+subset_bbsomechaps <- subset(subset_allwow,subset_allwow$gene!="BBS3")
+fisherize_one_sided(subset_bbs3,subset_bbsomechaps,10,"all","greater")
+
+fisherize_one_sided(subset_bbs3,subset_bbsomechaps,11,"all","greater")
+```
+
+  Billingsley, 2010 (3)
+all features
+Kruskal-Wallis test of syndromic score between BBS6, BBS10, BBS12
+```{r}
+kruskal.test(subset_sscore_chaperonins$si~subset_sscore_chaperonins$gene)
+```
+
+  Castro-Sanchez, 2015 (4)
+RD, OBE, CI, PD, REP, REN
+Fisher’s exact test BBS1 vs chaperonins
+```{r fig.width=2, fig.height=3}
+fisherize_one_sided(subset_bbs1,subset_chaperonins,7,"all","greater")
+fisherize_one_sided(subset_bbs1,subset_chaperonins,8,"all","greater")
+fisherize_one_sided(subset_bbs1,subset_chaperonins,10,"all","greater")
+fisherize_one_sided(subset_bbs1,subset_chaperonins,9,"all","greater")
+fisherize_one_sided(subset_bbs1,subset_chaperonins,11,"all","greater")
+fisherize_one_sided(subset_bbs1,subset_chaperonins,12,"all","greater")
+
+```
+
+  Castro-Sanchez, 2015 (4)
+Fisher’s exact test BBS12 vs BBS1 and BBS10 combined
+CI
+```{r fig.width=2, fig.height=3}
+subset_bbs1andbbs10 <- subset(update8forR,update8forR$gene=="BBS1"|update8forR$gene=="BBS10")
+fisherize_one_sided(subset_bbs12,subset_bbs1andbbs10,10,"all","greater")
+
+```
+
+  Deveault, 2011 (5)
+Kruskal-Wallis test of syndromic score between functional classes of canonical genes
+```{r fig.width=2, fig.height=3}
+subset_sscore_allwow <- subset(subset_allwow, subset_allwow$sisubset=="yes")
+kruskal.test(subset_sscore_allwow$si~subset_sscore_allwow$ggroup)
+```
+  
+  Deveault, 2011 (5)
+CI
+Fisher’s exact test BBS1 vs other canonical BBS genes
+```{r fig.width=2, fig.height=3}
+subset_canonwobbs1 <- subset(subset_allwow, subset_allwow$gene!="BBS1")
+fisherize_one_sided(subset_bbs1,subset_canonwobbs1,10,"all","greater")
+```
+  
+  Deveault, 2011 
+Fisher’s exact test BBS12 vs other canonical BBS genes
+CI
+
+```{r fig.width=2, fig.height=3}
+subset_canonwobbs12 <- subset(subset_allwow, subset_allwow$gene!="BBS12")
+fisherize_one_sided(subset_bbs12,subset_canonwobbs12,10,"all","greater")
+```
+
+  Deveault, 2011 
+Fisher’s exact test BBS10 vs other canonical BBS genes
+REN
+```{r fig.width=2, fig.height=3}
+subset_canonwobbs10 <- subset(subset_allwow, subset_allwow$gene!="BBS10")
+fisherize_one_sided(subset_bbs10,subset_canonwobbs10,12,"all","less")
+```
+  
+  Esposito, 2017 (6)
+RD
+Fisher’s exact test BBS10 vs BBS1 and BBS2 patients
+```{r fig.width=2, fig.height=3}
+subset_bbs1andbbs2 <- subset(subset_bbsome,subset_bbsome$gene=="BBS1"|
+                               subset_bbsome$gene=="BBS2")
+fisherize_one_sided(subset_bbs10,subset_bbs1andbbs2,7,"all","less")
+```
+  
+  Esposito, 2017 (6)
+REN
+Fisher’s exact test BBS10 vs BBS1 and BBS2 patients
+```{r fig.width=2, fig.height=3}
+fisherize_one_sided(subset_bbs10,subset_bbs1andbbs2,12,"all","less")
+```
+  
+  Forsythe, 2015 (8)
+REN
+Fisher’s exact test BBS10 vs BBS1 
+```{r fig.width=2, fig.height=3}
+fisherize_one_sided(subset_bbs10,subset_bbs1,12,"all","less")
+```
+  
+  Forsythe, 2015 (8)
+LIV
+Fisher’s exact test BBS10 vs BBS1 
+```{r fig.width=2, fig.height=3}
+fisherize_one_sided(subset_bbs10,subset_bbs1,14,"all","less")
+```
+  
+  Forsythe, 2015 (8)
+REN
+Fisher’s exact test BBS1 and BBS10 MS/MS vs. TR/TR 
+```{r fig.width=2, fig.height=3}
+subset_bbs1andbbs10_cLOF <- subset(subset_bbs1andbbs10,subset_bbs1andbbs10$muttype=="cLOF")
+subset_bbs1andbbs10_MSMS <- subset(subset_bbs1andbbs10,subset_bbs1andbbs10$muttype=="MSMSandMScLOF")
+fisherize_one_sided(subset_bbs1andbbs10_cLOF,subset_bbs1andbbs10_MSMS,12,"all","less")
+```
+  
+  Forsythe, 2015 (8)
+LIV
+Fisher’s exact test BBS1 and BBS10 MS/MS vs. TR/TR 
+```{r fig.width=2, fig.height=3}
+fisherize_one_sided(subset_bbs1andbbs10_cLOF,subset_bbs1andbbs10_MSMS,14,"all","greater")
+```
+  
+  Forsythe, 2017 (9)
+REN
+Fisher’s exact test BBS2, BBS10 and BBS12 vs other canonical
+```{r fig.width=2, fig.height=3}
+subset_bbs2bbs10bbs12 <- subset(subset_allwow,subset_allwow$gene=="BBS2"|
+                                subset_allwow$gene=="BBS10"|
+                                subset_allwow$gene=="BBS12")
+subset_allwobbs2bbs10bbs12 <- subset(subset_allwow,subset_allwow$gene!="BBS2"&
+                                subset_allwow$gene!="BBS10"&
+                                subset_allwow$gene!="BBS12")
+fisherize_one_sided(subset_bbs2bbs10bbs12,subset_allwobbs2bbs10bbs12,12,"all","less")
+```
+  
+  Forsythe, 2017
+REN
+Fisher’s exact test all canonical MS/MS vs. TR/TR
+```{r fig.width=2, fig.height=3}
+subset_MSMS_allwow <- subset(subset_allwow,subset_allwow$muttype=="MSMSandMScLOF")
+fisherize_one_sided(subset_cLOF_allwow,subset_MSMS_allwow,12,"all","less")
+```
+  
+  Forsythe, 2017
+REN
+Fisher’s exact test BBS1 M390R hom vs. BBS1 MS/TR+TR/TR
+```{r fig.width=2, fig.height=3}
+subset_bbs1_m390 <- subset(subset_bbs1,subset_bbs1$m390r=="yes")
+subset_bbs1_non_m390 <- subset(subset_bbs1,subset_bbs1$m390r=="no")
+
+fisherize_one_sided(subset_bbs1_m390,subset_bbs1_non_m390,12,"all","greater")
+
+
+
+```  
+  
+  Hjorsthoj, 2010 
+overall severity
+Mann-Whitney syndromic score BBS1 vs BBS2 and BBS10
+```{r}
+subset_bbs2andbbs10 <- subset(subset_bbsome,subset_bbsome$gene=="BBS2"|                              subset_bbsome$gene=="BBS10")
+print(paste("Wilcoxon test on syndromic score p-value = ",wilcox.test(subset_bbs1$si,subset_bbs2andbbs10$si)$p.value))
+```
+
+  Hjorsthoj, 2010 
+Mann-Whitney syndromic score BBS1 without patients with M390R vs BBS2 and BBS10
+```{r}
+print(paste("Wilcoxon test on syndromic score p-value = ",wilcox.test(subset_bbs1_non_m390$si,subset_bbs2andbbs10$si)$p.value))
+
+
+```
+
+  Hjorsthoj, 2010 (10)
+REN, CI, OBE, REP
+Fisher’s exact test BBS1 vs BBS2 and BBS10
+```{r fig.width=2, fig.height=3}
+fisherize_one_sided(subset_bbs1,subset_bbs2andbbs10,12,"all","greater")
+fisherize_one_sided(subset_bbs1,subset_bbs2andbbs10,10,"all","greater")
+fisherize_one_sided(subset_bbs1,subset_bbs2andbbs10,8,"all","greater")
+fisherize_one_sided(subset_bbs1,subset_bbs2andbbs10,11,"all","greater")
+```
+  
+  Kerr, 2015 
+CI
+Fisher’s exact test BBS1 vs BBS10 vs other canonical (three groups) 
+```{r fig.width=2, fig.height=3}
+subset_canonwobbs1bbs10 <- subset(subset_canonwobbs1, subset_canonwobbs1$gene!="BBS10")
+print(paste("Fisher test all mutations (three groups) p-value = ",fisher.test(matrix(
+      c(phenotype_analysis(subset_bbs1[10])$no,
+        phenotype_analysis(subset_bbs10[10])$no,
+        phenotype_analysis(subset_canonwobbs1bbs10[10])$no,
+        phenotype_analysis(subset_bbs1[10])$yes,
+        phenotype_analysis(subset_bbs10[10])$yes,
+        phenotype_analysis(subset_canonwobbs1bbs10[10])$yes
+    ),
+        ncol = 3, byrow = TRUE)
+      
+    )$p.value))
+
+```
+
+  Pawlik, 2010 (13)
+overall severity
+Mann-Whitney syndromic score BBS12 vs other canonical
+```{r}
+print(paste("Wilcoxon test on syndromic score p-value = ",wilcox.test(subset_bbs12$si, subset_canonwobbs12$si)$p.value))
+```
+  
+  Schaefer, 2011a (14)
+PD, REN
+Fisher’s exact test BBS16 vs all canonical
+```{r fig.width=2, fig.height=3}
+subset_bbs16 <- subset(subset_other, subset_other$gene=="BBS16")
+fisherize_one_sided(subset_bbs16,subset_allwow,9,"all","greater")
+fisherize_one_sided(subset_bbs16,subset_allwow,12,"all","less")
+```
+
