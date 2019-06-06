@@ -1,0 +1,900 @@
+source;source case n.;gene;sex;age group;age;RD;OBE;PD;CI;REP;REN;HEART;LIV;DD;muttype;sisubset;ggroup;allwow;canonwobbs1;si;agegroup;year;m390r
+Abu Safieh et al. 2010;KFSH-FD001-1;BBS3;F;20-39;25;1;0;0;0;0;0;0;0;;MSMSandMScLOF;yes;bbs3;yes;yes;0.2;age3;2010;no
+Abu Safieh et al. 2010;KFSH-FD001-2;BBS3;F;20-39;30;1;0;0;0;0;0;0;0;;MSMSandMScLOF;yes;bbs3;yes;yes;0.2;age3;2010;no
+Abu Safieh et al. 2010;KFSH-FD001-3;BBS3;F;20-39;27;1;0;0;0;0;0;0;0;;MSMSandMScLOF;yes;bbs3;yes;yes;0.2;age3;2010;no
+Abu Safieh et al. 2010;KFSH-FD001-4;BBS3;M;20-39;22;1;0;0;0;0;0;0;0;;MSMSandMScLOF;yes;bbs3;yes;yes;0.2;age3;2010;no
+Abu-Safieh et al. 2012;BBS-F001-A;BBS1;;;;1;1;1;1;1;1;1;0;;cLOF;yes;bbsome;yes;no;1;;2012;no
+Abu-Safieh et al. 2012;BBS-F001-B;BBS1;;;;1;1;1;1;1;1;1;0;;cLOF;yes;bbsome;yes;no;1;;2012;no
+Abu-Safieh et al. 2012;BBS-F002-A;BBS1;;;;1;1;1;1;;0;0;0;;cLOF;yes;bbsome;yes;no;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F002-B;BBS1;;;;1;1;0;1;;0;0;0;;cLOF;yes;bbsome;yes;no;0.6;;2012;no
+Abu-Safieh et al. 2012;BBS-F002-C;BBS1;;;;1;1;1;1;1;0;0;0;;cLOF;yes;bbsome;yes;no;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F006-A;BBS1;;;;1;1;0;1;;0;0;0;;cLOF;yes;bbsome;yes;no;0.6;;2012;no
+Abu-Safieh et al. 2012;BBS-F006-B;BBS1;;;;1;1;0;1;1;0;0;0;;cLOF;yes;bbsome;yes;no;0.6;;2012;no
+Abu-Safieh et al. 2012;BBS-F009-A;BBS1;;;;1;1;1;1;1;0;0;0;;cLOF;yes;bbsome;yes;no;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F009-B;BBS1;;;;1;1;1;1;;0;0;0;;cLOF;yes;bbsome;yes;no;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F010-A;BBS1;;;;1;0;1;0;;0;0;0;;cLOF;yes;bbsome;yes;no;0.4;;2012;no
+Abu-Safieh et al. 2012;BBS-F010-B;BBS1;;;;1;0;1;0;;0;0;0;;cLOF;yes;bbsome;yes;no;0.4;;2012;no
+Abu-Safieh et al. 2012;BBS-F010-C;BBS1;;;;1;0;1;0;;0;0;0;;cLOF;yes;bbsome;yes;no;0.4;;2012;no
+Abu-Safieh et al. 2012;BBS-F014-A;BBS1;;;;1;1;1;1;1;0;0;0;;cLOF;yes;bbsome;yes;no;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F014-B;BBS1;;;;1;1;1;1;1;1;0;0;;cLOF;yes;bbsome;yes;no;1;;2012;no
+Abu-Safieh et al. 2012;BBS-F016-A;BBS1;;;;1;1;1;1;1;0;0;0;;cLOF;yes;bbsome;yes;no;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F021-A;BBS1;;;;1;1;1;1;0;0;0;0;;cLOF;yes;bbsome;yes;no;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F021-B;BBS1;;;;1;1;1;1;;0;0;0;;cLOF;yes;bbsome;yes;no;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F026-A;BBS1;;;;1;1;1;1;1;0;0;0;;cLOF;yes;bbsome;yes;no;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F026-B;BBS1;;;;1;1;1;1;1;0;0;0;;cLOF;yes;bbsome;yes;no;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F011-A;BBS10;;;;1;1;1;0;;0;0;0;;cLOF;yes;chaps;yes;yes;0.6;;2012;no
+Abu-Safieh et al. 2012;BBS-F023-A;BBS10;;;;1;1;1;1;1;0;0;0;;cLOF;yes;chaps;yes;yes;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F029-A;BBS10;;;;1;1;1;1;1;1;0;0;;cLOF;yes;chaps;yes;yes;1;;2012;no
+Abu-Safieh et al. 2012;BBS-F029-B;BBS10;;;;1;1;1;1;1;1;0;0;;cLOF;yes;chaps;yes;yes;1;;2012;no
+Abu-Safieh et al. 2012;BBS-F029-C;BBS10;;;;1;1;1;0;1;0;0;0;;cLOF;yes;chaps;yes;yes;0.6;;2012;no
+Abu-Safieh et al. 2012;BBS-F027-A;BBS12;;;;1;1;1;0;1;1;0;0;;MSMSandMScLOF;yes;chaps;yes;yes;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F027-B;BBS12;;;;1;1;1;0;1;1;0;0;;MSMSandMScLOF;yes;chaps;yes;yes;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F028-A;BBS12;;;;1;1;1;0;;1;0;0;;cLOF;yes;chaps;yes;yes;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F032-A;BBS13;;;;;1;1;;;1;1;1;;cLOF;no;other;no;no;;;2012;no
+Abu-Safieh et al. 2012;BBS-F024-A;BBS2;;;;1;1;1;1;1;0;0;0;;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F003-A;BBS3;;;;1;1;1;0;0;0;0;0;;MSMSandMScLOF;yes;bbs3;yes;yes;0.6;;2012;no
+Abu-Safieh et al. 2012;BBS-F003-B;BBS3;;;;1;1;1;0;;0;0;0;;MSMSandMScLOF;yes;bbs3;yes;yes;0.6;;2012;no
+Abu-Safieh et al. 2012;BBS-F003-C;BBS3;;;;1;1;0;0;0;0;0;1;;MSMSandMScLOF;yes;bbs3;yes;yes;0.4;;2012;no
+Abu-Safieh et al. 2012;BBS-F003-D;BBS3;;;;1;1;1;0;;0;0;0;;MSMSandMScLOF;yes;bbs3;yes;yes;0.6;;2012;no
+Abu-Safieh et al. 2012;BBS-F003-E;BBS3;;;;1;1;1;0;;0;0;0;;MSMSandMScLOF;yes;bbs3;yes;yes;0.6;;2012;no
+Abu-Safieh et al. 2012;BBS-F004-A;BBS3;;;;1;1;1;1;1;0;0;0;;cLOF;yes;bbs3;yes;yes;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F004-B;BBS3;;;;1;1;0;1;;0;0;0;;cLOF;yes;bbs3;yes;yes;0.6;;2012;no
+Abu-Safieh et al. 2012;BBS-F004-C;BBS3;;;;1;1;1;1;;0;0;0;;cLOF;yes;bbs3;yes;yes;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F004-D;BBS3;;;;1;1;1;1;;0;0;0;;cLOF;yes;bbs3;yes;yes;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F004-E;BBS3;;;;1;1;1;1;;0;0;0;;cLOF;yes;bbs3;yes;yes;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F018-A;BBS3;;;;1;1;1;0;1;0;0;0;;cLOF;yes;bbs3;yes;yes;0.6;;2012;no
+Abu-Safieh et al. 2012;BBS-F018-B;BBS3;;;;1;1;1;0;;0;0;0;;cLOF;yes;bbs3;yes;yes;0.6;;2012;no
+Abu-Safieh et al. 2012;BBS-F018-C;BBS3;;;;1;1;1;0;;0;0;0;;cLOF;yes;bbs3;yes;yes;0.6;;2012;no
+Abu-Safieh et al. 2012;BBS-arRP-F026-A;BBS4;;;;1;1;1;0;0;0;0;0;;cLOF;yes;bbsome;yes;yes;0.6;;2012;no
+Abu-Safieh et al. 2012;BBS-arRP-F026-B;BBS4;;;;1;1;1;0;0;0;0;0;;cLOF;yes;bbsome;yes;yes;0.6;;2012;no
+Abu-Safieh et al. 2012;BBS-arRP-F026-C;BBS4;;;;1;1;1;0;0;0;0;0;;cLOF;yes;bbsome;yes;yes;0.6;;2012;no
+Abu-Safieh et al. 2012;BBS-arRP-F026-D;BBS4;;;;1;1;1;0;0;0;0;0;;cLOF;yes;bbsome;yes;yes;0.6;;2012;no
+Abu-Safieh et al. 2012;BBS-F005-A;BBS4;;;;1;1;1;1;1;0;1;0;;cLOF;yes;bbsome;yes;yes;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F005-B;BBS4;;;;1;1;1;1;1;0;0;0;;cLOF;yes;bbsome;yes;yes;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F013-A;BBS4;;;;1;1;1;1;1;1;0;0;;cLOF;yes;bbsome;yes;yes;1;;2012;no
+Abu-Safieh et al. 2012;BBS-F017-A;BBS4;;;;1;1;1;1;1;0;0;0;;cLOF;yes;bbsome;yes;yes;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F031-A;BBS4;;;;1;1;1;1;0;0;0;0;;cLOF;yes;bbsome;yes;yes;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F030-A;BBS5;;;;1;1;1;1;1;0;0;0;;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;;2012;no
+Abu-Safieh et al. 2012;BBS-F019-A;BBS6;;;;1;1;1;1;;1;1;0;;MSMSandMScLOF;yes;chaps;yes;yes;1;;2012;no
+Abu-Safieh et al. 2012;BBS-F019-B;BBS6;;;;1;1;1;1;;1;1;0;;MSMSandMScLOF;yes;chaps;yes;yes;1;;2012;no
+Abu-Safieh et al. 2012;BBS-F022-A;BBS6;;;;1;1;1;;0;1;0;0;;MSMSandMScLOF;no;chaps;yes;yes;;;2012;no
+Abu-Safieh et al. 2012;BBS-F012-A;BBS7;;;;1;1;1;1;1;1;0;0;;cLOF;yes;bbsome;yes;yes;1;;2012;no
+Abu-Safieh et al. 2012;BBS-F012-B;BBS7;;;;1;1;1;1;;1;0;0;;cLOF;yes;bbsome;yes;yes;1;;2012;no
+Abu-Safieh et al. 2012;BBS-F012-C;BBS7;;;;1;1;1;1;;1;0;0;;cLOF;yes;bbsome;yes;yes;1;;2012;no
+Abu-Safieh et al. 2012;BBS-F015-A;BBS9;;;;1;0;0;0;;0;0;0;;cLOF;yes;bbsome;yes;yes;0.2;;2012;no
+Abu-Safieh et al. 2012;BBS-F015-B;BBS9;;;;1;1;1;1;;1;0;0;;cLOF;yes;bbsome;yes;yes;1;;2012;no
+Abu-Safieh et al. 2012;BBS-F015-C;BBS9;;;;1;0;0;0;;0;0;0;;cLOF;yes;bbsome;yes;yes;0.2;;2012;no
+Agha et al. 2013;IV-1;BBS10;M;X.19;15;1;1;1;1;1;0;0;1;1;cLOF;yes;chaps;yes;yes;0.8;age2;2013;no
+Agha et al. 2013;IV-3;BBS10;M;0-9;4;1;1;;;1;;;;1;cLOF;no;chaps;yes;yes;;age1;2013;no
+Ajmal et al. 2013;Family A IV:4;BBS1;F;;;1;1;1;1;0;0;0;0;1;cLOF;yes;bbsome;yes;no;0.8;;2013;no
+Ajmal et al. 2013;Family A IV:5;BBS1;M;;;1;1;0;1;0;0;0;0;1;cLOF;yes;bbsome;yes;no;0.6;;2013;no
+Ajmal et al. 2013;Family B IV:3;BBS1;M;;;1;1;1;1;0;0;;0;1;MSMSandMScLOF;yes;bbsome;yes;no;0.8;;2013;no
+Ajmal et al. 2013;Family B IV:5;BBS1;F;;;1;1;1;1;0;0;1;0;0;MSMSandMScLOF;yes;bbsome;yes;no;0.8;;2013;no
+Alazami et al. 2012;JS_F11;BBS14;F;;;1;;0;1;;0;;0;1;cLOF;no;other;no;no;;;2012;no
+Alazami et al. 2012;JS_F12;BBS14;F;;;;;1;1;;1;;0;1;cLOF;no;other;no;no;;;2012;no
+Alazami et al. 2012;JS_F3;BBS14;F;;;;;0;1;;1;;0;1;cLOF;no;other;no;no;;;2012;no
+Aldahmesh et al. 2014;BBS_DG4a;BBS1;M;;;1;1;1;1;1;0;;0;;cLOF;yes;bbsome;yes;no;0.8;;2014;no
+Aldahmesh et al. 2014;BBS_DG4b;BBS1;F;;;1;1;1;1;0;;;0;;cLOF;no;bbsome;yes;no;;;2014;no
+Aldahmesh et al. 2014;BBS_DG1a;BBS10;F;;;1;1;0;1;1;1;;;;MSMSandMScLOF;yes;chaps;yes;yes;0.8;;2014;no
+Aldahmesh et al. 2014;BBS_DG1b;BBS10;M;;;1;1;1;1;1;0;1;;;MSMSandMScLOF;yes;chaps;yes;yes;0.8;;2014;no
+Aldahmesh et al. 2014;BBS_DG5a;BBS5;F;;;1;1;1;1;0;1;0;1;;cLOF;yes;bbsome;yes;yes;1;;2014;no
+Aldahmesh et al. 2014;BBS_DG5b;BBS5;F;;;1;1;1;1;0;1;0;;;cLOF;yes;bbsome;yes;yes;1;;2014;no
+Aldahmesh et al. 2014;BBS_DG5c;BBS5;F;;;1;1;1;1;0;0;0;1;;cLOF;yes;bbsome;yes;yes;0.8;;2014;no
+Aldahmesh et al. 2014;BBS_DG5d;BBS5;F;;;1;1;0;1;0;1;0;1;;cLOF;yes;bbsome;yes;yes;0.8;;2014;no
+Aldahmesh et al. 2014;BBS_DG9a;BBS6;M;;;1;1;1;1;1;0;0;0;;MSMSandMScLOF;yes;chaps;yes;yes;0.8;;2014;no
+Aldahmesh et al. 2014;BBS_DG9b;BBS6;M;;;1;1;1;1;1;0;0;0;;MSMSandMScLOF;yes;chaps;yes;yes;0.8;;2014;no
+Aldahmesh et al. 2014;BBS_DG6a;BBS7;F;;;1;1;1;1;0;1;0;0;;cLOF;yes;bbsome;yes;yes;1;;2014;no
+Aldahmesh et al. 2014;BBS_DG6b;BBS7;F;;;1;1;1;1;0;0;0;0;;cLOF;yes;bbsome;yes;yes;0.8;;2014;no
+Al-Hamed et al. 2014;Affected female-1;BBS5;F;;;1;1;1;1;;1;0;;1;cLOF;yes;bbsome;yes;yes;1;;2014;no
+Al-Hamed et al. 2014;Affected female-2;BBS5;F;;;0;1;1;1;;1;1;;1;cLOF;yes;bbsome;yes;yes;0.8;;2014;no
+Al-Hamed et al. 2014;Affected male;BBS5;M;;;0;1;1;1;1;0;1;;1;cLOF;yes;bbsome;yes;yes;0.6;;2014;no
+Azari et al. 2006;P1;BBS1;F;X.19;16;0;;1;1;;1;1;;;MSMSandMScLOF;no;bbsome;yes;no;;age2;2006;yes
+Azari et al. 2006;P10#;BBS1;M;40+;48;0;;1;1;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age4;2006;yes
+Azari et al. 2006;P2;BBS1;F;X.19;16;1;1;1;;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age2;2006;no
+Azari et al. 2006;P3;BBS1;M;X.19;17;0;;1;;;;1;1;;MSMSandMScLOF;no;bbsome;yes;no;;age2;2006;yes
+Azari et al. 2006;P4;BBS1;F;X.19;19;1;;1;;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age2;2006;no
+Azari et al. 2006;P5;BBS1;M;20-39;20;1;;;1;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age3;2006;yes
+Azari et al. 2006;P6;BBS1;M;20-39;30;1;;1;;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age3;2006;yes
+Azari et al. 2006;P7¶;BBS1;F;40+;40;0;1;;;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age4;2006;yes
+Azari et al. 2006;P8¶;BBS1;M;40+;44;1;1;1;;;1;;;;MSMSandMScLOF;no;bbsome;yes;no;;age4;2006;yes
+Azari et al. 2006;P9#;BBS1;F;20-39;37;1;;1;;;1;;;;MSMSandMScLOF;no;bbsome;yes;no;;age3;2006;yes
+Badano et al. 2003;AR768-03;BBS1;F;0-9;9;1;0;;0;1;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age1;2003;no
+Badano et al. 2003;AR768-04;BBS1;F;0-9;7;1;1;;1;1;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age1;2003;no
+Badano et al. 2003;PB009-03;BBS1;F;20-39;32;1;1;;1;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age3;2003;yes
+Badano et al. 2003;PB009-04;BBS1;M;20-39;35;1;1;;1;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age3;2003;yes
+Badano et al. 2003;PB009-05;BBS1;F;20-39;37;1;1;;0;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age3;2003;yes
+Badano et al. 2003;PB061-03;BBS2;F;20-39;20;;0;;0;;;;;0;cLOF;no;bbsome;yes;yes;;age3;2003;no
+Badano et al. 2003;PB061-04;BBS2;M;X.19;18;;1;;1;;;;;1;cLOF;no;bbsome;yes;yes;;age2;2003;no
+Baker et al. 2010;NA;BBS1;F;X.19;17;0;1;0;;;;;;1;;no;bbsome;yes;no;;age2;2010;no
+Baker et al. 2010;NA;BBS1;F;20-39;24;1;1;1;;;;;;;;no;bbsome;yes;no;;age3;2010;no
+Baker et al. 2010;NA;BBS1;F;X.19;18;1;;1;;;;;;1;;no;bbsome;yes;no;;age2;2010;no
+Baker et al. 2010;NA;BBS1;F;20-39;21;1;;1;;;;;;;;no;bbsome;yes;no;;age3;2010;no
+Baker et al. 2010;NA;BBS1;M;20-39;27;1;1;1;;;;;;;;no;bbsome;yes;no;;age3;2010;no
+Bee et al. 2015;II:2;BBS2;F;20-39;37;1;1;1;1;;1;;;;cLOF;yes;bbsome;yes;yes;1;age3;2015;no
+Bennouna-Greene et al. 2011;01.02.2003;BBS1;F;40+;53;1;1;;0;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age4;2011;yes
+Bennouna-Greene et al. 2011;01.03.2004;BBS1;F;20-39;28;1;1;;0;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age3;2011;no
+Bennouna-Greene et al. 2011;01.07.2010;BBS1;M;20-39;21;0;0;;0;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age3;2011;yes
+Bennouna-Greene et al. 2011;01.07.2015;BBS1;M;X.19;18;0;1;;0;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age2;2011;yes
+Bennouna-Greene et al. 2011;05.02.2007;BBS1;M;20-39;34;1;1;;0;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age3;2011;yes
+Bennouna-Greene et al. 2011;06.01.2001;BBS1;M;20-39;33;1;0;;0;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age3;2011;yes
+Bennouna-Greene et al. 2011;06.02.2004;BBS1;M;X.19;19;1;1;;0;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age2;2011;no
+Bennouna-Greene et al. 2011;06.02.2005;BBS1;F;20-39;21;1;0;;0;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age3;2011;no
+Bennouna-Greene et al. 2011;1.16.25;BBS1;M;20-39;38;1;1;;0;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age3;2011;yes
+Bennouna-Greene et al. 2011;1.4.c;BBS1;M;X.19;17;1;0;;0;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age2;2011;yes
+Bennouna-Greene et al. 2011;01.06.2006;BBS10;M;20-39;28;1;1;;0;;;;;;cLOF;no;chaps;yes;yes;;age3;2011;no
+Bennouna-Greene et al. 2011;04.01.2001;BBS10;M;X.19;19;1;0;;0;;;;;;MSMSandMScLOF;no;chaps;yes;yes;;age2;2011;no
+Bennouna-Greene et al. 2011;04.02.2002;BBS10;F;X.19;16;;1;;0;;;;;;cLOF;no;chaps;yes;yes;;age2;2011;no
+Bennouna-Greene et al. 2011;01.10.2019;BBS10;M;20-39;34;1;1;;1;;;;;;MSMSandMScLOF;no;chaps;yes;yes;;age3;2011;no
+Bennouna-Greene et al. 2011;01.12.2021;BBS10;M;20-39;30;1;1;;0;;;;;;cLOF;no;chaps;yes;yes;;age3;2011;no
+Bennouna-Greene et al. 2011;01.04.2005;BBS12;M;20-39;23;0;1;;1;;;;;;cLOF;no;chaps;yes;yes;;age3;2011;no
+Bennouna-Greene et al. 2011;06.03.2009;BBS12;M;20-39;37;1;1;;1;;;;;;MSMSandMScLOF;no;chaps;yes;yes;;age3;2011;no
+Bennouna-Greene et al. 2011;1.13.22;BBS12;M;X.19;19;1;1;;1;;;;;;cLOF;no;chaps;yes;yes;;age2;2011;no
+Bennouna-Greene et al. 2011;01.05.2007;BBS2;M;20-39;27;1;1;;1;;;;;;cLOF;no;bbsome;yes;yes;;age3;2011;no
+Bennouna-Greene et al. 2011;01.11.2020;BBS6;M;20-39;24;1;1;;0;;;;;;cLOF;no;chaps;yes;yes;;age3;2011;no
+Bennouna-Greene et al. 2011;01.08.2012;BBS9;M;X.19;17;1;1;;0;;;;;;cLOF;no;bbsome;yes;yes;;age2;2011;no
+Bennouna-Greene et al. 2011;1.14.23;BBS9;M;20-39;22;0;1;;1;;;;;;cLOF;no;bbsome;yes;yes;;age3;2011;no
+Billingsley et al. 2010;22*;BBS10;M;X.19;14;1;0;1;1;0;1;;0;1;MSMSandMScLOF;yes;chaps;yes;yes;0.8;age2;2010;no
+Billingsley et al. 2010;55*;BBS10;M;X.19;16;1;1;1;0;0;1;;0;1;MSMSandMScLOF;yes;chaps;yes;yes;0.8;age2;2010;no
+Billingsley et al. 2010;60yy;BBS10;F;0-9;6;1;0;1;1;;1;;0;1;MSMSandMScLOF;yes;chaps;yes;yes;0.8;age1;2010;no
+Billingsley et al. 2010;65y;BBS10;M;20-39;27;1;1;1;1;1;0;;0;1;MSMSandMScLOF;yes;chaps;yes;yes;0.8;age3;2010;no
+Billingsley et al. 2010;66y;BBS10;M;X.19;10;1;1;1;1;1;0;;1;1;MSMSandMScLOF;yes;chaps;yes;yes;0.8;age2;2010;no
+Billingsley et al. 2010;79z;BBS10;F;X.19;18;1;;1;0;0;0;;;;MSMSandMScLOF;no;chaps;yes;yes;;age2;2010;no
+Billingsley et al. 2010;80z;BBS10;F;X.19;15;1;1;1;;0;0;;;;MSMSandMScLOF;no;chaps;yes;yes;;age2;2010;no
+Billingsley et al. 2010;126**;BBS12;F;0-9;4;1;1;1;1;;;;;;MSMSandMScLOF;no;chaps;yes;yes;;age1;2010;no
+Billingsley et al. 2010;128**;BBS12;M;X.19;16;;;;1;1;;;0;1;MSMSandMScLOF;no;chaps;yes;yes;;age2;2010;no
+Billingsley et al. 2010;24{;BBS12;F;0-9;6;1;0;1;;1;1;;0;1;cLOF;no;chaps;yes;yes;;age1;2010;no
+Billingsley et al. 2010;2x;BBS12;M;20-39;24;1;0;1;0;0;0;;1;1;MSMSandMScLOF;yes;chaps;yes;yes;0.4;age3;2010;no
+Billingsley et al. 2010;3x;BBS12;M;20-39;22;1;1;1;0;1;0;;1;1;MSMSandMScLOF;yes;chaps;yes;yes;0.6;age3;2010;no
+Billingsley et al. 2010;56{;BBS12;F;X.19;15;1;1;1;0;;1;;0;;cLOF;yes;chaps;yes;yes;0.8;age2;2010;no
+Billingsley et al. 2012;40;BBS16;;X.19;16;1;1;0;1;0;1;0;0;1;cLOF;yes;other;no;no;0.8;age2;2012;no
+Billingsley et al. 2012;59;BBS16;;X.19;13;1;1;0;1;0;1;1;1;1;cLOF;yes;other;no;no;0.8;age2;2012;no
+Branfield Day et al. 2015;15;BBS1;F;20-39;23;;1;;;;1;;0;;;no;bbsome;yes;no;;age3;2015;no
+Branfield Day et al. 2015;1;BBS10;F;X.19;15,2;;1;;;;1;;1;;;no;chaps;yes;yes;;age2;2015;no
+Branfield Day et al. 2015;2;BBS10;F;X.19;14,4;;1;;;;1;;1;;;no;chaps;yes;yes;;age2;2015;no
+Branfield Day et al. 2015;7;BBS10;F;X.19;16;;1;;;;0;;0;;;no;chaps;yes;yes;;age2;2015;no
+Branfield Day et al. 2015;16;BBS10;F;20-39;20,3;;1;;;;1;;0;;;no;chaps;yes;yes;;age3;2015;no
+Branfield Day et al. 2015;17;BBS10;F;20-39;22,3;;1;;;;1;;1;;;no;chaps;yes;yes;;age3;2015;no
+Branfield Day et al. 2015;18;BBS10;M;X.19;18,2;;1;;;;1;;0;;;no;chaps;yes;yes;;age2;2015;no
+Branfield Day et al. 2015;21;BBS10;M;X.19;19,9;;1;;;;1;;0;;;no;chaps;yes;yes;;age2;2015;no
+Branfield Day et al. 2015;3;BBS16;F;X.19;17,9;;1;;;;1;;0;;;no;other;no;no;;age2;2015;no
+Branfield Day et al. 2015;4;BBS16;F;X.19;14,6;;1;;;;1;;1;;;no;other;no;no;;age2;2015;no
+Branfield Day et al. 2015;9;BBS2;F;X.19;14,3;;1;;;;1;;1;;;no;bbsome;yes;yes;;age2;2015;no
+Branfield Day et al. 2015;8;BBS4;F;X.19;15,1;;1;;;;1;;0;;;no;bbsome;yes;yes;;age2;2015;no
+Branfield Day et al. 2015;10;BBS4;M;X.19;15,6;;1;;;;0;;0;;;no;bbsome;yes;yes;;age2;2015;no
+Branfield Day et al. 2015;11;BBS4;F;X.19;18;;1;;;;0;;0;;;no;bbsome;yes;yes;;age2;2015;no
+Branfield Day et al. 2015;19;BBS6;M;20-39;22,2;;1;;;;1;;1;;;no;chaps;yes;yes;;age3;2015;no
+Branfield Day et al. 2015;20;BBS6;M;20-39;22,4;;1;;;;0;;0;;;no;chaps;yes;yes;;age3;2015;no
+Branfield Day et al. 2015;14;BBS7;F;X.19;18,1;;1;;;;1;;0;;;no;bbsome;yes;yes;;age2;2015;no
+Branfield Day et al. 2015;5;BBS8;F;X.19;14,6;;1;;;;0;;0;;;no;bbsome;yes;yes;;age2;2015;no
+Branfield Day et al. 2015;6;BBS8;F;X.19;15,4;;1;;;;0;;1;;;no;bbsome;yes;yes;;age2;2015;no
+Branfield Day et al. 2015;12;BBS9;F;20-39;23,8;;1;;;;1;;1;;;no;bbsome;yes;yes;;age3;2015;no
+Branfield Day et al. 2015;13;BBS9;F;20-39;20,9;;1;;;;1;;0;;;no;bbsome;yes;yes;;age3;2015;no
+Braun et al. 2014;2;BBS1;M;X.19;17;1;;;1;;;;;;;no;bbsome;yes;no;;age2;2014;no
+Braun et al. 2014;3;BBS1;M;20-39;24;1;;;1;;;;;;;no;bbsome;yes;no;;age3;2014;no
+Braun et al. 2014;4;BBS1;F;40+;44;1;;;1;;;;;;;no;bbsome;yes;no;;age4;2014;no
+Braun et al. 2014;5;BBS1;M;20-39;23;0;;;1;;;;;;;no;bbsome;yes;no;;age3;2014;no
+Braun et al. 2014;6;BBS1;M;20-39;27;1;;;1;;;;;;;no;bbsome;yes;no;;age3;2014;no
+Braun et al. 2014;7;BBS1;F;20-39;27;0;;;0;;;;;;;no;bbsome;yes;no;;age3;2014;no
+Braun et al. 2014;13;BBS1;M;20-39;22;0;;;0;;;;;;;no;bbsome;yes;no;;age3;2014;no
+Braun et al. 2014;8;BBS10;F;20-39;20;1;;;1;;;;;;;no;chaps;yes;yes;;age3;2014;no
+Braun et al. 2014;11;BBS10;M;20-39;37;1;;;0;;;;;;;no;chaps;yes;yes;;age3;2014;no
+Braun et al. 2014;17;BBS10;M;20-39;25;1;;;0;;;;;;;no;chaps;yes;yes;;age3;2014;no
+Braun et al. 2014;20;BBS10;F;20-39;27;1;;;1;;;;;;;no;chaps;yes;yes;;age3;2014;no
+Braun et al. 2014;18;BBS12;F;20-39;22;1;;;1;;;;;;;no;chaps;yes;yes;;age3;2014;no
+Braun et al. 2014;19;BBS12;M;20-39;39;1;;;1;;;;;;;no;chaps;yes;yes;;age3;2014;no
+Braun et al. 2014;16;BBS3;M;X.19;18;1;;;0;;;;;;;no;bbs3;yes;yes;;age2;2014;no
+Braun et al. 2014;1;BBS4;F;20-39;26;1;;;1;;;;;;;no;bbsome;yes;yes;;age3;2014;no
+Braun et al. 2014;9;BBS5;M;20-39;24;1;;;0;;;;;;;no;bbsome;yes;yes;;age3;2014;no
+Braun et al. 2014;10;BBS5;M;20-39;39;1;;;0;;;;;;;no;bbsome;yes;yes;;age3;2014;no
+Braun et al. 2014;14;BBS9;M;20-39;27;1;;;0;;;;;;;no;bbsome;yes;yes;;age3;2014;no
+Bujakowska et al. 2015;Family 1, II.1;BBS20;;X.19;15;1;1;1;;;0;;1;;MSMSandMScLOF;no;other;no;no;;age2;2015;no
+Bujakowska et al. 2015;Family 1, II.2;BBS20;;20-39;22;1;1;0;;;0;;1;;MSMSandMScLOF;no;other;no;no;;age3;2015;no
+Bujakowska et al. 2015;Family 2, II.1;BBS20;;20-39;33;1;0;0;;;0;;;;MSMSandMScLOF;no;other;no;no;;age3;2015;no
+Bujakowska et al. 2015;Family 3, II.2;BBS20;;20-39;38;1;0;;;;0;;;;MSMSandMScLOF;no;other;no;no;;age3;2015;no
+Castro-Sanchez et al. 2015;B164 (463);BBS1;M;40+;44;1;1;1;0;0;0;1;1;1;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age4;2015;yes
+Castro-Sanchez et al. 2015;B260 (1476);BBS1;F;40+;46;1;0;1;0;1;0;0;;1;MSMSandMScLOF;yes;bbsome;yes;no;0.4;age4;2015;yes
+Castro-Sanchez et al. 2015;GBB23 (2128)‡;BBS1;F;40+;51;1;1;1;1;;1;1;;;MSMSandMScLOF;yes;bbsome;yes;no;1;age4;2015;yes
+Castro-Sanchez et al. 2015;GBB23 (2129)‡;BBS1;F;40+;59;1;1;1;1;;1;1;;;MSMSandMScLOF;yes;bbsome;yes;no;1;age4;2015;yes
+Castro-Sanchez et al. 2015;GBB27 (I)‡;BBS1;M;X.19;17;1;1;0;1;0;0;0;;;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age2;2015;no
+Castro-Sanchez et al. 2015;GBB27 (II)‡;BBS1;F;0-9;3;1;1;1;1;0;0;0;;1;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age1;2015;no
+Castro-Sanchez et al. 2015;GBB6 (110);BBS1;M;20-39;38;1;1;1;0;0;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age3;2015;no
+Castro-Sanchez et al. 2015;GBB7 (111)‡;BBS1;F;20-39;21;1;1;1;1;1;0;;;1;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age3;2015;no
+Castro-Sanchez et al. 2015;GBB7 (112)‡;BBS1;M;20-39;25;1;1;1;1;1;0;;;1;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age3;2015;no
+Castro-Sanchez et al. 2015;M129-(1518)‡;BBS1;M;40+;64;1;1;0;1;1;0;1;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age4;2015;yes
+Castro-Sanchez et al. 2015;M129-(1519)‡;BBS1;M;40+;61;1;1;0;;;1;1;;0;MSMSandMScLOF;no;bbsome;yes;no;;age4;2015;yes
+Castro-Sanchez et al. 2015;M499-(4993)‡;BBS1;M;40+;73;1;1;0;0;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age4;2015;yes
+Castro-Sanchez et al. 2015;M499-(4994)‡;BBS1;F;40+;57;1;1;1;0;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age4;2015;yes
+Castro-Sanchez et al. 2015;M622-(192)§;BBS1;F;40+;93;1;0;0;0;0;0;;;;MSMSandMScLOF;yes;bbsome;yes;no;0.2;age4;2015;yes
+Castro-Sanchez et al. 2015;M622-(708)§;BBS1;F;40+;73;1;;1;1;0;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age4;2015;yes
+Castro-Sanchez et al. 2015;M63 (1078)‡;BBS1;M;40+;41;1;1;1;1;1;1;0;;;MSMSandMScLOF;yes;bbsome;yes;no;1;age4;2015;yes
+Castro-Sanchez et al. 2015;M63 (1081)‡;BBS1;M;20-39;38;1;1;0;1;1;0;0;;1;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age3;2015;yes
+Castro-Sanchez et al. 2015;M713-(336)‡;BBS1;M;20-39;35;1;1;0;0;0;0;0;;;MSMSandMScLOF;yes;bbsome;yes;no;0.4;age3;2015;no
+Castro-Sanchez et al. 2015;M713-(337)‡;BBS1;M;20-39;33;1;1;0;0;0;0;0;;;MSMSandMScLOF;yes;bbsome;yes;no;0.4;age3;2015;no
+Castro-Sanchez et al. 2015;M732-(804);BBS1;F;40+;51;1;1;1;1;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age4;2015;yes
+Castro-Sanchez et al. 2015;RP1054 (249)§;BBS1;F;20-39;29;1;0;1;0;0;0;0;;;MSMSandMScLOF;yes;bbsome;yes;no;0.4;age3;2015;no
+Castro-Sanchez et al. 2015;RP1193 (747);BBS1;M;20-39;34;1;1;0;1;0;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age3;2015;no
+Castro-Sanchez et al. 2015;RP1322 (1168);BBS1;F;40+;47;1;0;1;1;;0;1;;;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age4;2015;yes
+Castro-Sanchez et al. 2015;RP1322 (1169);BBS1;F;40+;43;1;0;1;1;;0;1;;;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age4;2015;yes
+Castro-Sanchez et al. 2015;RP1378 (24)‡;BBS1;F;20-39;34;1;1;0;0;0;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age3;2015;no
+Castro-Sanchez et al. 2015;RP1378 (858)‡;BBS1;M;40+;41;1;1;1;0;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age4;2015;no
+Castro-Sanchez et al. 2015;RP1568 (502);BBS1;F;40+;54;1;1;1;0;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age4;2015;yes
+Castro-Sanchez et al. 2015;RP1568 (504);BBS1;F;40+;50;1;1;1;0;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age4;2015;yes
+Castro-Sanchez et al. 2015;RP1731 (I);BBS1;M;X.19;19;1;1;1;0;;0;0;;;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age2;2015;yes
+Castro-Sanchez et al. 2015;RP294 (4352)‡;BBS1;F;20-39;38;1;1;1;1;0;0;1;;;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age3;2015;no
+Castro-Sanchez et al. 2015;RP294 (4707)‡;BBS1;F;20-39;31;1;1;1;1;0;0;0;;;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age3;2015;no
+Castro-Sanchez et al. 2015;RP916 (1072);BBS1;M;40+;57;1;1;1;0;;0;1;;;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age4;2015;yes
+Castro-Sanchez et al. 2015;RP916 (1339);BBS1;M;20-39;32;1;1;1;1;;0;;;;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age3;2015;yes
+Castro-Sanchez et al. 2015;B182 (910);BBS10;M;40+;48;1;1;1;1;1;0;0;;1;MSMSandMScLOF;yes;chaps;yes;yes;0.8;age4;2015;no
+Castro-Sanchez et al. 2015;GBB1 (100);BBS10;F;20-39;33;1;1;1;;1;1;1;;;cLOF;no;chaps;yes;yes;;age3;2015;no
+Castro-Sanchez et al. 2015;GBB16 (3775)‡;BBS10;M;0-9;9;1;1;1;1;1;1;0;;1;cLOF;yes;chaps;yes;yes;1;age1;2015;no
+Castro-Sanchez et al. 2015;GBB16 (4038)‡;BBS10;M;0-9;7;1;;1;1;1;1;;;1;cLOF;no;chaps;yes;yes;;age1;2015;no
+Castro-Sanchez et al. 2015;GBB19 (I);BBS10;M;20-39;20;1;1;1;0;;0;;;;MSMSandMScLOF;yes;chaps;yes;yes;0.6;age3;2015;no
+Castro-Sanchez et al. 2015;GBB2 (102);BBS10;M;40+;46;1;1;1;0;0;0;0;;;cLOF;yes;chaps;yes;yes;0.6;age4;2015;no
+Castro-Sanchez et al. 2015;GBB36 (I);BBS10;M;40+;45;1;1;1;0;1;1;;;0;MSMSandMScLOF;yes;chaps;yes;yes;0.8;age4;2015;no
+Castro-Sanchez et al. 2015;RP1032 (32)¶;BBS10;F;X.19;15;1;1;1;;;;;;;cLOF;no;chaps;yes;yes;;age2;2015;no
+Castro-Sanchez et al. 2015;RP1172 (1416);BBS10;M;X.19;13;1;0;1;1;;;1;;0;MSMSandMScLOF;no;chaps;yes;yes;;age2;2015;no
+Castro-Sanchez et al. 2015;81;BBS12;F;X.19;14;1;1;1;0;1;1;0;1;1;MSMSandMScLOF;yes;chaps;yes;yes;0.8;age2;2015;no
+Castro-Sanchez et al. 2015;164;BBS12;M;40+;50;1;1;1;1;1;1;0;1;1;MSMSandMScLOF;yes;chaps;yes;yes;1;age4;2015;no
+Castro-Sanchez et al. 2015;GBB35 (I)§;BBS12;F;40+;49;1;1;1;1;0;1;1;1;1;MSMSandMScLOF;yes;chaps;yes;yes;1;age4;2015;no
+Castro-Sanchez et al. 2015;GBB4 (107);BBS12;M;20-39;24;0;1;1;1;1;0;1;;1;cLOF;yes;chaps;yes;yes;0.6;age3;2015;no
+Castro-Sanchez et al. 2015;M250-(127)‡;BBS12;M;40+;53;1;1;1;0;1;;0;;0;cLOF;no;chaps;yes;yes;;age4;2015;no
+Castro-Sanchez et al. 2015;M250-(130)‡;BBS12;M;40+;46;1;1;1;1;1;;1;;1;cLOF;no;chaps;yes;yes;;age4;2015;no
+Castro-Sanchez et al. 2015;M333-(826);BBS12;F;20-39;37;1;1;0;1;1;0;;;0;cLOF;yes;chaps;yes;yes;0.6;age3;2015;no
+Castro-Sanchez et al. 2015;RP1011 (1184)§;BBS12;F;40+;40;1;1;1;1;0;;;;1;MSMSandMScLOF;no;chaps;yes;yes;;age4;2015;no
+Castro-Sanchez et al. 2015;B17 (132)§;BBS6;F;40+;43;1;1;1;1;0;;1;;1;MSMSandMScLOF;no;chaps;yes;yes;;age4;2015;no
+Castro-Sanchez et al. 2015;M79 (1608)§;BBS6;F;20-39;36;1;1;1;1;1;1;;;0;MSMSandMScLOF;yes;chaps;yes;yes;1;age3;2015;no
+Castro-Sanchez et al. 2017;Case 2;BBS2;F;X.19;14;1;1;1;1;1;0;;;1;cLOF;yes;bbsome;yes;yes;0.8;age2;2017;no
+Castro-Sanchez et al. 2017;Case 3;BBS2;M;0-9;6;1;1;1;0;0;;;;;cLOF;no;bbsome;yes;yes;;age1;2017;no
+Cox et al. 2012;PT1;BBS1;F;20-39;27;1;1;1;1;;0;;;1;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age3;2012;yes
+Cox et al. 2012;PT2;BBS1;F;X.19;15;1;1;1;0;;0;;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age2;2012;yes
+Cox et al. 2012;PT3;BBS1;M;X.19;15;1;1;1;0;;0;;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age2;2012;yes
+Davies et al. 2018;BBS001;BBS1;F;20-39;30-39;1;1;0;1;0;0;0;;;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age3;2018;yes
+Davies et al. 2018;BBS002;BBS1;M;40+;60+;1;1;1;1;0;0;0;;;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age4;2018;yes
+Davies et al. 2018;BBS003;BBS1;F;40+;40-49;1;1;1;1;0;1;0;;;MSMSandMScLOF;yes;bbsome;yes;no;1;age4;2018;yes
+Davies et al. 2018;BBS004;BBS1;M;20-39;20-29;1;1;0;1;0;0;0;;;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age3;2018;no
+Davies et al. 2018;BBS005;BBS1;F;40+;60+;1;1;1;0;0;1;0;;;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age4;2018;yes
+Davies et al. 2018;BBS006;BBS1;M;40+;40-49;1;1;1;1;1;0;0;;;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age4;2018;no
+Davies et al. 2018;BBS007;BBS1;F;40+;40-49;1;1;1;1;0;1;0;;;MSMSandMScLOF;yes;bbsome;yes;no;1;age4;2018;yes
+Davies et al. 2018;BBS008;BBS1;M;40+;40-49;1;1;1;1;0;0;0;;;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age4;2018;yes
+Davies et al. 2018;BBS009;BBS1;M;20-39;30-39;1;1;1;0;0;0;0;;;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age3;2018;yes
+Davies et al. 2018;BBS010;BBS1;M;40+;50-59;1;1;1;1;0;0;0;;;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age4;2018;no
+Davies et al. 2018;BBS011;BBS1;M;40+;50-59;1;1;0;1;0;0;0;;;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age4;2018;no
+Davies et al. 2018;BBS012;BBS1;F;40+;50-59;1;1;0;1;0;0;0;;;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age4;2018;no
+Davies et al. 2018;BBS013;BBS1;F;20-39;20-29;1;1;1;1;1;0;1;;;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age3;2018;yes
+Davies et al. 2018;BBS014;BBS1;F;20-39;30-39;1;1;1;1;1;1;0;;;MSMSandMScLOF;yes;bbsome;yes;no;1;age3;2018;no
+Davies et al. 2018;BBS015;BBS1;M;40+;40-49;1;1;0;0;1;0;0;;;MSMSandMScLOF;yes;bbsome;yes;no;0.4;age4;2018;yes
+Deveault et al. 2011;1;BBS1;F;20-39;30;1;1;1;0;;0;;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age3;2011;no
+Deveault et al. 2011;47;BBS1;F;0-9;9;1;1;1;0;;1;;1;1;cLOF;yes;bbsome;yes;no;0.8;age1;2011;no
+Deveault et al. 2011;32;BBS1;F;20-39;30;1;1;1;0;0;0;;1;1;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age3;2011;no
+Deveault et al. 2011;57;BBS1;F;20-39;32;1;1;1;0;1;0;;1;1;cLOF;yes;bbsome;yes;no;0.6;age3;2011;no
+Deveault et al. 2011;19;BBS1;M;20-39;24;1;1;0;0;;1;;1;1;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age3;2011;no
+Deveault et al. 2011;39;BBS1;F;20-39;25;1;1;1;0;0;0;;;1;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age3;2011;yes
+Deveault et al. 2011;139;BBS1;F;X.19;15;1;0;1;1;;0;;;1;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age2;2011;yes
+Deveault et al. 2011;21;BBS1;M;20-39;29;1;1;1;1;0;0;;1;1;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age3;2011;yes
+Deveault et al. 2011;45;BBS1;M;20-39;25;1;1;1;0;1;1;;;1;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age3;2011;yes
+Deveault et al. 2011;75;BBS1;M;X.19;15;1;1;1;1;1;;1;;;MSMSandMScLOF;no;bbsome;yes;no;;age2;2011;yes
+Deveault et al. 2011;133;BBS1;M;20-39;21;1;0;1;1;0;1;;;1;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age3;2011;yes
+Deveault et al. 2011;129;BBS1;M;0-9;9;1;1;1;1;0;1;;;1;MSMSandMScLOF;yes;bbsome;yes;no;1;age1;2011;no
+Deveault et al. 2011;8;BBS10;M;20-39;21;1;0;1;1;0;0;;1;1;MSMSandMScLOF;yes;chaps;yes;yes;0.6;age3;2011;no
+Deveault et al. 2011;63;BBS10;M;X.19;17;1;1;1;1;1;0;1;;1;cLOF;yes;chaps;yes;yes;0.8;age2;2011;no
+Deveault et al. 2011;83;BBS10;M;40+;43;1;1;1;1;0;1;;1;1;cLOF;yes;chaps;yes;yes;1;age4;2011;no
+Deveault et al. 2011;79;BBS10;F;X.19;18;1;;1;0;0;0;;;;MSMSandMScLOF;no;chaps;yes;yes;;age2;2011;no
+Deveault et al. 2011;80;BBS10;F;X.19;15;1;1;1;;0;0;;;;MSMSandMScLOF;no;chaps;yes;yes;;age2;2011;no
+Deveault et al. 2011;74;BBS10;M;X.19;18;1;1;1;0;;1;;0;1;MSMSandMScLOF;yes;chaps;yes;yes;0.8;age2;2011;no
+Deveault et al. 2011;30;BBS10;F;20-39;32;1;1;1;1;0;1;;;1;cLOF;yes;chaps;yes;yes;1;age3;2011;no
+Deveault et al. 2011;28;BBS10;F;20-39;24;1;1;1;1;0;1;;1;1;cLOF;yes;chaps;yes;yes;1;age3;2011;no
+Deveault et al. 2011;10;BBS10;F;X.19;17;1;1;1;1;;1;;1;1;MSMSandMScLOF;yes;chaps;yes;yes;1;age2;2011;no
+Deveault et al. 2011;65;BBS10;M;20-39;27;1;1;1;1;1;0;;1;1;MSMSandMScLOF;yes;chaps;yes;yes;0.8;age3;2011;no
+Deveault et al. 2011;66;BBS10;M;X.19;10;1;1;1;1;1;0;;1;1;MSMSandMScLOF;yes;chaps;yes;yes;0.8;age2;2011;no
+Deveault et al. 2011;60;BBS10;F;0-9;6;;1;1;1;;1;1;;1;MSMSandMScLOF;no;chaps;yes;yes;;age1;2011;no
+Deveault et al. 2011;67;BBS10;F;0-9;7;1;1;1;1;1;1;;;1;cLOF;yes;chaps;yes;yes;1;age1;2011;no
+Deveault et al. 2011;64;BBS10;M;0-9;4;1;1;1;1;0;0;;0;1;cLOF;yes;chaps;yes;yes;0.8;age1;2011;no
+Deveault et al. 2011;68;BBS10;M;X.19;13;1;1;1;1;1;0;;0;1;cLOF;yes;chaps;yes;yes;0.8;age2;2011;no
+Deveault et al. 2011;70;BBS10;M;X.19;17;1;1;1;1;1;1;;1;1;cLOF;yes;chaps;yes;yes;1;age2;2011;no
+Deveault et al. 2011;138;BBS10;M;X.19;14;1;0;1;0;;0;;;1;MSMSandMScLOF;yes;chaps;yes;yes;0.4;age2;2011;no
+Deveault et al. 2011;126;BBS12;F;0-9;4;;1;1;;;;1;;1;MSMSandMScLOF;no;chaps;yes;yes;;age1;2011;no
+Deveault et al. 2011;128;BBS12;M;X.19;10;;0;0;1;1;;;;1;MSMSandMScLOF;no;chaps;yes;yes;;age2;2011;no
+Deveault et al. 2011;24;BBS12;F;0-9;6;1;1;1;;1;1;;1;1;cLOF;no;chaps;yes;yes;;age1;2011;no
+Deveault et al. 2011;56;BBS12;F;X.19;15;1;1;1;0;;1;;;;cLOF;yes;chaps;yes;yes;0.8;age2;2011;no
+Deveault et al. 2011;124;BBS12;F;40+;64;1;1;1;0;1;1;;;0;MSMSandMScLOF;yes;chaps;yes;yes;0.8;age4;2011;no
+Deveault et al. 2011;52;BBS12;M;X.19;19;1;1;1;1;0;0;;0;1;cLOF;yes;chaps;yes;yes;0.8;age2;2011;no
+Deveault et al. 2011;127;BBS12;F;X.19;11;1;1;1;1;1;1;1;;1;cLOF;yes;chaps;yes;yes;1;age2;2011;no
+Deveault et al. 2011;38;BBS12;F;0-9;4;1;1;1;1;1;1;1;0;1;MSMSandMScLOF;yes;chaps;yes;yes;1;age1;2011;no
+Deveault et al. 2011;2;BBS12;M;20-39;27;1;1;1;0;0;0;;1;1;MSMSandMScLOF;yes;chaps;yes;yes;0.6;age3;2011;no
+Deveault et al. 2011;3;BBS12;M;20-39;25;1;1;1;0;1;0;;1;1;MSMSandMScLOF;yes;chaps;yes;yes;0.6;age3;2011;no
+Deveault et al. 2011;73;BBS2;M;0-9;3;1;1;1;1;1;1;;;1;cLOF;yes;bbsome;yes;yes;1;age1;2011;no
+Deveault et al. 2011;69;BBS2;F;0-9;7;;1;1;1;1;1;;;1;MSMSandMScLOF;no;bbsome;yes;yes;;age1;2011;no
+Deveault et al. 2011;9;BBS2;M;20-39;30;1;1;1;0;0;1;;1;;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age3;2011;no
+Deveault et al. 2011;77;BBS2;M;20-39;31;1;1;1;1;1;0;;;1;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age3;2011;no
+Deveault et al. 2011;78;BBS2;M;20-39;29;1;1;1;1;1;0;1;;1;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age3;2011;no
+Deveault et al. 2011;17;BBS2;F;0-9;7;1;1;1;;;1;;;;MSMSandMScLOF;no;bbsome;yes;yes;;age1;2011;no
+Deveault et al. 2011;15;BBS2;M;X.19;17;1;1;1;1;;1;;1;1;MSMSandMScLOF;yes;bbsome;yes;yes;1;age2;2011;no
+Deveault et al. 2011;16;BBS2;M;20-39;30;1;1;1;1;;0;;;;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age3;2011;no
+Deveault et al. 2011;18;BBS2;M;40+;43;1;1;1;1;;1;;1;;MSMSandMScLOF;yes;bbsome;yes;yes;1;age4;2011;no
+Deveault et al. 2011;82;BBS2;M;20-39;22;1;1;1;;;1;1;;1;MSMSandMScLOF;no;bbsome;yes;yes;;age3;2011;no
+Deveault et al. 2011;123;BBS2;M;20-39;23;1;1;1;0;0;0;;;1;cLOF;yes;bbsome;yes;yes;0.6;age3;2011;no
+Deveault et al. 2011;130;BBS2;F;0-9;0;;;1;1;;1;;;;cLOF;no;bbsome;yes;yes;;age1;2011;no
+Deveault et al. 2011;142;BBS2;F;X.19;11;1;1;1;1;1;1;;;1;cLOF;yes;bbsome;yes;yes;1;age2;2011;no
+Deveault et al. 2011;81;BBS2;F;X.19;17;1;1;1;0;0;1;1;;0;cLOF;yes;bbsome;yes;yes;0.8;age2;2011;no
+Deveault et al. 2011;62;BBS2;M;20-39;20;1;1;1;0;;0;;1;1;MSMSandMScLOF;yes;bbsome;yes;yes;0.6;age3;2011;no
+Deveault et al. 2011;53;BBS5;F;20-39;28;1;1;1;1;1;0;;;1;;yes;bbsome;yes;yes;0.8;age3;2011;no
+Deveault et al. 2011;50;BBS5;M;X.19;16;1;1;1;1;1;0;;1;1;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age2;2011;no
+Deveault et al. 2011;76;BBS6;M;0-9;8;1;1;1;;;;1;;;MSMSandMScLOF;no;chaps;yes;yes;;age1;2011;no
+Deveault et al. 2011;46;BBS6;M;X.19;18;1;1;1;1;0;1;1;1;1;cLOF;yes;chaps;yes;yes;1;age2;2011;no
+Deveault et al. 2011;72;BBS6;F;X.19;13;1;1;1;0;1;1;;0;1;MSMSandMScLOF;yes;chaps;yes;yes;0.8;age2;2011;no
+Deveault et al. 2011;4;BBS7;F;40+;40;1;1;1;1;0;0;;0;1;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age4;2011;no
+Deveault et al. 2011;5;BBS7;M;20-39;33;1;1;1;1;1;1;;1;1;MSMSandMScLOF;yes;bbsome;yes;yes;1;age3;2011;no
+Deveault et al. 2011;71;BBS8;M;40+;44;1;1;1;1;1;1;;1;1;cLOF;yes;bbsome;yes;yes;1;age4;2011;no
+Deveault et al. 2011;35;BBS9;F;20-39;22;1;1;1;1;1;1;;1;1;cLOF;yes;bbsome;yes;yes;1;age3;2011;no
+Deveault et al. 2011;36;BBS9;F;20-39;20;1;1;1;1;1;1;;1;1;cLOF;yes;bbsome;yes;yes;1;age3;2011;no
+Ece Solmaz et al. 2015;2;BBS1;;0-9;2,5;0;0;1;1;1;1;0;0;1;cLOF;yes;bbsome;yes;no;0.6;age1;2015;no
+Ece Solmaz et al. 2015;3;BBS1;;X.19;16;1;1;1;1;1;0;0;1;1;cLOF;yes;bbsome;yes;no;0.8;age2;2015;no
+Ece Solmaz et al. 2015;5;BBS1;;20-39;20;1;1;1;1;1;1;0;1;1;cLOF;yes;bbsome;yes;no;1;age3;2015;no
+Ece Solmaz et al. 2015;1;BBS10;;X.19;16;1;0;1;1;1;0;1;0;1;MSMSandMScLOF;yes;chaps;yes;yes;0.6;age2;2015;no
+Ece Solmaz et al. 2015;4;BBS10;;X.19;13;1;0;1;1;0;1;0;0;1;cLOF;yes;chaps;yes;yes;0.8;age2;2015;no
+Ece Solmaz et al. 2015;7;BBS10;;X.19;15;1;1;0;1;1;0;0;0;1;cLOF;yes;chaps;yes;yes;0.6;age2;2015;no
+Ece Solmaz et al. 2015;12;BBS10;;0-9;6;1;1;1;1;1;1;0;1;1;cLOF;yes;chaps;yes;yes;1;age1;2015;no
+Ece Solmaz et al. 2015;8;BBS2;;X.19;13;1;1;1;1;1;1;0;1;1;cLOF;yes;bbsome;yes;yes;1;age2;2015;no
+Ece Solmaz et al. 2015;10;BBS2;;0-9;8;1;1;1;1;1;1;1;0;1;cLOF;yes;bbsome;yes;yes;1;age1;2015;no
+Ece Solmaz et al. 2015;6;BBS4;;0-9;8;1;1;0;1;0;0;0;0;1;cLOF;yes;bbsome;yes;yes;0.6;age1;2015;no
+Ece Solmaz et al. 2015;9;BBS7;;X.19;19;1;1;1;1;1;0;0;0;1;cLOF;yes;bbsome;yes;yes;0.8;age2;2015;no
+Ece Solmaz et al. 2015;11;BBS7;;X.19;19;1;1;0;1;0;1;0;1;1;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age2;2015;no
+Ece Solmaz et al. 2015;13;BBS9;;0-9;0,6;0;1;1;0;0;0;0;0;0;cLOF;yes;bbsome;yes;yes;0.4;age1;2015;no
+Esposito et al. 2017;P.1;BBS1;;;;1;;;;;1;;;;MSMSandMScLOF;no;bbsome;yes;no;;;2017;no
+Esposito et al. 2017;P.2;BBS1;;;;1;;;;;1;;;;MSMSandMScLOF;no;bbsome;yes;no;;;2017;no
+Esposito et al. 2017;P.4;BBS1;F;40+;70;1;;;;;1;;;;MSMSandMScLOF;no;bbsome;yes;no;;age4;2017;yes
+Esposito et al. 2017;P.5;BBS1;;;;1;;;;;1;;;;MSMSandMScLOF;no;bbsome;yes;no;;;2017;yes
+Esposito et al. 2017;P.6;BBS1;;;;1;;;;;0;;;;MSMSandMScLOF;no;bbsome;yes;no;;;2017;no
+Esposito et al. 2017;P.12;BBS10;;;;1;;;;;1;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2017;no
+Esposito et al. 2017;P.13;BBS10;;;;1;;;;;1;;;;cLOF;no;chaps;yes;yes;;;2017;no
+Esposito et al. 2017;P.15;BBS10;;;;1;;;;;1;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2017;no
+Esposito et al. 2017;P.8a;BBS2;;;;1;;;;;1;1;;;cLOF;no;bbsome;yes;yes;;;2017;no
+Esposito et al. 2017;P.9;BBS2;;;;1;;;;;1;;;;MSMSandMScLOF;no;bbsome;yes;yes;;;2017;no
+Estrada-Cuzcano et al. 2012 (a);1/M;BBS1;M;;;1;0;0;0;0;0;0;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.2;; (a);yes
+Estrada-Cuzcano et al. 2012 (a);10/Fc;BBS1;F;;;1;1;0;0;0;0;0;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.4;; (a);yes
+Estrada-Cuzcano et al. 2012 (a);11/M;BBS1;M;;;1;0;0;0;0;1;0;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.4;; (a);yes
+Estrada-Cuzcano et al. 2012 (a);12/F;BBS1;F;;;1;1;0;1;0;0;0;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.6;; (a);yes
+Estrada-Cuzcano et al. 2012 (a);13/F;BBS1;F;;;1;1;1;0;0;0;0;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.6;; (a);no
+Estrada-Cuzcano et al. 2012 (a);14/M;BBS1;M;;;1;1;0;1;0;0;1;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.6;; (a);yes
+Estrada-Cuzcano et al. 2012 (a);2/M;BBS1;M;;;1;0;0;0;0;0;0;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.2;; (a);no
+Estrada-Cuzcano et al. 2012 (a);3/Fa;BBS1;F;;;1;0;0;0;0;0;0;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.2;; (a);yes
+Estrada-Cuzcano et al. 2012 (a);4/M;BBS1;M;;;1;0;0;0;0;1;0;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.4;; (a);no
+Estrada-Cuzcano et al. 2012 (a);5/M;BBS1;M;;;1;1;0;0;0;0;0;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.4;; (a);yes
+Estrada-Cuzcano et al. 2012 (a);6/M;BBS1;M;;;1;1;0;0;0;0;0;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.4;; (a);yes
+Estrada-Cuzcano et al. 2012 (a);7/W;BBS1;F;;;1;1;0;0;0;0;0;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.4;; (a);yes
+Estrada-Cuzcano et al. 2012 (a);8/Mb;BBS1;M;;;1;0;0;0;0;0;0;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.2;; (a);yes
+Estrada-Cuzcano et al. 2012 (a);9/F;BBS1;F;;;1;0;0;1;0;0;0;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.4;; (a);yes
+Estrada-Cuzcano et al. 2012 (b);V:1;BBS21;F;X.19;17;1;;1;;;;;;;cLOF;no;other;no;no;;age2; (b);no
+Estrada-Cuzcano et al. 2012 (b);V:2;BBS21;M;X.19;10;1;;1;;;;;;;cLOF;no;other;no;no;;age2; (b);no
+Fan et al. 2004;PID 22;BBS1;F;40+;42;1;1;0;;;0;;;;MSMSandMScLOF;no;bbsome;yes;no;;age4;2004;yes
+Fan et al. 2004;PID 9;BBS1;F;40+;62;1;1;0;;1;1;;;;MSMSandMScLOF;no;bbsome;yes;no;;age4;2004;yes
+Fattahi et al. 2014;35201;BBS12;;;;1;1;1;0;1;1;;;;cLOF;yes;chaps;yes;yes;0.8;;2014;no
+Fattahi et al. 2014;36000;BBS12;;;;1;1;1;0;1;0;;;;cLOF;yes;chaps;yes;yes;0.6;;2014;no
+Fattahi et al. 2014;37709;BBS12;;;;0;1;1;0;;1;;;;cLOF;yes;chaps;yes;yes;0.6;;2014;no
+Fattahi et al. 2014;34754;BBS2;;;;1;1;1;1;;1;;;;cLOF;yes;bbsome;yes;yes;1;;2014;no
+Fattahi et al. 2014;34885;BBS2;;;;1;1;1;1;;0;;;;cLOF;yes;bbsome;yes;yes;0.8;;2014;no
+Fattahi et al. 2014;38498;BBS2;;;;0;1;1;1;;1;;;1;cLOF;yes;bbsome;yes;yes;0.8;;2014;no
+Fattahi et al. 2014;38931;BBS2;;;;1;1;1;1;1;;;;;cLOF;no;bbsome;yes;yes;;;2014;no
+Fattahi et al. 2014;34881;BBS4;;;;1;1;1;1;;0;;;;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;;2014;no
+Fattahi et al. 2014;40568;BBS4;;;;1;1;1;1;1;1;;;;cLOF;yes;bbsome;yes;yes;1;;2014;no
+Fattahi et al. 2014;40302;BBS7;;;;1;1;1;0;1;1;1;;;cLOF;yes;bbsome;yes;yes;0.8;;2014;no
+Fattahi et al. 2014;34792;BBS9;;;;1;1;1;0;1;0;1;;;cLOF;yes;bbsome;yes;yes;0.6;;2014;no
+Fattahi et al. 2014;41931;BBS9;;;;1;1;1;1;;;;;1;cLOF;no;bbsome;yes;yes;;;2014;no
+Fedick et al. 2013;1;BBS2;M;;;1;;1;;;;;;;MSMSandMScLOF;no;bbsome;yes;yes;;;2013;no
+Fedick et al. 2013;2;BBS2;F;;;1;;1;;;;;;;MSMSandMScLOF;no;bbsome;yes;yes;;;2013;no
+Fedick et al. 2013;3;BBS2;;;;1;;1;1;;;;;;MSMSandMScLOF;no;bbsome;yes;yes;;;2013;no
+Fedick et al. 2013;4;BBS2;;;;1;;1;1;;;;;;MSMSandMScLOF;no;bbsome;yes;yes;;;2013;no
+Frank et al. 2007;850;BBS13;;;;;;1;;;1;;1;;cLOF;no;other;no;no;;;2007;no
+Frank et al. 2007;937;BBS13;;;;;;1;;;1;;1;;cLOF;no;other;no;no;;;2007;no
+Frank et al. 2007;943;BBS13;;;;;;1;;;1;;1;;cLOF;no;other;no;no;;;2007;no
+Frank et al. 2007;951;BBS13;;;;;;1;;;1;;1;;cLOF;no;other;no;no;;;2007;no
+Gerth et al. 2008;2293;BBS1;M;20-39;21;1;1;;;;0;;0;1;MSMSandMScLOF;no;bbsome;yes;no;;age3;2008;no
+Gerth et al. 2008;2301;BBS1;F;X.19;16;1;1;1;;;1;;1;1;cLOF;no;bbsome;yes;no;;age2;2008;no
+Gerth et al. 2008;2512;BBS1;F;20-39;29;1;1;0;0;;0;;0;;cLOF;yes;bbsome;yes;no;0.4;age3;2008;no
+Gerth et al. 2008;2597;BBS1;F;20-39;21;1;1;1;1;;0;;0;;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age3;2008;yes
+Gerth et al. 2008;2213;BBS10;F;X.19;14;1;1;1;;;1;;0;1;MSMSandMScLOF;no;chaps;yes;yes;;age2;2008;no
+Gerth et al. 2008;2294;BBS10;F;X.19;16;1;1;1;;;1;;0;1;cLOF;no;chaps;yes;yes;;age2;2008;no
+Gerth et al. 2008;2296;BBS10;M;X.19;12;1;1;1;;;1;;0;1;MSMSandMScLOF;no;chaps;yes;yes;;age2;2008;no
+Gerth et al. 2008;2621;BBS10;M;X.19;14;1;1;0;;;1;;0;;MSMSandMScLOF;no;chaps;yes;yes;;age2;2008;no
+Ghadami et al. 2000;III-10;BBS3;F;40+;62;1;1;0;;0;0;;;;;no;bbs3;yes;yes;;age4;2000;no
+Ghadami et al. 2000;III-5;BBS3;M;;;1;0;1;;0;;;;;;no;bbs3;yes;yes;;;2000;no
+Ghadami et al. 2000;III-9;BBS3;M;;;1;1;0;;;;;;;;no;bbs3;yes;yes;;;2000;no
+Ghadami et al. 2000;IV-10;BBS3;F;20-39;32;1;1;1;0;0;0;;;;;yes;bbs3;yes;yes;0.6;age3;2000;no
+Ghadami et al. 2000;IV-11;BBS3;F;20-39;30;1;1;1;0;0;0;;;;;yes;bbs3;yes;yes;0.6;age3;2000;no
+Ghadami et al. 2000;IV-14;BBS3;M;X.19;18;1;1;1;0;0;0;;;;;yes;bbs3;yes;yes;0.6;age2;2000;no
+Ghadami et al. 2000;IV-9;BBS3;F;20-39;33;1;1;1;0;0;1;;;;;yes;bbs3;yes;yes;0.8;age3;2000;no
+González?del Pozo et al. 2013;II:2;BBS6;F;;;1;0;1;1;0;0;0;;0;MSMSandMScLOF;yes;chaps;yes;yes;0.6;;2013;no
+González?del Pozo et al. 2013;II:4;BBS6;M;;;1;1;1;1;0;1;0;;0;MSMSandMScLOF;yes;chaps;yes;yes;1;;2013;no
+González?del Pozo et al. 2013;II:5;BBS6;M;;;1;1;1;1;0;0;0;;0;MSMSandMScLOF;yes;chaps;yes;yes;0.8;;2013;no
+Harville et al. 2010;A2014-II1;BBS1;;;;0;1;1;;1;1;;;;cLOF;no;bbsome;yes;no;;;2010;no
+Harville et al. 2010;A2876-II1(AR844);BBS1;;;;1;0;0;0;1;0;;;1;MSMSandMScLOF;yes;bbsome;yes;no;0.2;;2010;yes
+Harville et al. 2010;A2876-II2 (AR844);BBS1;;;;1;1;1;1;1;0;;;1;MSMSandMScLOF;yes;bbsome;yes;no;0.8;;2010;yes
+Harville et al. 2010;A2880-II1;BBS1;;;;1;1;1;1;0;1;;;1;MSMSandMScLOF;yes;bbsome;yes;no;1;;2010;yes
+Harville et al. 2010;A2880-II2;BBS1;;;;;1;1;;0;;;;;MSMSandMScLOF;no;bbsome;yes;no;;;2010;yes
+Harville et al. 2010;A2885-II1 (AKK65);BBS1;;;;1;1;1;1;;;;;1;cLOF;no;bbsome;yes;no;;;2010;no
+Harville et al. 2010;A2885-II2 (AKK65);BBS1;;;;1;1;1;1;;1;;;1;cLOF;yes;bbsome;yes;no;1;;2010;no
+Harville et al. 2010;A2020-II1;BBS10;;;;1;1;1;1;1;0;;;;MSMSandMScLOF;yes;chaps;yes;yes;0.8;;2010;no
+Harville et al. 2010;A2003-II1;BBS12;;;;1;0;1;1;1;1;;;;MSMSandMScLOF;yes;chaps;yes;yes;0.8;;2010;no
+Harville et al. 2010;A2015-II1;BBS12;;;;1;0;1;1;1;1;;;;MSMSandMScLOF;yes;chaps;yes;yes;0.8;;2010;no
+Harville et al. 2010;A2017-II1;BBS12;;;;1;1;1;;0;0;;;;cLOF;no;chaps;yes;yes;;;2010;no
+Harville et al. 2010;A2012-II1;BBS2;;;;1;1;1;;0;0;;;;cLOF;no;bbsome;yes;yes;;;2010;no
+Harville et al. 2010;A2025-II1;BBS2;;;;1;1;1;;0;1;;;;MSMSandMScLOF;no;bbsome;yes;yes;;;2010;no
+Harville et al. 2010;A2008-II1;BBS4;;;;1;1;1;;1;0;;;;cLOF;no;bbsome;yes;yes;;;2010;no
+Harville et al. 2010;A2023-II1;BBS4;;;;1;1;1;1;1;1;;;1;cLOF;yes;bbsome;yes;yes;1;;2010;no
+Harville et al. 2010;A2002-II1;BBS5;;;;1;1;1;;1;0;;;;cLOF;no;bbsome;yes;yes;;;2010;no
+Harville et al. 2010;A2027-II1;BBS5;;;;1;0;1;;1;0;;;;cLOF;no;bbsome;yes;yes;;;2010;no
+Harville et al. 2010;A2004-II2;BBS7;;;;1;1;1;1;1;0;;;;cLOF;yes;bbsome;yes;yes;0.8;;2010;no
+Harville et al. 2010;A2005-II1;BBS7;;;;0;1;1;1;1;1;;;;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;;2010;no
+Harville et al. 2010;A2875-II1;BBS7;;;;1;1;1;1;1;1;;;1;MSMSandMScLOF;yes;bbsome;yes;yes;1;;2010;no
+Harville et al. 2010;A2875-II2;BBS7;;;;1;1;1;1;;;;;;MSMSandMScLOF;no;bbsome;yes;yes;;;2010;no
+Harville et al. 2010;A2889-II1 (A80533/4);BBS7;;;;1;1;1;;;0;;;;MSMSandMScLOF;no;bbsome;yes;yes;;;2010;no
+Harville et al. 2010;A2889-II2 (A80533/4);BBS7;;;;1;1;1;1;;;;;1;MSMSandMScLOF;no;bbsome;yes;yes;;;2010;no
+Harville et al. 2010;A2011-II1;BBS8;;;;1;1;1;1;1;0;;;;cLOF;yes;bbsome;yes;yes;0.8;;2010;no
+Harville et al. 2010;A2827-II1(AR74);BBS8;;;;1;1;1;1;1;;;;1;cLOF;no;bbsome;yes;yes;;;2010;no
+Harville et al. 2010;A2827-II2 (AR74);BBS8;;;;1;1;1;1;1;;;;1;cLOF;no;bbsome;yes;yes;;;2010;no
+Heon et al. 2016;;BBS21;F;X.19;12;1;1;1;1;1;1;;1;;cLOF;yes;other;no;no;1;age2;2016;no
+Hjortshoj et al. 2009;FO-01;BBS1;;20-39;23;1;1;0;;;;;;;cLOF;no;bbsome;yes;no;;age3;2009;no
+Hjortshoj et al. 2009;FO-02;BBS1;;X.19;17;1;1;1;1;0;;;;;cLOF;no;bbsome;yes;no;;age2;2009;no
+Hjortshoj et al. 2009;FO-03;BBS1;;20-39;29;1;;1;1;;;;;;cLOF;no;bbsome;yes;no;;age3;2009;no
+Hjortshoj et al. 2009;FO-04;BBS1;;20-39;30;1;1;0;1;;;;;;cLOF;no;bbsome;yes;no;;age3;2009;no
+Hjortshoj et al. 2009;FO-05;BBS1;F;X.19;18;1;1;0;1;1;;;;;cLOF;no;bbsome;yes;no;;age2;2009;no
+Hjortshoj et al. 2009;FO-06;BBS1;F;20-39;20;1;1;1;1;1;;;;;cLOF;no;bbsome;yes;no;;age3;2009;no
+Hjortshoj et al. 2009;FO-07;BBS1;;0-9;4;1;1;1;;0;;;;;cLOF;no;bbsome;yes;no;;age1;2009;no
+Hjortshoj et al. 2009;FO-08;BBS1;;20-39;24;1;1;1;1;;;;;;cLOF;no;bbsome;yes;no;;age3;2009;no
+Hjortshoj et al. 2009;FO-09;BBS1;;20-39;24;1;1;1;1;0;;;;;cLOF;no;bbsome;yes;no;;age3;2009;no
+Hjortshoj et al. 2009;FO-10;BBS1;M;20-39;31;1;0;1;0;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age3;2009;no
+Hjortshoj et al. 2010;P14;BBS10;F;0-9;8;1;1;1;1;;1;;;;cLOF;yes;chaps;yes;yes;1;age1;2010;no
+Hjortshoj et al. 2010;P41;BBS10;M;0-9;7;1;1;1;1;1;1;1;;;MSMSandMScLOF;yes;chaps;yes;yes;1;age1;2010;no
+Hjortshoj et al. 2010;P47;BBS10;M;0-9;9;1;1;1;0;1;0;;;;cLOF;yes;chaps;yes;yes;0.6;age1;2010;no
+Hjortshoj et al. 2010;P1;BBS2;F;0-9;6;1;1;1;0;;0;;;;cLOF;yes;bbsome;yes;yes;0.6;age1;2010;no
+Hjortshoj et al. 2010;P16;BBS2;M;0-9;5;1;1;1;1;0;1;;;;cLOF;yes;bbsome;yes;yes;1;age1;2010;no
+Hjortshoj et al. 2010;P42;BBS2;M;X.19;10;1;1;1;1;0;0;;;;cLOF;yes;bbsome;yes;yes;0.8;age2;2010;no
+Hjortshoj et al. 2010;P55;BBS2;F;X.19;19;1;1;1;1;;1;;;;cLOF;yes;bbsome;yes;yes;1;age2;2010;no
+Hjortshoj et al. 2010;P57;BBS2;M;0-9;1;1;1;1;1;1;0;;;;cLOF;yes;bbsome;yes;yes;0.8;age1;2010;no
+Hulleman et al. 2016;ID SIO101;BBS6;M;X.19;18;1;0;1;0;0;0;0;;0;MSMSandMScLOF;yes;chaps;yes;yes;0.4;age2;2016;no
+Hulleman et al. 2016;ID SIO102;BBS6;F;X.19;13;1;0;1;0;0;0;0;;0;MSMSandMScLOF;yes;chaps;yes;yes;0.4;age2;2016;no
+Chaki et al. 2011;A1188-21;BBS14;;;;0;;;1;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;A1388-21;BBS14;;;;0;;;1;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;A1713 -22;BBS14;;;;0;;;0;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;A1713-21;BBS14;;;;0;;;0;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;A1715-21;BBS14;;;;1;;;1;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;A197-21;BBS14;;;;1;;;0;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;A2029-21;BBS14;;;;1;;;1;;1;;0;;MSMSandMScLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;A2182-21;BBS14;;;;1;;;1;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;A2182-22;BBS14;;;;1;;;1;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;A372-21;BBS14;;;;1;;;1;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;A372-22;BBS14;;;;1;;;0;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;A989-21;BBS14;;;;1;;;1;;1;;1;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F101-21;BBS14;;;;1;;;0;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F15-21;BBS14;;;;1;;;0;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F15-24;BBS14;;;;1;;;0;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F335-21;BBS14;;;;1;;;0;;1;;0;;MSMSandMScLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F394-27;BBS14;;;;0;;;1;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F4-21;BBS14;;;;1;;;0;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F4-22;BBS14;;;;1;;;0;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F57-21;BBS14;;;;1;;;0;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F63-21;BBS14;;;;1;;;1;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F700-24;BBS14;;;;;;;1;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F700-26;BBS14;;;;;;;1;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F89-21;BBS14;;;;1;;;1;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F944-31;BBS14;;;;0;;;0;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F944-32;BBS14;;;;0;;;0;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;A1365-21;BBS16;;;;1;;;0;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;A1365-22;BBS16;;;;1;;;0;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;A2290-21;BBS16;;;;1;;;1;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;AR37-25;BBS16;;;;1;1;;0;1;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;AR37-27;BBS16;;;;1;1;;1;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F1054-21;BBS16;F;;;0;;;0;1;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F1054-22;BBS16;;;;0;;;0;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F159-21;BBS16;;;;1;;;0;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F159-22;BBS16;;;;0;;;0;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F195-21;BBS16;;;;1;;;0;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F336-21;BBS16;;;;1;;;1;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Chaki et al. 2011;F336-22;BBS16;;;;1;;;1;;1;;0;;cLOF;no;other;no;no;;;2011;no
+Iannaccone et al. 2005;pat1;BBS4;M;20-39;28;1;1;0;0;1;;;;0;cLOF;no;bbsome;yes;yes;;age3;2005;no
+Iannaccone et al. 2005;pat2;BBS4;F;20-39;22;1;1;1;1;0;;;;1;cLOF;no;bbsome;yes;yes;;age3;2005;no
+Iannaccone et al. 2005;pat3;BBS4;M;20-39;27;1;1;0;0;1;1;;;0;cLOF;yes;bbsome;yes;yes;0.6;age3;2005;no
+Innes et al. 2010;P1;BBS2;M;X.19;19;1;1;1;0;1;1;;;1;cLOF;yes;bbsome;yes;yes;0.8;age2;2010;no
+Innes et al. 2010;P2;BBS2;M;0-9;0,5;;;1;;1;;1;;;cLOF;no;bbsome;yes;yes;;age1;2010;no
+Innes et al. 2010;P3;BBS2;M;0-9;6;1;;1;;;1;;;;cLOF;no;bbsome;yes;yes;;age1;2010;no
+Iurian et al. 2015;C.V.N;BBS12;M;0-9;5 month;0;1;1;;1;;1;;1;cLOF;no;chaps;yes;yes;;age1;2015;no
+Janssen et al. 2011;AR122 (A2831)d -4;BBS1;;;;1;1;0;1;1;1;;;;MSMSandMScLOF;yes;bbsome;yes;no;0.8;;2011;no
+Janssen et al. 2011;AR603 (A2858) -3;BBS1;;;;1;1;1;1;0;;;;1;MSMSandMScLOF;no;bbsome;yes;no;;;2011;no
+Janssen et al. 2011;AR603 (A2858)-5;BBS1;;;;1;1;1;;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;;2011;no
+Janssen et al. 2011;AR61 (A2826) -4;BBS1;;;;1;1;0;1;0;0;;;;MSMSandMScLOF;yes;bbsome;yes;no;0.6;;2011;no
+Janssen et al. 2011;AR61 (A2826)-5;BBS1;;;;1;1;1;1;0;0;;;;MSMSandMScLOF;yes;bbsome;yes;no;0.8;;2011;no
+Janssen et al. 2011;PB206 (A2024) 0;BBS1;;;;;1;1;1;1;1;;;1;cLOF;no;bbsome;yes;no;;;2011;no
+Janssen et al. 2011;A3185 0;BBS10;;;;1;1;1;;1;1;;;;cLOF;no;chaps;yes;yes;;;2011;no
+Janssen et al. 2011;AR151 (A2834) -4;BBS10;;;;1;1;1;1;0;;;;1;cLOF;no;chaps;yes;yes;;;2011;no
+Janssen et al. 2011;AR232 (A2839)-4;BBS10;;;;1;1;1;;1;0;;;;cLOF;no;chaps;yes;yes;;;2011;no
+Janssen et al. 2011;AR371 (A2850) -3;BBS10;;;;1;1;1;;1;;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2011;no
+Janssen et al. 2011;AR515 (A2857) -3;BBS10;;;;1;1;1;;1;0;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2011;no
+Janssen et al. 2011;AR707 (A2864) -8;BBS10;;;;1;1;1;1;1;1;;;;cLOF;yes;chaps;yes;yes;1;;2011;no
+Janssen et al. 2011;AR707 (A2864)-9;BBS10;;;;1;1;1;;0;1;;;;cLOF;no;chaps;yes;yes;;;2011;no
+Janssen et al. 2011;AR880 (A2881) -4;BBS10;;;;1;1;1;;0;0;;;;cLOF;no;chaps;yes;yes;;;2011;no
+Janssen et al. 2011;F1 (A2891) -4;BBS10;;;;1;1;1;;1;1;;;1;cLOF;no;chaps;yes;yes;;;2011;no
+Janssen et al. 2011;F1 (A2891)-5;BBS10;;;;1;1;1;;1;1;;;1;cLOF;no;chaps;yes;yes;;;2011;no
+Janssen et al. 2011;F523 0;BBS10;;;;;;;;;1;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2011;no
+Janssen et al. 2011;AR248 (A2843) -5;BBS12;;;;1;1;1;;1;1;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2011;no
+Janssen et al. 2011;A1155 0;BBS2;;;;0;;1;;0;1;1;;;MSMSandMScLOF;no;bbsome;yes;yes;;;2011;no
+Janssen et al. 2011;A1885 0;BBS2;;;;1;;0;0;;1;;;0;MSMSandMScLOF;no;bbsome;yes;yes;;;2011;no
+Janssen et al. 2011;A2296 0;BBS2;;;;0;;1;;;1;1;;;cLOF;no;bbsome;yes;yes;;;2011;no
+Janssen et al. 2011;A3436 0;BBS2;;;;0;1;1;;;1;;;;cLOF;no;bbsome;yes;yes;;;2011;no
+Janssen et al. 2011;AR124 (A2832) -3;BBS2;;;;1;1;1;;0;1;;;1;cLOF;no;bbsome;yes;yes;;;2011;no
+Janssen et al. 2011;AR124 (A2832)-4;BBS2;;;;1;1;1;;0;1;;;1;cLOF;no;bbsome;yes;yes;;;2011;no
+Janssen et al. 2011;AR724 (A2866) -5;BBS2;;;;1;1;1;;1;1;;;1;cLOF;no;bbsome;yes;yes;;;2011;no
+Janssen et al. 2011;AR839 (A2874) -4;BBS2;;;;1;1;1;;0;0;1;;1;cLOF;no;bbsome;yes;yes;;;2011;no
+Janssen et al. 2011;AR850 (A2878) -3;BBS2;;;;1;1;1;;1;1;;;1;cLOF;no;bbsome;yes;yes;;;2011;no
+Janssen et al. 2011;KK44 (A2884) -8;BBS4;;;;1;1;1;;1;;;;;cLOF;no;bbsome;yes;yes;;;2011;no
+Janssen et al. 2011;AR850 (A2878) -4;BBS2;;;;1;1;1;;1;1;;;;cLOF;no;bbsome;yes;yes;;;2011;no
+Janssen et al. 2011;AR14 (A2824) -4;BBS7;;;;1;1;1;1;1;1;;;;MSMSandMScLOF;yes;bbsome;yes;yes;1;;2011;no
+Janssen et al. 2011;AR14 (A2824)-8;BBS7;;;;1;1;1;1;1;1;;;;MSMSandMScLOF;yes;bbsome;yes;yes;1;;2011;no
+Janssen et al. 2011;AR847 (A2877) -3;BBS9;;;;1;1;;;0;1;;;1;cLOF;no;bbsome;yes;yes;;;2011;no
+Janssen et al. 2011;AR847 (A2877)-4;BBS9;;;;1;1;1;;0;1;;;1;cLOF;no;bbsome;yes;yes;;;2011;no
+Janssen et al. 2011;PB233 (A2013) 0;BBS9;;;;1;1;1;1;1;;;;;MSMSandMScLOF;no;bbsome;yes;yes;;;2011;no
+Janssen et al. 2011;PB2330;BBS9;;;;;1;1;;;;;;;MSMSandMScLOF;no;bbsome;yes;yes;;;2011;no
+Kamme et al. 2016 ;II-1;BBS5;M;X.19;12;1;1;0;;;;;;;MSMSandMScLOF;no;bbsome;yes;yes;;age2;16;no
+Kamme et al. 2016 ;II-2;BBS5;F;20-39;28;1;1;0;;1;;;;;MSMSandMScLOF;no;bbsome;yes;yes;;age3;16;no
+Katsanis et al. 2000;AR237 1;BBS6;;;;1;1;;1;;;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2000;no
+Katsanis et al. 2000;AR301;BBS6;;;;1;1;;1;;0;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2000;no
+Katsanis et al. 2000;NF-B1 1;BBS6;;;;1;1;;1;;1;;;;cLOF;no;chaps;yes;yes;;;2000;no
+Katsanis et al. 2000;NF-B1 2;BBS6;;;;1;1;;1;;1;;;;cLOF;no;chaps;yes;yes;;;2000;no
+Katsanis et al. 2000;NF-B13 1;BBS6;;;;1;1;;1;;1;;;;cLOF;no;chaps;yes;yes;;;2000;no
+Katsanis et al. 2000;NF-B13 2;BBS6;;;;1;1;;1;;1;;;;cLOF;no;chaps;yes;yes;;;2000;no
+Katsanis et al. 2000;NF-B3 1;BBS6;;;;1;1;;1;;1;;;;cLOF;no;chaps;yes;yes;;;2000;no
+Katsanis et al. 2000;NF-B3 2;BBS6;;;;1;1;;0;;1;;;;cLOF;no;chaps;yes;yes;;;2000;no
+Katsanis et al. 2000;NF-B4 1;BBS6;;;;1;1;;1;;1;;;;cLOF;no;chaps;yes;yes;;;2000;no
+Katsanis et al. 2000;NF-B4 2;BBS6;;;;1;1;;1;;1;;;;cLOF;no;chaps;yes;yes;;;2000;no
+Katsanis et al. 2000;NF-B5;BBS6;;;;1;1;;1;;1;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2000;no
+Katsanis et al. 2001;AR029²;BBS2;;;;1;1;1;;1;1;;;1;cLOF;no;bbsome;yes;yes;;;2001;no
+Katsanis et al. 2001;AR171²;BBS2;;;;1;1;1;;;0;;;0;MSMSandMScLOF;no;bbsome;yes;yes;;;2001;no
+Katsanis et al. 2001;AR241\;BBS2;;;;1;1;1;;1;;;;0;MSMSandMScLOF;no;bbsome;yes;yes;;;2001;no
+Katsanis et al. 2001;AR259§\;BBS2;;;;1;1;1;;;1;;;0;cLOF;no;bbsome;yes;yes;;;2001;no
+Katsanis et al. 2001;AR579§;BBS2;;;;1;1;1;;1;1;;;1;cLOF;no;bbsome;yes;yes;;;2001;no
+Katsanis et al. 2001;K059²;BBS2;;;;1;1;1;;1;1;;;1;MSMSandMScLOF;no;bbsome;yes;yes;;;2001;no
+Katsanis et al. 2001;NFB14§;BBS2;;;;1;1;1;;1;1;;;1;cLOF;no;bbsome;yes;yes;;;2001;no
+Katsanis et al. 2001;PB005²;BBS2;;;;1;1;1;;;1;;;1;cLOF;no;bbsome;yes;yes;;;2001;no
+Katsanis et al. 2001;PB020²;BBS2;;;;1;1;1;;;1;;;;cLOF;no;bbsome;yes;yes;;;2001;no
+Katsanis et al. 2001;PB026²;BBS2;;;;1;1;1;;;1;;;1;cLOF;no;bbsome;yes;yes;;;2001;no
+Katsanis et al. 2001;PB043\;BBS2;;;;0;1;1;;;0;;;1;MSMSandMScLOF;no;bbsome;yes;yes;;;2001;no
+Katsanis et al. 2001;PB058²;BBS2;;;;1;1;1;;;1;;;1;cLOF;no;bbsome;yes;yes;;;2001;no
+Katsanis et al. 2001;AR237 2;BBS6;;;;1;1;1;1;1;1;;;1;MSMSandMScLOF;yes;chaps;yes;yes;1;;2001;no
+Kerr et al. 2015;1;BBS1;F;20-39;23;1;1;1;1;0;1;;1;1;MSMSandMScLOF;yes;bbsome;yes;no;1;age3;2015;no
+Kerr et al. 2015;2;BBS1;F;20-39;29;1;1;1;1;0;0;;0;1;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age3;2015;no
+Kerr et al. 2015;3a;BBS1;F;20-39;32;1;1;1;0;;0;;0;1;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age3;2015;no
+Kerr et al. 2015;4a;BBS1;M;20-39;30;1;1;1;0;;0;;1;0;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age3;2015;no
+Kerr et al. 2015;5;BBS1;F;X.19;13;1;1;1;1;;;;;;MSMSandMScLOF;no;bbsome;yes;no;;age2;2015;yes
+Kerr et al. 2015;12;BBS10;F;X.19;10;1;1;1;0;;0;;0;;cLOF;yes;chaps;yes;yes;0.6;age2;2015;no
+Kerr et al. 2015;6;BBS10;F;20-39;22;1;1;1;1;0;1;;1;1;cLOF;yes;chaps;yes;yes;1;age3;2015;no
+Kerr et al. 2015;7b;BBS10;F;X.19;15;1;1;1;0;;;;;1;cLOF;no;chaps;yes;yes;;age2;2015;no
+Kerr et al. 2015;8b;BBS10;F;X.19;13;1;1;1;1;1;1;;0;1;cLOF;yes;chaps;yes;yes;1;age2;2015;no
+Kerr et al. 2015;9b;BBS10;F;X.19;15;1;1;1;0;;0;;0;1;cLOF;yes;chaps;yes;yes;0.6;age2;2015;no
+Kerr et al. 2015;10c;BBS10;M;X.19;18;1;1;1;1;0;1;;;1;MSMSandMScLOF;yes;chaps;yes;yes;1;age2;2015;no
+Kerr et al. 2015;11c;BBS10;M;20-39;20;1;1;1;1;0;1;;;1;MSMSandMScLOF;yes;chaps;yes;yes;1;age3;2015;no
+Kerr et al. 2015;22;BBS16;F;X.19;15;1;1;0;1;;;;;;cLOF;no;other;no;no;;age2;2015;no
+Kerr et al. 2015;13;BBS2;F;20-39;28;1;1;1;1;;0;;;1;cLOF;yes;bbsome;yes;yes;0.8;age3;2015;no
+Kerr et al. 2015;21;BBS21;F;X.19;16;1;1;0;0;;;;;;cLOF;no;other;no;no;;age2;2015;no
+Kerr et al. 2015;14d;BBS4;F;X.19;18;1;1;1;1;0;0;1;1;1;cLOF;yes;bbsome;yes;yes;0.8;age2;2015;no
+Kerr et al. 2015;15d;BBS4;M;X.19;16;1;1;1;1;0;0;1;0;1;cLOF;yes;bbsome;yes;yes;0.8;age2;2015;no
+Kerr et al. 2015;16;BBS6;M;20-39;24;1;1;1;0;1;1;;1;0;MSMSandMScLOF;yes;chaps;yes;yes;0.8;age3;2015;no
+Kerr et al. 2015;17;BBS6;F;0-9;7;1;1;1;0;;1;1;0;;MSMSandMScLOF;yes;chaps;yes;yes;0.8;age1;2015;no
+Kerr et al. 2015;18;BBS7;F;X.19;18;1;1;1;1;1;1;;1;1;cLOF;yes;bbsome;yes;yes;1;age2;2015;no
+Kerr et al. 2015;19e;BBS8;F;X.19;17;1;1;1;1;;0;;;1;cLOF;yes;bbsome;yes;yes;0.8;age2;2015;no
+Kerr et al. 2015;20e;BBS8;F;X.19;19;1;1;1;1;0;0;;1;1;cLOF;yes;bbsome;yes;yes;0.8;age2;2015;no
+Khan et al. 2013;B IV-2;BBS10;F;20-39;37;1;1;0;1;0;0;0;;;cLOF;yes;chaps;yes;yes;0.6;age3;2013;no
+Khan et al. 2013;B IV-3;BBS10;M;20-39;26;1;1;1;1;0;0;0;;;cLOF;yes;chaps;yes;yes;0.8;age3;2013;no
+Khan et al. 2013;B IV-4;BBS10;M;20-39;20;1;1;1;1;0;0;0;;;cLOF;yes;chaps;yes;yes;0.8;age3;2013;no
+Khan et al. 2013;B IV-5;BBS10;M;X.19;18;1;1;1;1;0;0;0;;;cLOF;yes;chaps;yes;yes;0.8;age2;2013;no
+Khan et al. 2013;B IV-6;BBS10;M;X.19;13;1;1;1;1;0;;0;;;cLOF;no;chaps;yes;yes;;age2;2013;no
+Khan et al. 2013;A IV-3;BBS3;F;20-39;38;1;1;1;0;0;0;0;;;MSMSandMScLOF;yes;bbs3;yes;yes;0.6;age3;2013;no
+Khan et al. 2013;A IV-4;BBS3;F;20-39;35;1;1;1;0;0;0;0;;;MSMSandMScLOF;yes;bbs3;yes;yes;0.6;age3;2013;no
+Khan et al. 2013;A IV-6;BBS3;M;20-39;32;1;1;1;0;0;0;0;;;MSMSandMScLOF;yes;bbs3;yes;yes;0.6;age3;2013;no
+Khan et al. 2013;A IV-7;BBS3;M;20-39;26;1;1;1;0;0;0;0;;;MSMSandMScLOF;yes;bbs3;yes;yes;0.6;age3;2013;no
+Khan et al. 2013;A V-2;BBS3;M;X.19;19;1;1;1;0;0;0;0;;;MSMSandMScLOF;yes;bbs3;yes;yes;0.6;age2;2013;no
+Khan et al. 2013;A V-3;BBS3;F;X.19;16;1;1;1;0;0;;0;;;MSMSandMScLOF;no;bbs3;yes;yes;;age2;2013;no
+Khan et al. 2013;A V-4;BBS3;M;X.19;12;1;0;1;0;0;;0;;;MSMSandMScLOF;no;bbs3;yes;yes;;age2;2013;no
+Khan et al. 2016 (a);;BBS21;M;0-9;6;1;1;1;;;0;0;;0;MSMSandMScLOF;no;other;no;no;;age1; (a);no
+Khan et al. 2016 (b);IV-4;BBS9;M;20-39;20;1;1;1;1;0;1;0;0;1;cLOF;yes;bbsome;yes;yes;1;age3; (b);no
+Khan et al. 2016 (b);Iv-5;BBS9;F;X.19;18;1;1;1;1;0;1;0;;1;cLOF;yes;bbsome;yes;yes;1;age2; (b);no
+Laurier et al. 2006;A2;BBS10;F;40+;50;1;1;1;1;;;;;;MSMSandMScLOF;no;chaps;yes;yes;;age4;2006;no
+Laurier et al. 2006;A3;BBS10;F;40+;47;1;1;1;1;;1;;;;MSMSandMScLOF;yes;chaps;yes;yes;1;age4;2006;no
+Laurier et al. 2006;B4;BBS10;F;20-39;22;1;1;1;1;;;;;;MSMSandMScLOF;no;chaps;yes;yes;;age3;2006;no
+Laurier et al. 2006;B5;BBS10;M;20-39;33;1;1;1;1;;;;;;MSMSandMScLOF;no;chaps;yes;yes;;age3;2006;no
+Laurier et al. 2006;E1;BBS10;M;40+;70;1;1;1;0;;0;;;;MSMSandMScLOF;yes;chaps;yes;yes;0.6;age4;2006;no
+Laurier et al. 2006;D4;BBS2;F;20-39;23;1;1;1;1;;0;;;;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age3;2006;no
+Laurier et al. 2006;D5;BBS2;F;X.19;18;1;1;1;1;;0;;;;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age2;2006;no
+Leitch et al. 2008;BBS100-03;BBS1;F;X.19;10;1;1;1;1;;;;0;1;cLOF;no;bbsome;yes;no;;age2;2008;no
+Leitch et al. 2008;BBS100-05;BBS1;F;0-9;7;1;1;1;1;;;;0;1;cLOF;no;bbsome;yes;no;;age1;2008;no
+Leitch et al. 2008;L398-03;BBS10;M;0-9;9;1;1;1;1;;1;;0;1;cLOF;yes;chaps;yes;yes;1;age1;2008;no
+Leitch et al. 2008;PB215-04;BBS13;M;0-9;2;0;1;1;;;0;;0;0;MSMSandMScLOF;no;other;no;no;;age1;2008;no
+Leitch et al. 2008;KK51-04;BBS14;F;X.19;11;1;1;0;1;;1;;0;1;cLOF;yes;other;no;no;0.8;age2;2008;no
+Leitch et al. 2008;KK20-04;BBS9;M;0-9;5;1;1;1;1;1;1;;0;1;cLOF;yes;bbsome;yes;yes;1;age1;2008;no
+Lim et al. 2014;1;BBS10;;;;0;1;0;0;;0;;;;MSMSandMScLOF;yes;chaps;yes;yes;0.2;;2014;no
+Lim et al. 2014;2;BBS10;;;;0;1;0;0;;0;;;;MSMSandMScLOF;yes;chaps;yes;yes;0.2;;2014;no
+Lim et al. 2014;3;BBS10;;;;0;1;0;0;;0;;;;MSMSandMScLOF;yes;chaps;yes;yes;0.2;;2014;no
+Lindstrand et al. 2014;DM012-003;BBS10;;;;1;1;1;;0;0;;;1;cLOF;no;chaps;yes;yes;;;2014;no
+Lindstrand et al. 2014;RC1-03;BBS10;;;;1;1;1;;1;0;;;1;MSMSandMScLOF;no;chaps;yes;yes;;;2014;no
+Lindstrand et al. 2014;44/4;BBS7;;;;1;1;1;;;0;;;1;cLOF;no;bbsome;yes;yes;;;2014;no
+Lindstrand et al. 2016;AR240-03;BBS1;F;20-39;21;1;1;1;1;;0;;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age3;2016;yes
+Lindstrand et al. 2016;AR246-03;BBS1;M;X.19;12;1;1;1;1;1;0;;;1;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age2;2016;yes
+Lindstrand et al. 2016;AR380-03;BBS1;F;0-9;9;1;1;1;1;;0;;;0;MSMSandMScLOF;yes;bbsome;yes;no;0.8;age1;2016;yes
+Lindstrand et al. 2016;AR888-03;BBS1;M;0-9;4;1;1;1;1;;1;;;1;cLOF;yes;bbsome;yes;no;1;age1;2016;no
+Lindstrand et al. 2016;AR883-04;BBS10;M;0-9;4;1;1;1;1;;1;;;;cLOF;yes;chaps;yes;yes;1;age1;2016;no
+Lindstrand et al. 2016;KK047-05;BBS2;M;0-9;9;1;1;1;1;1;;;;;cLOF;no;bbsome;yes;yes;;age1;2016;no
+Lindstrand et al. 2016;RC2-03;BBS2;M;0-9;6;1;0;1;;1;1;;;1;MSMSandMScLOF;no;bbsome;yes;yes;;age1;2016;no
+Lindstrand et al. 2016;DM034-004;BBS3;M;X.19;10;1;1;1;0;;;;1;0;cLOF;no;bbs3;yes;yes;;age2;2016;no
+Lindstrand et al. 2016;KK11-04;BBS3;M;X.19;17;1;1;1;;1;;;;1;cLOF;no;bbs3;yes;yes;;age2;2016;no
+Lindstrand et al. 2016;AR400-03;BBS4;F;X.19;11;1;1;1;1;;;;;1;cLOF;no;bbsome;yes;yes;;age2;2016;no
+Lindstrand et al. 2016;AR800-03;BBS4;M;0-9;5;1;1;1;1;1;;;;;cLOF;no;bbsome;yes;yes;;age1;2016;no
+Lindstrand et al. 2016;44/3;BBS7;M;;;1;1;1;;1;1;;;1;cLOF;no;bbsome;yes;yes;;;2016;no
+Lindstrand et al. 2016;AR634-03;BBS7;F;X.19;17;1;1;0;1;;0;;;1;MSMSandMScLOF;yes;bbsome;yes;yes;0.6;age2;2016;no
+Lindstrand et al. 2016;AR634-04;BBS7;M;X.19;15;1;1;0;1;1;;;;;MSMSandMScLOF;no;bbsome;yes;yes;;age2;2016;no
+Maria et al. 2016;F05 V:2;BBS12;M;20-39;20;1;1;0;1;1;0;;;;MSMSandMScLOF;yes;chaps;yes;yes;0.6;age3;2016;no
+Maria et al. 2016;F05 V:4;BBS12;F;20-39;25;1;1;0;;1;0;;;;MSMSandMScLOF;no;chaps;yes;yes;;age3;2016;no
+Maria et al. 2016;F01 IV:2;BBS3;M;20-39;32;1;;1;0;1;1;;;;cLOF;no;bbs3;yes;yes;;age3;2016;no
+Maria et al. 2016;F01 IV:3;BBS3;M;40+;40;1;;1;0;1;0;;1;;cLOF;no;bbs3;yes;yes;;age4;2016;no
+Maria et al. 2016;F02 IV:2;BBS5;M;40+;45;1;0;0;1;1;1;;;;cLOF;yes;bbsome;yes;yes;0.6;age4;2016;no
+Maria et al. 2016;F02 IV:I;BBS5;M;40+;47;1;0;1;1;1;1;;1;;cLOF;yes;bbsome;yes;yes;0.8;age4;2016;no
+Maria et al. 2016;F03 IV:2;BBS5;F;X.19;15;1;0;1;0;1;0;;1;1;cLOF;yes;bbsome;yes;yes;0.4;age2;2016;no
+Maria et al. 2016;F04 IV:2;BBS9;M;X.19;15;1;1;1;1;1;1;;1;;cLOF;yes;bbsome;yes;yes;1;age2;2016;no
+Marion et al. 2012;BBE93;BBS17;M;X.19;10;1;1;1;1;1;1;0;0;1;cLOF;yes;other;no;no;1;age2;2012;no
+M'hamdi et al. 2013;BBS-F01-A;BBS1;F;0-9;5;1;1;1;0;1;0;;;;cLOF;yes;bbsome;yes;no;0.6;age1;2013;no
+M'hamdi et al. 2013;BBS-F09-A;BBS1;F;20-39;21;1;1;0;1;0;0;;;;cLOF;yes;bbsome;yes;no;0.6;age3;2013;no
+M'hamdi et al. 2013;BBS-F09-B;BBS1;F;20-39;29;1;1;1;0;0;0;;;;cLOF;yes;bbsome;yes;no;0.6;age3;2013;no
+M'hamdi et al. 2013;BBS-F11-A;BBS1;F;20-39;32;1;1;0;1;1;;;;;cLOF;no;bbsome;yes;no;;age3;2013;no
+M'hamdi et al. 2013;BBS-F11-B;BBS1;F;40+;40;1;1;0;1;0;;;;;cLOF;no;bbsome;yes;no;;age4;2013;no
+M'hamdi et al. 2013;BBS-F12-A;BBS1;F;X.19;14;0;0;0;1;0;1;;;;cLOF;yes;bbsome;yes;no;0.4;age2;2013;no
+M'hamdi et al. 2013;BBS-F12-B;BBS1;M;0-9;4;1;1;1;1;1;1;;;;cLOF;yes;bbsome;yes;no;1;age1;2013;no
+M'hamdi et al. 2013;BBS-F08-A;BBS10;M;X.19;15;1;1;1;1;1;0;;;;cLOF;yes;chaps;yes;yes;0.8;age2;2013;no
+M'hamdi et al. 2013;BBS-F08-B;BBS10;F;X.19;11;1;1;0;1;1;1;;;;cLOF;yes;chaps;yes;yes;0.8;age2;2013;no
+M'hamdi et al. 2013;BBS-F02-A;BBS2;M;0-9;6;1;1;1;1;1;0;;;;cLOF;yes;bbsome;yes;yes;0.8;age1;2013;no
+M'hamdi et al. 2013;BBS-F07-A;BBS2;F;0-9;8;1;1;1;1;0;0;;;;cLOF;yes;bbsome;yes;yes;0.8;age1;2013;no
+M'hamdi et al. 2013;BBS-F03-A;BBS4;F;0-9;4,5;1;1;1;0;1;0;;;;cLOF;yes;bbsome;yes;yes;0.6;age1;2013;no
+M'hamdi et al. 2013;BBS-F13-A;BBS5;F;X.19;11;1;1;1;1;0;0;;;;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age2;2013;no
+M'hamdi et al. 2013;BBS-F10-A;BBS6;F;0-9;7;1;1;1;1;1;0;;;;cLOF;yes;chaps;yes;yes;0.8;age1;2013;no
+M'hamdi et al. 2013;BBS-F14-A;BBS8;M;0-9;4;1;1;1;0;1;1;;;;cLOF;yes;bbsome;yes;yes;0.8;age1;2013;no
+Otto et al. 2010;FI.2_21;BBS16;;;;1;1;;1;;1;;;;cLOF;no;other;no;no;;;2010;no
+Otto et al. 2010;FI.2_22;BBS16;;;;1;1;;1;;1;;;;cLOF;no;other;no;no;;;2010;no
+Otto et al. 2010;FI.2_23;BBS16;;;;1;1;;1;;1;;;;cLOF;no;other;no;no;;;2010;no
+Otto et al. 2010;FI.2_24;BBS16;;;;1;1;;1;;1;;;;cLOF;no;other;no;no;;;2010;no
+Otto et al. 2010;FII.22_21;BBS16;;;;1;1;;1;1;1;;;;cLOF;no;other;no;no;;;2010;no
+Otto et al. 2010;FII.22_22;BBS16;;;;1;1;;1;1;1;;;;cLOF;no;other;no;no;;;2010;no
+Otto et al. 2010;NK-F1063;BBS16;;;;1;1;;1;;1;;;;cLOF;no;other;no;no;;;2010;no
+Otto et al. 2010;SS23/A1365_21;BBS16;;;;1;;;;;1;;;;cLOF;no;other;no;no;;;2010;no
+Otto et al. 2010;SS23/A1365_22;BBS16;;;;1;;;;;1;;;;cLOF;no;other;no;no;;;2010;no
+Pawlik et al. 2010;IV-2;BBS12;;20-39;30;1;0;1;0;0;0;0;0;0;cLOF;yes;chaps;yes;yes;0.4;age3;2010;no
+Pawlik et al. 2010;IV-3;BBS12;;20-39;27;1;0;1;0;0;0;0;0;0;cLOF;yes;chaps;yes;yes;0.4;age3;2010;no
+Pawlik et al. 2010;IV-9;BBS12;;X.19;19;1;0;1;0;0;0;0;0;0;cLOF;yes;chaps;yes;yes;0.4;age2;2010;no
+Pereiro et al. 2010;M250 II.3;BBS12;;;;1;1;1;1;1;;;;;cLOF;no;chaps;yes;yes;;;2010;no
+Pereiro et al. 2010;M250 II.6;BBS12;;;;1;1;1;1;1;;;;;cLOF;no;chaps;yes;yes;;;2010;no
+Pereiro et al. 2010;RP1011 II.1;BBS12;;;;1;1;1;1;;;;;1;MSMSandMScLOF;no;chaps;yes;yes;;;2010;no
+Pereiro et al. 2010;M446 II.1;BBS3;;;;1;1;0;0;;;;;;cLOF;no;bbs3;yes;yes;;;2010;no
+Pereiro et al. 2010;M446 II.2;BBS3;;;;1;1;1;0;;;;;;cLOF;no;bbs3;yes;yes;;;2010;no
+Pereiro et al. 2010;B17 II.1;BBS6;;;;1;1;1;1;;1;;;;MSMSandMScLOF;yes;chaps;yes;yes;1;;2010;no
+Pereiro et al. 2010;M79 II.2;BBS6;;;;1;1;1;1;;;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2010;no
+Phelps et al. 2017;UW013-3;BBS14;;;;1;;0;;;0;;0;;;no;other;no;no;;;2017;no
+Phelps et al. 2017;UW013-4;BBS14;;;;1;;0;;;0;;0;;;no;other;no;no;;;2017;no
+Phelps et al. 2017;UW045-3;BBS14;;;;0;;0;;;0;;0;;;no;other;no;no;;;2017;no
+Phelps et al. 2017;UW045-4;BBS14;;;;0;;0;;;1;;0;;;no;other;no;no;;;2017;no
+Phelps et al. 2017;UW220-3;BBS14;;;;1;;0;;;0;;0;;;no;other;no;no;;;2017;no
+Phelps et al. 2017;UW244-3;BBS14;;;;1;;0;;;1;;0;;;no;other;no;no;;;2017;no
+Phelps et al. 2017;UW244-4;BBS14;;;;1;;0;;;1;;1;;;no;other;no;no;;;2017;no
+Phelps et al. 2017;UW259-3;BBS14;;;;0;;0;;;0;;0;;;no;other;no;no;;;2017;no
+Phelps et al. 2017;UW263-3;BBS14;;;;1;;0;;;1;;0;;;no;other;no;no;;;2017;no
+Phelps et al. 2017;UW282-3;BBS14;;;;1;;0;;;1;;0;;;no;other;no;no;;;2017;no
+Phelps et al. 2017;UW282-4;BBS14;;;;1;;0;;;0;;0;;;no;other;no;no;;;2017;no
+Phelps et al. 2017;UW112-3;BBS20;;;;1;;0;;;1;;1;;;no;other;no;no;;;2017;no
+Phelps et al. 2017;UW112-4;BBS20;;;;0;;0;;;1;;1;;;no;other;no;no;;;2017;no
+Qi et al. 2017;;BBS6;F;X.19;10;1;0;1;1;;1;;;;MSMSandMScLOF;yes;chaps;yes;yes;0.8;age2;2017;no
+Rahner et al. 2016;II.1;BBS21;F;20-39;20;1;0;1;;;0;0;;;cLOF;no;other;no;no;;age3;2016;no
+Rahner et al. 2016;II.3;BBS21;F;X.19;15;1;0;1;;;0;0;;;cLOF;no;other;no;no;;age2;2016;no
+Reiner et al. 2018;Patient;BBS9;M;0-9;1;;1;1;;0;0;0;;1;cLOF;no;bbsome;yes;yes;;age1;2018;no
+Riazuddin et al. 2010;V:1;BBS8;M;20-39;29;1;0;0;0;;0;;;0;cLOF;yes;bbsome;yes;yes;0.2;age3;2010;no
+Riazuddin et al. 2010;V:10;BBS8;F;X.19;16;1;0;0;0;;0;;;0;cLOF;yes;bbsome;yes;yes;0.2;age2;2010;no
+Riazuddin et al. 2010;V:5;BBS8;M;20-39;24;1;0;0;0;;0;;;0;cLOF;yes;bbsome;yes;yes;0.2;age3;2010;no
+Riazuddin et al. 2010;V:7;BBS8;M;20-39;21;1;0;0;0;;0;;;0;cLOF;yes;bbsome;yes;yes;0.2;age3;2010;no
+Riise et al. 2002;IV-1;BBS4;F;X.19;13;1;1;1;0;;;;;;cLOF;no;bbsome;yes;yes;;age2;2002;no
+Riise et al. 2002;IV-2;BBS4;M;X.19;16;1;1;1;0;1;;;;;cLOF;no;bbsome;yes;yes;;age2;2002;no
+Riise et al. 2002;IX-1;BBS4;M;20-39;30;1;1;1;0;1;0;;;;cLOF;yes;bbsome;yes;yes;0.6;age3;2002;no
+Riise et al. 2002;IX-2;BBS4;M;20-39;32;1;1;1;0;1;0;;;;cLOF;yes;bbsome;yes;yes;0.6;age3;2002;no
+Riise et al. 2002;VIII-1;BBS4;F;20-39;20;1;1;0;1;;0;;;;cLOF;yes;bbsome;yes;yes;0.6;age3;2002;no
+Riise et al. 2002;VIII-2;BBS4;F;20-39;33;1;1;1;1;;0;;;;cLOF;yes;bbsome;yes;yes;0.8;age3;2002;no
+Sathya Priya et al. 2015;BBS-G;BBS1;;;;1;1;1;0;0;0;;;;cLOF;yes;bbsome;yes;no;0.6;;2015;no
+Sathya Priya et al. 2015;BBS-M;BBS1;;;;1;1;1;0;0;0;;;;cLOF;yes;bbsome;yes;no;0.6;;2015;no
+Sathya Priya et al. 2015;BBS-C;BBS10;;;;1;1;1;1;;0;;;1;MSMSandMScLOF;yes;chaps;yes;yes;0.8;;2015;no
+Sathya Priya et al. 2015;BBS-F1;BBS10;;;;1;1;1;1;;0;;;;cLOF;yes;chaps;yes;yes;0.8;;2015;no
+Sathya Priya et al. 2015;BBS-H;BBS10;;;;1;1;1;0;;0;;;;cLOF;yes;chaps;yes;yes;0.6;;2015;no
+Sathya Priya et al. 2015;BBS-Q;BBS11;;;;1;1;1;0;1;0;;;;MSMSandMScLOF;yes;other;no;no;0.6;;2015;no
+Sathya Priya et al. 2015;BBS-J;BBS12;;;;1;1;1;0;;0;;;1;MSMSandMScLOF;yes;chaps;yes;yes;0.6;;2015;no
+Sathya Priya et al. 2015;BBS-Z;BBS12;;;;1;1;1;1;;0;1;;1;cLOF;yes;chaps;yes;yes;0.8;;2015;no
+Sathya Priya et al. 2015;BBS-F;BBS2;;;;1;1;1;1;;0;;;;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;;2015;no
+Sathya Priya et al. 2015;BBS-U;BBS2;;;;1;1;1;0;1;0;;;1;MSMSandMScLOF;yes;bbsome;yes;yes;0.6;;2015;no
+Sathya Priya et al. 2015;BBS-Y;BBS2;;;;1;1;0;0;;1;;;1;MSMSandMScLOF;yes;bbsome;yes;yes;0.6;;2015;no
+Sathya Priya et al. 2015;BBS-D;BBS3;;;;1;1;1;0;;0;;;;MSMSandMScLOF;yes;bbs3;yes;yes;0.6;;2015;no
+Sathya Priya et al. 2015;BBS-K;BBS3;;;;1;1;1;1;1;0;;;;MSMSandMScLOF;yes;bbs3;yes;yes;0.8;;2015;no
+Sathya Priya et al. 2015;BBS-R;BBS3;;;;1;1;1;1;;0;;;;MSMSandMScLOF;yes;bbs3;yes;yes;0.8;;2015;no
+Sathya Priya et al. 2015;BBS-T;BBS3;;;;1;1;1;1;1;0;;;;MSMSandMScLOF;yes;bbs3;yes;yes;0.8;;2015;no
+Sathya Priya et al. 2015;BBS-A;BBS4;;;;1;0;1;1;;0;;;;;yes;bbsome;yes;yes;0.6;;2015;no
+Sathya Priya et al. 2015;BBS-E;BBS5;;;;1;1;1;0;0;0;;;;MSMSandMScLOF;yes;bbsome;yes;yes;0.6;;2015;no
+Sathya Priya et al. 2015;BBS-B;BBS6;;;;1;0;1;1;;0;;;1;MSMSandMScLOF;yes;chaps;yes;yes;0.6;;2015;no
+Sathya Priya et al. 2015;BBS-D1;BBS6;;;;1;1;0;1;1;0;;;1;MSMSandMScLOF;yes;chaps;yes;yes;0.6;;2015;no
+Sathya Priya et al. 2015;BBS-X;BBS6;;;;1;1;0;1;1;0;;;;MSMSandMScLOF;yes;chaps;yes;yes;0.6;;2015;no
+Sathya Priya et al. 2015;BBS-L;BBS9;;;;1;1;1;1;1;0;;;1;cLOF;yes;bbsome;yes;yes;0.8;;2015;no
+Sathya Priya et al. 2015;BBS-V;BBS9;;;;1;1;1;0;;1;;;1;cLOF;yes;bbsome;yes;yes;0.8;;2015;no
+Shaheen et al. 2016;F-14-20;BBS1;;;;1;1;1;1;;;;;;cLOF;no;bbsome;yes;no;;;2016;no
+Shaheen et al. 2016;F-17-24;BBS1;;;;1;1;;1;;;;;;cLOF;no;bbsome;yes;no;;;2016;no
+Shaheen et al. 2016;F-23-37;BBS1;;;;1;1;1;1;1;;;;;cLOF;no;bbsome;yes;no;;;2016;no
+Shaheen et al. 2016;F-23-38;BBS1;;;;1;1;1;1;1;;;;;cLOF;no;bbsome;yes;no;;;2016;no
+Shaheen et al. 2016;F-47-81;BBS1;;;;1;1;1;1;;;;;;cLOF;no;bbsome;yes;no;;;2016;no
+Shaheen et al. 2016;F-47-82;BBS1;;;;1;1;1;;;;;;1;cLOF;no;bbsome;yes;no;;;2016;no
+Shaheen et al. 2016;F-47-83;BBS1;;;;1;1;;1;;;;;;cLOF;no;bbsome;yes;no;;;2016;no
+Shaheen et al. 2016;F-47-84;BBS1;;;;1;1;0;1;1;;;;;cLOF;no;bbsome;yes;no;;;2016;no
+Shaheen et al. 2016;F-47-85;BBS1;;;;1;1;1;1;;;;;;cLOF;no;bbsome;yes;no;;;2016;no
+Shaheen et al. 2016;F-48-86;BBS1;;;;1;1;1;;;;;;1;cLOF;no;bbsome;yes;no;;;2016;no
+Shaheen et al. 2016;F-67-124;BBS1;;;;1;1;1;;;;;;;cLOF;no;bbsome;yes;no;;;2016;no
+Shaheen et al. 2016;F-81-143;BBS1;;;;;1;1;1;1;;1;;;cLOF;no;bbsome;yes;no;;;2016;no
+Shaheen et al. 2016;F-81-144;BBS1;;;;1;1;1;;;;;;;cLOF;no;bbsome;yes;no;;;2016;no
+Shaheen et al. 2016;F-81-145;BBS1;;;;;1;1;;;1;;;;cLOF;no;bbsome;yes;no;;;2016;no
+Shaheen et al. 2016;F-82-146;BBS1;;;;;1;;1;1;;;;;cLOF;no;bbsome;yes;no;;;2016;no
+Shaheen et al. 2016;F-20-29;BBS10;;;;1;1;;;;1;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-20-30;BBS10;;;;1;1;1;;;;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-221 307;BBS10;;;;;;1;;;1;;;;cLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-36-60;BBS10;;;;;1;1;1;1;;;1;;MSMSandMScLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-37-61;BBS10;;;;1;1;;;;;;;;cLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-79-141;BBS10;;;;1;1;;1;;;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-12-18;BBS12;;;;1;;1;;;1;;;;cLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-21-31;BBS12;;;;1;1;1;1;1;1;;;;MSMSandMScLOF;yes;chaps;yes;yes;1;;2016;no
+Shaheen et al. 2016;F-21-32;BBS12;;;;1;1;1;1;1;1;;;;MSMSandMScLOF;yes;chaps;yes;yes;1;;2016;no
+Shaheen et al. 2016;F-22-33;BBS12;;;;1;1;1;1;;;;;;cLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-22-34;BBS12;;;;1;1;0;1;;;;;;cLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-22-35;BBS12;;;;1;1;1;1;;;;;;cLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-22-36;BBS12;;;;1;1;0;1;;;;;;cLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-9-14;BBS12;;;;1;;1;;;1;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-109 175;BBS13;;;;;;1;;;1;;;;cLOF;no;other;no;no;;;2016;no
+Shaheen et al. 2016;F-130 196;BBS13;;;;;;1;;;1;;;;cLOF;no;other;no;no;;;2016;no
+Shaheen et al. 2016;F-92 156;BBS13;;;;;;1;;;1;;;;cLOF;no;other;no;no;;;2016;no
+Shaheen et al. 2016;F-122 188;BBS14;;;;;;;;;1;;;;cLOF;no;other;no;no;;;2016;no
+Shaheen et al. 2016;F-155 223;BBS14;;;;1;;;;;0;;;1;cLOF;no;other;no;no;;;2016;no
+Shaheen et al. 2016;F-162 233;BBS14;;;;1;;;;;1;;;;cLOF;no;other;no;no;;;2016;no
+Shaheen et al. 2016;F-171 244;BBS14;;;;1;;;;;1;;;;cLOF;no;other;no;no;;;2016;no
+Shaheen et al. 2016;F-172 245;BBS14;;;;;;;;;1;;;1;cLOF;no;other;no;no;;;2016;no
+Shaheen et al. 2016;F-172 246;BBS14;;;;;;;;;;;;1;cLOF;no;other;no;no;;;2016;no
+Shaheen et al. 2016;F-179 254;BBS14;;;;1;;;;;;;;1;cLOF;no;other;no;no;;;2016;no
+Shaheen et al. 2016;F-192 275;BBS14;;;;1;;;;;0;;;1;cLOF;no;other;no;no;;;2016;no
+Shaheen et al. 2016;F-198 281;BBS14;;;;1;;;;;;;;1;cLOF;no;other;no;no;;;2016;no
+Shaheen et al. 2016;F-27-46;BBS19;;;;1;1;1;1;;1;;1;;MSMSandMScLOF;yes;other;no;no;1;;2016;no
+Shaheen et al. 2016;F-27-47;BBS19;;;;1;1;1;1;;1;;1;;MSMSandMScLOF;yes;other;no;no;1;;2016;no
+Shaheen et al. 2016;F-1-1;BBS2;;;;1;1;1;1;;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-15-21;BBS2;;;;1;1;;1;;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-15-22;BBS2;;;;1;1;1;1;;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-16-23;BBS2;;;;1;1;1;;1;;1;;1;MSMSandMScLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-18-25;BBS2;;;;1;;1;1;;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-18-26;BBS2;;;;1;;1;1;;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-38-62;BBS2;;;;1;1;1;1;1;;;;;MSMSandMScLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-78-140;BBS2;;;;1;1;;1;;;;;;MSMSandMScLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-209 293;BBS20;;;;;;1;;;;;1;;MSMSandMScLOF;no;other;no;no;;;2016;no
+Shaheen et al. 2016;F-11-16;BBS4;;;;1;1;1;;1;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-11-17;BBS4;;;;1;1;1;;1;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-13-19;BBS4;;;;1;1;1;;;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-33-57;BBS4;;;;1;1;1;;;0;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-3-4;BBS4;;;;1;1;1;1;;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-34-58;BBS4;;;;1;1;1;;;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-39-63;BBS4;;;;1;1;1;;1;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-40-64;BBS4;;;;1;1;1;;;0;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-40-65;BBS4;;;;1;1;1;;;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-5-6;BBS4;;;;1;1;1;;;1;;;1;MSMSandMScLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-5-7;BBS4;;;;1;1;0;;;;1;;1;MSMSandMScLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-64-120;BBS4;;;;1;1;1;;1;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-66-123;BBS4;;;;;1;1;;;;;;1;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-74-136;BBS4;;;;1;;1;;;;;;1;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-77-139;BBS4;;;;1;1;1;;1;;1;;1;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-2-2;BBS5;;;;1;1;;;;;;;1;MSMSandMScLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-2-3;BBS5;;;;1;1;;;;;;;1;MSMSandMScLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-25-41;BBS5;;;;1;1;1;1;;1;;1;;cLOF;yes;bbsome;yes;yes;1;;2016;no
+Shaheen et al. 2016;F-25-42;BBS5;;;;;1;1;1;;;;1;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-25-43;BBS5;;;;;1;0;1;;1;;1;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-32-56;BBS5;;;;;;1;;1;1;1;;1;MSMSandMScLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-4-5;BBS5;;;;1;1;1;1;1;1;;;;cLOF;yes;bbsome;yes;yes;1;;2016;no
+Shaheen et al. 2016;F-50-92;BBS5;;;;1;1;;;1;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-73-134;BBS5;;;;1;1;;1;;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-73-135;BBS5;;;;1;1;;1;;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-75-137;BBS5;;;;1;1;;1;1;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-8-13;BBS5;;;;1;1;1;;;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-28-48;BBS6;;;;1;1;1;1;;;1;;;MSMSandMScLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-28-49;BBS6;;;;1;1;1;1;;1;1;;;MSMSandMScLOF;yes;chaps;yes;yes;1;;2016;no
+Shaheen et al. 2016;F-28-50;BBS6;;;;1;1;1;;;1;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-29-51;BBS6;;;;1;1;1;1;;;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-29-52;BBS6;;;;1;1;1;1;;;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-29-53;BBS6;;;;1;1;1;1;;;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-42-67;BBS6;;;;1;;1;;1;1;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-42-68;BBS6;;;;1;;;;;;;;1;MSMSandMScLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-42-69;BBS6;;;;1;;;;;;;;1;MSMSandMScLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-42-70;BBS6;;;;1;1;1;;;1;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-42-71;BBS6;;;;1;1;1;;;1;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-6-8;BBS6;;;;1;1;1;1;;;;;;MSMSandMScLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-6-9;BBS6;;;;1;1;1;1;1;;1;;1;MSMSandMScLOF;no;chaps;yes;yes;;;2016;no
+Shaheen et al. 2016;F-10-15;BBS9;;;;1;1;1;;1;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-19-27;BBS9;;;;1;;1;;;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-19-28;BBS9;;;;1;;1;;;;;;;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-30-54;BBS9;;;;1;1;1;;1;;;1;1;cLOF;no;bbsome;yes;yes;;;2016;no
+Shaheen et al. 2016;F-76-138;BBS9;;;;1;1;1;;;;;;;;no;bbsome;yes;yes;;;2016;no
+Shin et al. 2015;II:1;BBS7;M;20-39;28;1;1;0;1;0;1;1;0;1;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age3;2015;no
+Shin et al. 2015;II:2;BBS7;M;20-39;26;1;1;0;1;0;1;1;0;1;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age3;2015;no
+Schaefer et al. 2011(a);1063;BBS16;;;;1;1;0;;;;;;1;cLOF;no;other;no;no;;;1(a);no
+Schaefer et al. 2011(a);AR37-02;BBS16;M;20-39;27;1;1;0;;;1;;;0;cLOF;no;other;no;no;;age3;1(a);no
+Schaefer et al. 2011(a);AR37-05;BBS16;M;20-39;22;1;1;0;;1;1;;;0;cLOF;no;other;no;no;;age3;1(a);no
+Schaefer et al. 2011(a);AR37-07;BBS16;F;X.19;11;1;1;0;1;;1;;;1;cLOF;yes;other;no;no;0.8;age2;1(a);no
+Schaefer et al. 2011(a);I.2.21;BBS16;M;20-39;37;1;0;0;;;1;;;;cLOF;no;other;no;no;;age3;1(a);no
+Schaefer et al. 2011(a);I.2.22;BBS16;F;20-39;22;1;1;0;;;1;;;1;cLOF;no;other;no;no;;age3;1(a);no
+Schaefer et al. 2011(a);I.2.23;BBS16;F;X.19;14;1;1;0;;;1;;;1;cLOF;no;other;no;no;;age2;1(a);no
+Schaefer et al. 2011(a);I.2.24;BBS16;M;0-9;8;1;0;0;;;1;;;1;cLOF;no;other;no;no;;age1;1(a);no
+Schaefer et al. 2011(a);I.2.25;BBS16;M;20-39;31;1;1;0;;1;1;;;1;cLOF;no;other;no;no;;age3;1(a);no
+Schaefer et al. 2011(a);II.22.21;BBS16;M;X.19;19;1;1;0;;1;1;;;1;cLOF;no;other;no;no;;age2;1(a);no
+Schaefer et al. 2011(a);II.22.22;BBS16;F;X.19;15;1;1;0;;1;1;;;1;cLOF;no;other;no;no;;age2;1(a);no
+Schaefer et al. 2011(a);II.30;BBS16;F;0-9;6;1;1;0;;;1;;;1;cLOF;no;other;no;no;;age1;1(a);no
+Schaefer et al. 2011(b);I.10;BBS10;F;;;1;0;1;;1;1;;;;cLOF;no;chaps;yes;yes;;;1(b);no
+Schaefer et al. 2011(b);II.6;BBS10;F;;;1;1;1;;1;1;;;;cLOF;no;chaps;yes;yes;;;1(b);no
+Schaefer et al. 2011(b);VII.26;BBS10;F;;;1;1;1;;1;1;;;;MSMSandMScLOF;no;chaps;yes;yes;;;1(b);no
+Schaefer et al. 2011(b);V.31;BBS6;F;;;1;0;1;;1;1;;;;MSMSandMScLOF;no;chaps;yes;yes;;;1(b);no
+Schaefer et al. 2011(b);IV.3;BBS8;F;;;1;1;1;;1;1;;;;cLOF;no;bbsome;yes;yes;;;1(b);no
+Schaefer et al. 2013;II:2;BBS17;F;20-39;36;1;1;1;1;;1;;;;MSMSandMScLOF;yes;other;no;no;1;age3;2013;no
+Schaefer et al. 2013;II:3;BBS17;F;20-39;36;1;1;1;1;;1;;;;MSMSandMScLOF;yes;other;no;no;1;age3;2013;no
+Schaefer et al. 2016;IV.3;BBS20;M;X.19;18;1;1;0;1;;0;;0;1;cLOF;yes;other;no;no;0.6;age2;2016;no
+Schaefer et al. 2016;IV.5;BBS20;M;X.19;13;1;1;1;;1;0;;0;1;cLOF;no;other;no;no;;age2;2016;no
+Scheidecker et al. 2013;;BBS18;M;40+;49;1;1;0;1;0;1;;;0;cLOF;yes;bbsome;yes;yes;0.8;age4;2013;no
+Scheidecker et al. 2015;Case4;BBS1;M;20-39;27;1;0;1;1;0;0;;;;MSMSandMScLOF;yes;bbsome;yes;no;0.6;age3;2015;no
+Scheidecker et al. 2015;Case3;BBS10;F;20-39;25;1;1;1;0;1;0;;;;MSMSandMScLOF;yes;chaps;yes;yes;0.6;age3;2015;no
+Scheidecker et al. 2015;Case5;BBS10;M;40+;54;1;1;1;0;1;0;;;;MSMSandMScLOF;yes;chaps;yes;yes;0.6;age4;2015;no
+Scheidecker et al. 2015;Case6;BBS10;M;20-39;36;1;1;1;0;1;;;;;MSMSandMScLOF;no;chaps;yes;yes;;age3;2015;no
+Scheidecker et al. 2015;Case2;BBS12;M;40+;45;1;1;1;1;0;1;;;;MSMSandMScLOF;yes;chaps;yes;yes;1;age4;2015;no
+Scheidecker et al. 2015;Case1;BBS5;M;20-39;37;1;1;1;1;1;0;;;;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age3;2015;no
+Scheidecker et al. 2015;Case7;BBS6;M;20-39;36;1;1;1;0;0;1;;;;MSMSandMScLOF;yes;chaps;yes;yes;0.8;age3;2015;no
+Suspitsin et al.2015;II.4;BBS7;M;0-9;7;1;1;1;1;1;;;;;cLOF;no;bbsome;yes;yes;;age1;2015;no
+Suspitsin et al.2015;II.6;BBS7;F;0-9;1,5;;1;1;;;;;;;cLOF;no;bbsome;yes;yes;;age1;2015;no
+Suzuki et al. 2016;19;BBS1;;;;1;;0;1;;0;;0;1;MSMSandMScLOF;no;bbsome;yes;no;;;2016;no
+Suzuki et al. 2016;4;BBS14;;;;1;;0;1;;1;;0;1;cLOF;no;other;no;no;;;2016;no
+Suzuki et al. 2016;5;BBS14;;;;1;;0;1;;1;;0;1;cLOF;no;other;no;no;;;2016;no
+Suzuki et al. 2016;9;BBS14;;;;1;;0;1;;1;;0;1;cLOF;no;other;no;no;;;2016;no
+Suzuki et al. 2016;10;BBS14;;;;0;;0;1;;1;;0;1;cLOF;no;other;no;no;;;2016;no
+Suzuki et al. 2016;13;BBS14;;;;1;;0;1;;1;;0;1;cLOF;no;other;no;no;;;2016;no
+Suzuki et al. 2016;25;BBS14;;;;1;;0;1;;1;;0;1;cLOF;no;other;no;no;;;2016;no
+Suzuki et al. 2016;2.I;BBS14;;;;1;;0;1;;1;;0;1;cLOF;no;other;no;no;;;2016;no
+Suzuki et al. 2016;2.II;BBS14;;;;0;;0;1;;1;;0;1;cLOF;no;other;no;no;;;2016;no
+Ullah et al. 2017;D V-1;BBS10;M;X.19;15;1;1;1;1;1;0;;;;cLOF;yes;chaps;yes;yes;0.8;age2;2017;no
+Ullah et al. 2017;D V-2;BBS10;M;X.19;14;1;1;1;1;1;1;;;;cLOF;yes;chaps;yes;yes;1;age2;2017;no
+Ullah et al. 2017;E III-7;BBS6;F;20-39;38;1;1;1;1;0;1;;;;cLOF;yes;chaps;yes;yes;1;age3;2017;no
+Ullah et al. 2017;E IV-3;BBS6;M;X.19;17;1;1;1;1;1;1;;;;cLOF;yes;chaps;yes;yes;1;age2;2017;no
+Ullah et al. 2017;E IV-4;BBS6;M;X.19;15;1;1;1;1;1;1;;;;cLOF;yes;chaps;yes;yes;1;age2;2017;no
+Ullah et al. 2017;A IV-3;BBS7;M;20-39;21;1;1;1;1;1;0;;;;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age3;2017;no
+Ullah et al. 2017;A IV-4;BBS7;M;X.19;15;1;1;1;1;1;0;;;;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age2;2017;no
+Ullah et al. 2017;A IV-5;BBS7;M;X.19;12;1;1;1;1;1;0;;;;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age2;2017;no
+Ullah et al. 2017;B IV-2;BBS7;M;X.19;17;1;0;1;0;1;0;;;;MSMSandMScLOF;yes;bbsome;yes;yes;0.4;age2;2017;no
+Ullah et al. 2017;B IV-4;BBS7;M;X.19;16;1;1;1;1;1;0;;;;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age2;2017;no
+Ullah et al. 2017;B IV-7;BBS7;M;X.19;10;1;1;1;1;1;0;;;;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age2;2017;no
+Ullah et al. 2017;B V-1;BBS7;M;0-9;6;;1;1;1;;0;;;;MSMSandMScLOF;no;bbsome;yes;yes;;age1;2017;no
+Ullah et al. 2017;C IV-1;BBS8;M;X.19;13;1;1;1;1;1;0;;;;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age2;2017;no
+Ullah et al. 2017;C IV-2;BBS8;M;X.19;12;1;1;1;1;1;;;;;MSMSandMScLOF;no;bbsome;yes;yes;;age2;2017;no
+Ullah et al. 2017;C IV-6;BBS8;F;X.19;10;1;1;1;1;;0;;;;MSMSandMScLOF;yes;bbsome;yes;yes;0.8;age2;2017;no
+van Huet et al.  2013;A-IV:1;BBS21;M;20-39;37;1;0;0;0;0;0;;;;cLOF;yes;other;no;no;0.2;age3;2013;no
+van Huet et al.  2013;B-V:1;BBS21;F;40+;41;1;0;1;0;0;0;;;;cLOF;yes;other;no;no;0.4;age4;2013;no
+van Huet et al.  2013;B-V:7;BBS21;M;20-39;26;1;0;1;0;0;0;;;;cLOF;yes;other;no;no;0.4;age3;2013;no
+van Huet et al.  2013;C-II:1;BBS21;M;20-39;36;1;0;0;0;0;0;;;;MSMSandMScLOF;yes;other;no;no;0.2;age3;2013;no
+van Huet et al.  2013;C-II:2;BBS21;M;20-39;30;1;0;0;0;0;0;;;;MSMSandMScLOF;yes;other;no;no;0.2;age3;2013;no
+van Huet et al.  2013;D-IV:1;BBS21;F;20-39;38;1;0;0;0;0;0;;;;MSMSandMScLOF;yes;other;no;no;0.2;age3;2013;no
+van Huet et al.  2013;D-IV:3;BBS21;F;40+;43;1;0;0;0;0;0;;;;MSMSandMScLOF;yes;other;no;no;0.2;age4;2013;no
+van Huet et al.  2013;D-IV:4;BBS21;F;40+;40;1;0;0;0;0;0;;;;MSMSandMScLOF;yes;other;no;no;0.2;age4;2013;no
+White et al. 2006;Patient A;BBS10;M;20-39;24;1;1;1;1;1;0;0;;1;cLOF;yes;chaps;yes;yes;0.8;age3;2006;no
+White et al. 2006;Patient B;BBS10;M;X.19;13;1;1;0;1;1;0;0;;1;cLOF;yes;chaps;yes;yes;0.6;age2;2006;no
+White et al. 2006;Patient C;BBS10;M;0-9;4;1;1;1;1;0;0;0;;1;cLOF;yes;chaps;yes;yes;0.8;age1;2006;no
+White et al. 2006;Patient D;BBS10;F;0-9;6;1;1;1;1;1;0;0;;1;cLOF;yes;chaps;yes;yes;0.8;age1;2006;no
+Yamamura et al. 2017;patient 1;BBS16;F;0-9;3;1;0;0;1;;1;;;;cLOF;yes;other;no;no;0.6;age1;2017;no
+Yamamura et al. 2017;patient 2;BBS6;F;20-39;27;1;1;1;1;1;1;0;;;cLOF;yes;chaps;yes;yes;1;age3;2017;no
+Yang et al. 2008;IV:2;BBS7;M;20-39;37;1;1;1;1;1;1;;;1;MSMSandMScLOF;yes;bbsome;yes;yes;1;age3;2008;no
+Yang et al. 2008;IV:4;BBS7;M;20-39;32;1;1;1;1;1;1;;;1;MSMSandMScLOF;yes;bbsome;yes;yes;1;age3;2008;no
+Yoon et al. 2014;brother;BBS10;M;0-9;6,5;1;1;0;;;1;;;1;MSMSandMScLOF;no;chaps;yes;yes;;age1;2014;no
+Yoon et al. 2014;case;BBS10;M;X.19;17,5;1;1;1;1;1;0;;;;MSMSandMScLOF;yes;chaps;yes;yes;0.8;age2;2014;no
+Young et al. 1998;14;BBS3;M;40+;51;1;0;1;0;;1;;;;;yes;bbs3;yes;yes;0.6;age4;1998;no
+Young et al. 1998;15;BBS3;F;40+;54;;1;1;;;1;;;;;no;bbs3;yes;yes;;age4;1998;no
+Young et al. 1998;22;BBS3;M;20-39;36;1;1;1;0;;;;;;;no;bbs3;yes;yes;;age3;1998;no
+Young et al. 1998;23;BBS3;M;20-39;31;;1;1;0;;;;;;;no;bbs3;yes;yes;;age3;1998;no
+Young et al. 1998;24;BBS3;F;20-39;22;1;1;1;0;;1;1;;;;yes;bbs3;yes;yes;0.8;age3;1998;no
