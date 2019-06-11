@@ -223,6 +223,34 @@ plot_bars<- function(vector_groups,vector_group_names,phenotype_n){
   
 }
 
+plot_bars_wo_pval <- function(vector_groups,vector_group_names,phenotype_n){
+  for(i in c(1:length(vector_groups))){
+    if(i==1){df <- data.frame()
+    table <- c()}
+    pa <- phenotype_analysis(get(vector_groups[i])[,phenotype_n])
+    df <- rbind(df, data.frame(penetrance = pa$percent,
+                               group = vector_group_names[i],
+                               lower = qbeta(0.025,pa$yes + 1, pa$no + 1),
+                               upper = qbeta(0.975, pa$yes + 1, pa$no + 1) ))
+    table <- c(table,pa$yes,pa$no)
+  }
+  
+  df_plot <- df
+  p<- ggplot(data = df_plot, aes(x = factor(group,levels = vector_group_names), y = penetrance)) +
+    geom_bar(stat="identity", colour="black", fill="grey") + labs(title=phenotypes[phenotype_n-6]) +  
+    geom_errorbar(aes(ymin = lower*100, ymax = upper*100), width = .2) + 
+    theme(axis.text = element_text(size = 10), 
+          axis.title.x = element_blank(),
+          axis.ticks.x = element_blank(),
+          axis.title.y = element_text(size = 10),
+          axis.line.x = element_blank(),
+          plot.title = element_text(hjust = 0.5, size = 10)
+                    ) +
+ scale_y_continuous(breaks = c(0,20,40,60,80,100), limits = c(0,100))
+  p
+  
+}
+
 number_of_patients <- function(phenotype_n,vector_groups){
   group_numbers <- c()
   
@@ -292,7 +320,7 @@ kable(df, format = "html") %>%
 
 Now let's calculate the penetrance of mutations in particular genes and particular phenotypes within the whole dataset. These are used in `Figure S2A` and `Figure S2E`.
 
-```{r fig.width = 6, fig.height = 3}
+```{r fig.width = 9, fig.height = 4.5, fig.align = "center", out.width = '60%'}
 ## penetrance of mutations in BBS genes
 
 df <- data.frame(
@@ -401,11 +429,13 @@ chisq.test(penetrance_table)
 chisq.test(penetrance_table)$p.value
 
 pie2
-barplot(penetrance, ylim = c(0,100), ylab = "Penetrance of symptoms (%)", names.arg = c("RD","OBE","DD","PD","CI","REP","REN","LIV","HRT"), main = "Penetrance of BBS symptoms",
-        xlab = paste("chisq.test p-value = ",chisq.test(penetrance_table)$p.value))
-
-
 ```
+
+```{r fig.width = 6, fig.align = "center", out.width = '40%'}
+barplot(penetrance, ylim = c(0,100), ylab = "Penetrance of symptoms (%)", las = 1, names.arg = c("RD","OBE","DD","PD","CI","REP","REN","LIV","HRT"), main = "Penetrance of BBS symptoms",
+        xlab = paste("chisq.test p-value = ", format(chisq.test(penetrance_table)$p.value,digits = 4)))
+```
+
 
 Now, let's analyze the whole dataset in terms of sex, age and mutation types. This analysis will also be applied to subsets of patients grouped according to the functional groups of BBS genes in which the patients have their causative mutations. These information are provided in Figures S2B-D.
 
@@ -492,7 +522,7 @@ kable(chaperonin_analysis, format = "html") %>%
   For the analyses in Figure 1 we use the syndromic score, which is defined in patients with reported presence/absence of the five primary phenotypic criteria (RD,OBE,PD,CI,REN). Patients with blanks in any of these categories are not used for this statistics. Let's define the syndromic score subset called 'set and analyze the penetrance of the symptoms and penetrance of mutations in BBS genes in this 'set, as used in `Figure 1B` and `Figure 1C`.
 
 
-```{r fig.width = 6, fig.height=4}
+```{r fig.width = 9, fig.height=4.5, fig.align = "center", out.width = '60%'}
 subset_sscore <- subset(update8forR, sisubset=="yes")
 
 df <- data.frame(
@@ -551,7 +581,8 @@ y.breaks <- cumsum(df$count)
 
 
 pie2 <- bp + coord_polar("y", start = pi/3, direction = -1) +
- theme(axis.ticks=element_blank(),  
+ theme(axis.ticks=element_blank(),
+       axis.line = element_blank(),
           axis.title=element_blank(),  
           axis.text.y=element_blank(),
           axis.text.x=element_text(color='black')) + 
@@ -586,9 +617,11 @@ chisq.test(penetrance_table)
 chisq.test(penetrance_table)$p.value
 
 pie2
-barplot(penetrance, ylim = c(0,100), ylab = "Penetrance of symptoms (%)", names.arg = c("RD","OBE","PD","CI","REN"), main = "Penetrance of BBS symptoms",
-        xlab = paste("chisq.test p-value = ",chisq.test(penetrance_table)$p.value))
+```
 
+```{r fig.width = 6, fig.align = "center", out.width = '40%'}
+barplot(penetrance, ylim = c(0,100), ylab = "Penetrance of symptoms (%)", names.arg = c("RD","OBE","PD","CI","REN"), main = "Penetrance of BBS symptoms", las = 1,
+        xlab = paste("chisq.test p-value = ",format(chisq.test(penetrance_table)$p.value,digits = 4)))
 ```
 
 Summary analysis of the syndromic score in the 'set follows. This is used in `Figure S3B`.
@@ -626,9 +659,9 @@ plot_histogram(subset_sscore_female$si, "Female", F)
 
 ### Syndromic score in patient groups divided according to gene functions
   Let's investigate the severity score between groups of BBS genes based on their functions.
-```{r fig.width=4,fig.height=3}
+```{r fig.width=4, fig.height=3, fig.align = "center"}
 ## test of functional groups
-boxplot(subset_sscore$si~factor(subset_sscore$ggroup,levels = c("bbs3","bbsome","chaps","other")), las = 2, ylab = "Syndromic score")
+boxplot(subset_sscore$si~factor(subset_sscore$ggroup,levels = c("bbs3","bbsome","chaps","other")), las = 2, ylab = "Syndromic score", xlab = "")
 kruskal.test(subset_sscore$si~subset_sscore$ggroup)
 FSA::dunnTest(subset_sscore$si~subset_sscore$ggroup)
 ```
@@ -663,10 +696,10 @@ kable(sscore_chaperonin_analysis) %>%
 
 Testing if there are differences in the syndromic score between patients with mutations in chpaeronin-encoding genes `Figure 1F`.
 
-```{r fig.width=4,fig.height=3}
+```{r fig.width=4,fig.height=3, fig.align = "center"}
 
 ## test of chaperonins
-boxplot(subset_chaperonins$si~droplevels(subset_chaperonins$gene), las = 1, ylab = "Syndromic score")
+boxplot(subset_chaperonins$si~droplevels(subset_chaperonins$gene), las = 1, ylab = "Syndromic score", xlab = "")
 kruskal.test(subset_chaperonins$si~droplevels(subset_chaperonins$gene))
 ```
 
@@ -711,12 +744,12 @@ kable(sscore_bbsome_analysis) %>%
 
   Testing if there are differences in the syndromic score between groups of 'set patients with mutations in BBSome genes.
   
-```{r fig.width=6.5, fig.height=3}
+```{r fig.width=6.5, fig.height=3, fig.align = "center"}
 ## test of bbsome
 
 subset_sscore_bbsome_wobbs18 = droplevels(subset(subset_sscore_bbsome,subset_sscore_bbsome$gene!="BBS18"))
 
-boxplot(subset_sscore_bbsome_wobbs18$si~subset_sscore_bbsome_wobbs18$gene, las = 1, ylab = "Syndromic score")
+boxplot(subset_sscore_bbsome_wobbs18$si~subset_sscore_bbsome_wobbs18$gene, las = 1, ylab = "Syndromic score", xlab = "")
 kruskal.test(subset_sscore_bbsome_wobbs18$si~subset_sscore_bbsome_wobbs18$gene)
 FSA::dunnTest(subset_sscore_bbsome_wobbs18$si~subset_sscore_bbsome_wobbs18$gene)
 ```
@@ -736,12 +769,12 @@ plot_histogram(subset_sscore_bbs9$si,"BBS9",F)
 # Syndromic score in patients with cLOF vs MS mutations
   Below, we will test if the syndromic score differs between patients with mutations leading to complete loss of function of the protein (such as frameshifts, splicing mutations, large deletions etc.) and patients having at least one missense mutation (either a substitution or a small deletion of one to three amino acids). 
   
-```{r fig.width=4}
+```{r fig.width= 4, fig.align = "center", out.width='35%'}
 
 subset_sscore_MS <- subset(subset_sscore,subset_sscore$muttype=="MSMSandMScLOF")
 subset_sscore_cLOF <- subset(subset_sscore,subset_sscore$muttype=="cLOF")
 
-boxplot(subset_sscore$si~subset_sscore$muttype, las = 1, ylab = "Syndromic score")
+boxplot(subset_sscore$si~subset_sscore$muttype, las = 1, ylab = "Syndromic score", xlab = "")
 wilcox.test(subset_sscore$si~subset_sscore$muttype)
 
 ```
@@ -784,14 +817,14 @@ FSA::dunnTest(subset_sscore_cLOF$si~subset_sscore_cLOF$ggroup)
 ```
 
 ### Patient group within BBSome
-```{r fig.width=6.5, fig.height=3}
+```{r fig.width=6.5, fig.height=3, fig.align = "center"}
 ## test of bbsome
 
 subset_sscore_cLOF_bbsome_wobbs18 = subset(subset_sscore_bbsome_wobbs18,subset_sscore_bbsome_wobbs18$muttype=="cLOF")
 
 
 
-boxplot(subset_sscore_cLOF_bbsome_wobbs18$si~subset_sscore_cLOF_bbsome_wobbs18$gene, las = 1, ylab = "Syndromic score")
+boxplot(subset_sscore_cLOF_bbsome_wobbs18$si~subset_sscore_cLOF_bbsome_wobbs18$gene, las = 1, ylab = "Syndromic score", xlab = "")
 kruskal.test(subset_sscore_cLOF_bbsome_wobbs18$si~subset_sscore_cLOF_bbsome_wobbs18$gene)
 FSA::dunnTest(subset_sscore_cLOF_bbsome_wobbs18$si~subset_sscore_cLOF_bbsome_wobbs18$gene)
 ```
@@ -832,8 +865,8 @@ subset_sscore_MS_bbsome <- subset(subset_sscore_bbsome,subset_sscore_bbsome$mutt
 
 
 
-plot_histogram(subset_sscore_MS_canonwobbs1$si,"Canon wo BBS1\n Missense",F)
-plot_histogram(subset_sscore_cLOF_canonwobbs1$si,"Canon wo BBS1\n cLOF",T)
+plot_histogram(subset_sscore_MS_canonwobbs1$si,"Canon wo BBS1\n Missense",T)
+plot_histogram(subset_sscore_cLOF_canonwobbs1$si,"Canon wo BBS1\n cLOF",F)
 
 plot_histogram(subset_sscore_MS_bbs1$si,"BBS1\n Missense",F)
 plot_histogram(subset_sscore_cLOF_bbs1$si,"BBS1\n cLOF",F)
@@ -864,7 +897,7 @@ fisher_severity_ones(subset_sscore_cLOF_bbsome, subset_sscore_MS_bbsome)
 
   Below, we visualize the percentage of cLOF mutations in BBSome patients with syndromic score = 1 according to mutations in different BBS genes.
 
-```{r fig.width=4, fig.height=4}
+```{r fig.width=4, fig.height=4, fig.align = "center", out.width="35%"}
 cLOF_sscore <- function(gene1){
   total_cLOF <- nrow(subset(subset_sscore,subset_sscore$gene==gene1&subset_sscore$muttype=="cLOF"))
   total_MS <- nrow(subset(subset_sscore,subset_sscore$gene==gene1&subset_sscore$muttype=="MSMSandMScLOF"))
@@ -973,7 +1006,9 @@ one_vs_all_other(subset_chaperonins,subset_allwow,13,sidak3))) %>%
   
   Generate charts:
   
-```{r fig.height=8.5, fig.width=4.5, message=FALSE, warning=FALSE}
+  
+  
+```{r fig.height=8.5, fig.align = "center", fig.width=4.5, message=FALSE, warning=FALSE}
 
 for(i in c(7:15)){
 p <- plot_bars(c("subset_bbs3","subset_bbsome","subset_chaperonins"),c("BBS3","BBSome","Chaperonins"),i)
@@ -1051,7 +1086,8 @@ one_vs_all_other(subset_bbs12,subset_chaperonins,15,sidak3)), format = "html") %
 
   Generate charts:
 
-```{r fig.width=4.5, fig.height=8.5}
+  
+```{r fig.width=4.5, fig.height=8.5, fig.align = "center"}
 
 for(i in c(7:15)){
 p <- plot_bars(c("subset_bbs6","subset_bbs10","subset_bbs12"),c("BBS6","BBS10","BBS12"),i)
@@ -1170,7 +1206,8 @@ kable(df, format = "html") %>%
   
   Generate charts:
   
-```{r fig.width=8, fig.height = 7}
+  
+```{r fig.width=8, fig.height = 7, fig.align = "center"}
 
 for(i in c(7:15)){
 
@@ -1282,7 +1319,8 @@ one_vs_all_other(subset_cLOF_chaperonins,subset_cLOF_allwow,12,sidak3)),format =
   
   Generate charts:
   
-```{r fig.width=4.5, fig.height = 8.5}
+  
+```{r fig.width=4.5, fig.height = 8.5, fig.align = "center"}
 
 for(i in c(7:15)){
 p <- plot_bars(c("subset_cLOF_bbs3","subset_cLOF_bbsome","subset_cLOF_chaperonins"),c("BBS3","BBSome","Chaperonins"),i)
@@ -1364,7 +1402,8 @@ one_vs_all_other(subset_cLOF_bbs12,subset_cLOF_chaperonins,15,sidak3)), format =
   
   Generate charts:
   
-```{r fig.width=4.5, fig.height = 8.5}
+  
+```{r fig.width=4.5, fig.height = 8.5, fig.align = "center"}
 
 for(i in c(7:15)){
 p <- plot_bars(c("subset_cLOF_bbs6","subset_cLOF_bbs10","subset_cLOF_bbs12"),c("BBS6","BBS10","BBS12"),i)
@@ -1474,9 +1513,11 @@ kable(df, format = "html") %>%
 
 ```
   
+  
   Generate charts:
   
-```{r fig.width=8, fig.height = 7}
+  
+```{r fig.width=8, fig.height = 7, fig.align = "center"}
 
 for(i in c(7:15)){
 
@@ -1613,10 +1654,13 @@ fisherize(subset_bbs10,subset_bbs1,9)
 ## Testing previously published hypotheses for Table S6
 ```{r}
 fisherize_one_sided <- function(subset1,subset2,phenotype_n,all_or_cLOF,alternative){
-  print(phenotypes[phenotype_n-6])
-  if(all_or_cLOF=="all"){print("All mutations")
-  print(
-    fisher.test(matrix(
+  
+  if(all_or_cLOF=="all"){
+    print(plot_bars_wo_pval(c(deparse(substitute(subset1)),deparse(substitute(subset2))),c(deparse(substitute(subset1)),deparse(substitute(subset2))),phenotype_n
+  ))
+    print(phenotypes[phenotype_n-6])
+    print("All mutations")
+    print(    fisher.test(matrix(
       c(phenotype_analysis(subset1[phenotype_n])$no,
         phenotype_analysis(subset2[phenotype_n])$no,
         phenotype_analysis(subset1[phenotype_n])$yes,
@@ -1626,8 +1670,8 @@ fisherize_one_sided <- function(subset1,subset2,phenotype_n,all_or_cLOF,alternat
     workspace = 2e8
       
     )$p.value)
-    plot_bars(c(deparse(substitute(subset1)),deparse(substitute(subset2))),c(deparse(substitute(subset1)),deparse(substitute(subset2))),phenotype_n
-  )}else{
+    }else{
+  print(phenotypes[phenotype_n-6])
   print("cLOF mutations")
   print(fisher.test(matrix(
       c(phenotype_analysis(subset(subset1, subset1[16]=="cLOF")[phenotype_n])$no,
@@ -1639,8 +1683,7 @@ fisherize_one_sided <- function(subset1,subset2,phenotype_n,all_or_cLOF,alternat
       
     )$p.value)
   
-  plot_bars(c(deparse(substitute(subset1)),deparse(substitute(subset2))),c(deparse(substitute(subset1)),deparse(substitute(subset2))),phenotype_n
-  )}
+  }
   
 }
 ```
@@ -1648,7 +1691,7 @@ fisherize_one_sided <- function(subset1,subset2,phenotype_n,all_or_cLOF,alternat
 ### Brinckman, 2013 
 CI
 Fisher’s exact test BBS1 vs BBS10 patients 
-```{r fig.width=2, fig.height=3}
+```{r fig.width=3, fig.height=3, out.extra='style="float:left; padding:10px; height:82px; width:220px"'}
 fisherize_one_sided(subset_bbs1,subset_bbs10,10,"all","greater")
 
 ```
@@ -1657,7 +1700,7 @@ fisherize_one_sided(subset_bbs1,subset_bbs10,10,"all","greater")
 Fisher’s exact test BBS3 vs other canonical genes
 CI, REP
 
-```{r fig.width=2, fig.height=3}
+```{r fig.width=6, fig.height=3, out.extra='style="float:left; padding:10px; height:82px; width:220px"'}
 subset_bbsomechaps <- subset(subset_allwow,subset_allwow$gene!="BBS3")
 fisherize_one_sided(subset_bbs3,subset_bbsomechaps,10,"all","greater")
 
@@ -1674,7 +1717,7 @@ kruskal.test(subset_sscore_chaperonins$si~subset_sscore_chaperonins$gene)
 ### Castro-Sanchez, 2015
 RD, OBE, CI, PD, REP, REN
 Fisher’s exact test BBS1 vs chaperonins
-```{r fig.width=2, fig.height=3}
+```{r fig.width=6, fig.height=3, out.extra='style="float:left; padding:10px; height:82px; width:220px"'}
 fisherize_one_sided(subset_bbs1,subset_chaperonins,7,"all","greater")
 fisherize_one_sided(subset_bbs1,subset_chaperonins,8,"all","greater")
 fisherize_one_sided(subset_bbs1,subset_chaperonins,10,"all","greater")
@@ -1686,7 +1729,7 @@ fisherize_one_sided(subset_bbs1,subset_chaperonins,12,"all","greater")
 
 Fisher’s exact test BBS12 vs BBS1 and BBS10 combined
 CI
-```{r fig.width=2, fig.height=3}
+```{r fig.width=6, fig.height=3, out.extra='style="float:left; padding:10px; height:82px; width:220px"'}
 subset_bbs1andbbs10 <- subset(update8forR,update8forR$gene=="BBS1"|update8forR$gene=="BBS10")
 fisherize_one_sided(subset_bbs12,subset_bbs1andbbs10,10,"all","greater")
 
@@ -1694,14 +1737,14 @@ fisherize_one_sided(subset_bbs12,subset_bbs1andbbs10,10,"all","greater")
 
 ### Deveault, 2011
 Kruskal-Wallis test of syndromic score between functional classes of canonical genes
-```{r fig.width=2, fig.height=3}
+```{r fig.width=6, fig.height=3, out.extra='style="float:left; padding:10px; height:82px; width:220px"'}
 subset_sscore_allwow <- subset(subset_allwow, subset_allwow$sisubset=="yes")
 kruskal.test(subset_sscore_allwow$si~subset_sscore_allwow$ggroup)
 ```
   
 CI
 Fisher’s exact test BBS1 vs other canonical BBS genes
-```{r fig.width=2, fig.height=3}
+```{r fig.width=6, fig.height=3, out.extra='style="float:left; padding:10px; height:82px; width:220px"'}
 subset_canonwobbs1 <- subset(subset_allwow, subset_allwow$gene!="BBS1")
 fisherize_one_sided(subset_bbs1,subset_canonwobbs1,10,"all","greater")
 ```
@@ -1709,14 +1752,14 @@ fisherize_one_sided(subset_bbs1,subset_canonwobbs1,10,"all","greater")
 Fisher’s exact test BBS12 vs other canonical BBS genes
 CI
 
-```{r fig.width=2, fig.height=3}
+```{r fig.width=6, fig.height=3, out.extra='style="float:left; padding:10px; height:82px; width:220px"'}
 subset_canonwobbs12 <- subset(subset_allwow, subset_allwow$gene!="BBS12")
 fisherize_one_sided(subset_bbs12,subset_canonwobbs12,10,"all","greater")
 ```
 
 Fisher’s exact test BBS10 vs other canonical BBS genes
 REN
-```{r fig.width=2, fig.height=3}
+```{r fig.width=6, fig.height=3, out.extra='style="float:left; padding:10px; height:82px; width:220px"'}
 subset_canonwobbs10 <- subset(subset_allwow, subset_allwow$gene!="BBS10")
 fisherize_one_sided(subset_bbs10,subset_canonwobbs10,12,"all","less")
 ```
@@ -1724,7 +1767,7 @@ fisherize_one_sided(subset_bbs10,subset_canonwobbs10,12,"all","less")
 ### Esposito, 2017
 RD
 Fisher’s exact test BBS10 vs BBS1 and BBS2 patients
-```{r fig.width=2, fig.height=3}
+```{r fig.width=6, fig.height=3, out.extra='style="float:left; padding:10px; height:82px; width:220px"'}
 subset_bbs1andbbs2 <- subset(subset_bbsome,subset_bbsome$gene=="BBS1"|
                                subset_bbsome$gene=="BBS2")
 fisherize_one_sided(subset_bbs10,subset_bbs1andbbs2,7,"all","less")
@@ -1732,14 +1775,14 @@ fisherize_one_sided(subset_bbs10,subset_bbs1andbbs2,7,"all","less")
   
 REN
 Fisher’s exact test BBS10 vs BBS1 and BBS2 patients
-```{r fig.width=2, fig.height=3}
+```{r fig.width=6, fig.height=3, out.extra='style="float:left; padding:10px; height:82px; width:220px"'}
 fisherize_one_sided(subset_bbs10,subset_bbs1andbbs2,12,"all","less")
 ```
   
 ### Forsythe, 2015
 REN, LIV
 Fisher’s exact test BBS10 vs BBS1 
-```{r fig.width=2, fig.height=3}
+```{r fig.width=6, fig.height=3, out.extra='style="float:left; padding:10px; height:82px; width:220px"'}
 fisherize_one_sided(subset_bbs10,subset_bbs1,12,"all","less")
 fisherize_one_sided(subset_bbs10,subset_bbs1,14,"all","less")
 
@@ -1748,7 +1791,7 @@ fisherize_one_sided(subset_bbs10,subset_bbs1,14,"all","less")
 
 REN, LIV
 Fisher’s exact test BBS1 and BBS10 MS/MS vs. TR/TR 
-```{r fig.width=2, fig.height=3}
+```{r fig.width=6, fig.height=3, out.extra='style="float:left; padding:10px; height:82px; width:220px"'}
 subset_bbs1andbbs10_cLOF <- subset(subset_bbs1andbbs10,subset_bbs1andbbs10$muttype=="cLOF")
 subset_bbs1andbbs10_MSMS <- subset(subset_bbs1andbbs10,subset_bbs1andbbs10$muttype=="MSMSandMScLOF")
 fisherize_one_sided(subset_bbs1andbbs10_cLOF,subset_bbs1andbbs10_MSMS,12,"all","less")
@@ -1759,7 +1802,7 @@ fisherize_one_sided(subset_bbs1andbbs10_cLOF,subset_bbs1andbbs10_MSMS,14,"all","
 ### Forsythe, 2017
 REN
 Fisher’s exact test BBS2, BBS10 and BBS12 vs other canonical
-```{r fig.width=2, fig.height=3}
+```{r fig.width=6, fig.height=3, out.extra='style="float:left; padding:10px; height:82px; width:220px"'}
 subset_bbs2bbs10bbs12 <- subset(subset_allwow,subset_allwow$gene=="BBS2"|
                                 subset_allwow$gene=="BBS10"|
                                 subset_allwow$gene=="BBS12")
@@ -1772,7 +1815,7 @@ fisherize_one_sided(subset_bbs2bbs10bbs12,subset_allwobbs2bbs10bbs12,12,"all","l
 
 REN
 Fisher’s exact test all canonical MS/MS vs. TR/TR
-```{r fig.width=2, fig.height=3}
+```{r fig.width=6, fig.height=3, out.extra='style="float:left; padding:10px; height:82px; width:220px"'}
 subset_MSMS_allwow <- subset(subset_allwow,subset_allwow$muttype=="MSMSandMScLOF")
 fisherize_one_sided(subset_cLOF_allwow,subset_MSMS_allwow,12,"all","less")
 ```
@@ -1780,7 +1823,7 @@ fisherize_one_sided(subset_cLOF_allwow,subset_MSMS_allwow,12,"all","less")
 
 REN
 Fisher’s exact test BBS1 M390R hom vs. BBS1 MS/TR+TR/TR
-```{r fig.width=2, fig.height=3}
+```{r fig.width=6, fig.height=3, out.extra='style="float:left; padding:10px; height:82px; width:220px"'}
 subset_bbs1_m390 <- subset(subset_bbs1,subset_bbs1$m390r=="yes")
 subset_bbs1_non_m390 <- subset(subset_bbs1,subset_bbs1$m390r=="no")
 
@@ -1807,7 +1850,7 @@ print(paste("Wilcoxon test on syndromic score p-value = ",wilcox.test(subset_bbs
 
 REN, CI, OBE, REP
 Fisher’s exact test BBS1 vs BBS2 and BBS10
-```{r fig.width=2, fig.height=3}
+```{r fig.width=6, fig.height=3, out.extra='style="float:left; padding:10px; height:82px; width:220px"'}
 fisherize_one_sided(subset_bbs1,subset_bbs2andbbs10,12,"all","greater")
 fisherize_one_sided(subset_bbs1,subset_bbs2andbbs10,10,"all","greater")
 fisherize_one_sided(subset_bbs1,subset_bbs2andbbs10,8,"all","greater")
@@ -1817,7 +1860,7 @@ fisherize_one_sided(subset_bbs1,subset_bbs2andbbs10,11,"all","greater")
 ### Kerr, 2015 
 CI
 Fisher’s exact test BBS1 vs BBS10 vs other canonical (three groups) 
-```{r fig.width=2, fig.height=3}
+```{r fig.width=6, fig.height=3, out.extra='style="float:left; padding:10px; height:82px; width:220px"'}
 subset_canonwobbs1bbs10 <- subset(subset_canonwobbs1, subset_canonwobbs1$gene!="BBS10")
 print(paste("Fisher test all mutations (three groups) p-value = ",fisher.test(matrix(
       c(phenotype_analysis(subset_bbs1[10])$no,
@@ -1843,7 +1886,7 @@ print(paste("Wilcoxon test on syndromic score p-value = ",wilcox.test(subset_bbs
 ### Schaefer, 2011a 
 PD, REN
 Fisher’s exact test BBS16 vs all canonical
-```{r fig.width=2, fig.height=3}
+```{r fig.width=6, fig.height=3, out.extra='style="float:left; padding:10px; height:82px; width:220px"'}
 subset_bbs16 <- subset(subset_other, subset_other$gene=="BBS16")
 fisherize_one_sided(subset_bbs16,subset_allwow,9,"all","greater")
 fisherize_one_sided(subset_bbs16,subset_allwow,12,"all","less")
